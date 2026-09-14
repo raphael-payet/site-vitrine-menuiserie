@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600" role="img" aria-label="Fenêtres et portes-fenêtres en bois sur mesure">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#241c12"/>
+      <stop offset="0.55" stop-color="#2e2416"/>
+      <stop offset="1" stop-color="#16120c"/>
+    </linearGradient>
+    <radialGradient id="sky" cx="0.5" cy="0.42" r="0.7">
+      <stop offset="0" stop-color="#E9C88F" stop-opacity="0.34"/>
+      <stop offset="1" stop-color="#E9C88F" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <!-- lumière derrière la fenêtre -->
+  <rect x="250" y="90" width="300" height="440" fill="url(#sky)"/>
+  <!-- dormant -->
+  <rect x="238" y="86" width="324" height="452" fill="none" stroke="#E4CBA3" stroke-opacity="0.9" stroke-width="4"/>
+  <!-- deux vantaux -->
+  <rect x="252" y="100" width="144" height="424" fill="#E9C88F" fill-opacity="0.06" stroke="#E4CBA3" stroke-opacity="0.85" stroke-width="2.5"/>
+  <rect x="404" y="100" width="144" height="424" fill="#E9C88F" fill-opacity="0.06" stroke="#E4CBA3" stroke-opacity="0.85" stroke-width="2.5"/>
+  <!-- petits bois (croisillons) -->
+  <g stroke="#E4CBA3" stroke-opacity="0.7" stroke-width="1.8">
+    <line x1="324" y1="100" x2="324" y2="524"/><line x1="476" y1="100" x2="476" y2="524"/>
+    <line x1="252" y1="240" x2="548" y2="240"/><line x1="252" y1="384" x2="548" y2="384"/>
+  </g>
+  <!-- poignées -->
+  <g stroke="#D3A873" stroke-width="4" stroke-linecap="round">
+    <line x1="388" y1="300" x2="388" y2="330"/><line x1="412" y1="300" x2="412" y2="330"/>
+  </g>
+  <!-- appui / seuil -->
+  <rect x="226" y="538" width="348" height="14" fill="#3a2c1c" fill-opacity="0.5" stroke="#E4CBA3" stroke-opacity="0.6" stroke-width="1.5"/>
+  <!-- rayons de lumière discrets -->
+  <g stroke="#E9C88F" stroke-opacity="0.12" stroke-width="2">
+    <line x1="300" y1="150" x2="120" y2="330"/><line x1="500" y1="150" x2="680" y2="330"/>
+  </g>
+</svg>

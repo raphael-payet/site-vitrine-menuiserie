@@ -1,0 +1,414 @@
+/* ==========================================================================
+   MENUISERIE DUBOIS — Interactions front-end
+   Vanilla JS, aucune dépendance.
+   --------------------------------------------------------------------------
+   SOMMAIRE
+   0. Configuration            ← À PERSONNALISER
+   1. En-tête (fond au scroll)
+   2. Menu mobile
+   3. Hero (parallaxe + recouvrement)
+   4. Apparition au scroll
+   5. Lightbox galerie
+   6. Formulaire de contact
+   7. Bouton d'appel mobile
+   ========================================================================== */
+(function () {
+  'use strict';
+
+  /* ------------------------------------------------------------------------
+     0. CONFIGURATION
+     ------------------------------------------------------------------------ */
+  // Endpoint d'envoi du formulaire (Formspree, Getform, Basin, Web3Forms…).
+  // Laisser vide pour le mode démo : un message de confirmation s'affiche
+  // sans rien envoyer.
+  // Exemple : var FORM_ENDPOINT = 'https://formspree.io/f/VOTRE_ID';
+  var FORM_ENDPOINT = '';
+
+  var prefersReducedMotion =
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Signale que le JS est actif : les animations d'apparition ne masquent
+  // le contenu que dans ce cas (sinon la page reste lisible sans JS).
+  document.documentElement.classList.add('js');
+
+  /* ------------------------------------------------------------------------
+     1. EN-TÊTE — transparent en haut, fond sombre flouté après quelques px
+     ------------------------------------------------------------------------ */
+  var header = document.querySelector('[data-header]');
+
+  function updateHeader() {
+    if (!header) return;
+    header.classList.toggle('is-scrolled', window.scrollY > 24);
+  }
+  updateHeader();
+
+  /* ------------------------------------------------------------------------
+     2. MENU MOBILE
+     ------------------------------------------------------------------------ */
+  var menuToggle = document.querySelector('[data-menu-toggle]');
+
+  if (menuToggle && header) {
+    menuToggle.addEventListener('click', function () {
+      var open = header.classList.toggle('is-open');
+      menuToggle.setAttribute('aria-expanded', String(open));
+      menuToggle.textContent = open ? 'Fermer' : 'Menu';
+    });
+
+    // Referme le menu quand on choisit une page
+    header.querySelectorAll('.nav-mobile a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        header.classList.remove('is-open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        menuToggle.textContent = 'Menu';
+      });
+    });
+  }
+
+  /* ------------------------------------------------------------------------
+     3. HERO — parallaxe discret pendant que la section suivante recouvre
+     Le hero est en position:sticky derrière la page (voir CSS). Ici on
+     anime légèrement la vidéo et le texte pour que rien ne paraisse figé,
+     puis on coupe la vidéo une fois le hero entièrement recouvert.
+     ------------------------------------------------------------------------ */
+  var hero = document.querySelector('[data-hero]');
+  var heroMedia = document.querySelector('[data-hero-media]');
+  var heroInner = document.querySelector('[data-hero-inner]');
+  var heroVideo = document.querySelector('[data-hero-video]');
+  var heroHidden = false;
+
+  // L'autoplay peut être bloqué : on force la lecture en silencieux.
+  if (heroVideo) {
+    heroVideo.muted = true;
+    var playPromise = heroVideo.play();
+    if (playPromise && playPromise.catch) playPromise.catch(function () {});
+  }
+
+  function updateHero() {
+    if (!hero || prefersReducedMotion) return;
+    var heroHeight = hero.offsetHeight || 1;
+    var progress = Math.min(window.scrollY / heroHeight, 1);
+
+    if (heroInner) {
+      // Le contenu défile un peu plus vite que le recouvrement : sensation
+      // de défilement naturel + profondeur.
+      heroInner.style.transform = 'translateY(' + (-progress * 22) + 'vh)';
+      heroInner.style.opacity = String(1 - progress * 0.85);
+    }
+    if (heroMedia) {
+      heroMedia.style.transform = 'translateY(' + (-progress * 9) + '%)';
+    }
+
+    // Vidéo entièrement recouverte : on la met en pause (perf + batterie).
+    if (heroVideo) {
+      if (progress >= 1 && !heroHidden) {
+        heroHidden = true;
+        heroVideo.pause();
+      } else if (progress < 1 && heroHidden) {
+        heroHidden = false;
+        var p = heroVideo.play();
+        if (p && p.catch) p.catch(function () {});
+      }
+    }
+  }
+
+  /* ------------------------------------------------------------------------
+     Boucle de scroll unique (rAF) pour l'en-tête, le hero et le bouton
+     d'appel — propriétés transform/opacity uniquement, navigation fluide.
+     ------------------------------------------------------------------------ */
+  var ticking = false;
+  function onScroll() {
+    if (ticking) return;
+    ticking = true;
+    window.requestAnimationFrame(function () {
+      updateHeader();
+      updateHero();
+      updateCallFab();
+      ticking = false;
+    });
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  /* ------------------------------------------------------------------------
+     4. APPARITION AU SCROLL — fade-in + translation (IntersectionObserver)
+     ------------------------------------------------------------------------ */
+  var revealTargets = document.querySelectorAll('[data-reveal], [data-reveal-stagger]');
+
+  if ('IntersectionObserver' in window && !prefersReducedMotion) {
+    var revealObserver = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { rootMargin: '0px 0px -8% 0px', threshold: 0.08 }
+    );
+    revealTargets.forEach(function (el) { revealObserver.observe(el); });
+  } else {
+    revealTargets.forEach(function (el) { el.classList.add('is-visible'); });
+  }
+
+  /* ------------------------------------------------------------------------
+     5. LIGHTBOX — ouverture des photos de la galerie en plein écran
+     S'applique à toute image marquée data-lightbox.
+     ------------------------------------------------------------------------ */
+  var lightboxImages = document.querySelectorAll('[data-lightbox]');
+
+  if (lightboxImages.length) {
+    var lightbox = document.createElement('div');
+    lightbox.className = 'lightbox';
+    lightbox.setAttribute('role', 'dialog');
+    lightbox.setAttribute('aria-modal', 'true');
+    lightbox.setAttribute('aria-label', 'Photo en plein écran');
+    lightbox.innerHTML =
+      '<button type="button" class="lightbox__close">Fermer ✕</button>' +
+      '<img alt="">' +
+      '<p class="lightbox__caption"></p>';
+    document.body.appendChild(lightbox);
+
+    var lightboxImg = lightbox.querySelector('img');
+    var lightboxCaption = lightbox.querySelector('.lightbox__caption');
+    var lightboxClose = lightbox.querySelector('.lightbox__close');
+    var lastFocused = null;
+
+    function openLightbox(img) {
+      lastFocused = document.activeElement;
+      lightboxImg.src = img.currentSrc || img.src;
+      lightboxImg.alt = img.alt || '';
+      lightboxCaption.textContent = img.dataset.caption || img.alt || '';
+      lightbox.classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+      lightboxClose.focus();
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove('is-open');
+      document.body.style.overflow = '';
+      if (lastFocused) lastFocused.focus();
+    }
+
+    lightboxImages.forEach(function (img) {
+      img.addEventListener('click', function () { openLightbox(img); });
+      // Accessible au clavier
+      img.setAttribute('tabindex', '0');
+      img.setAttribute('role', 'button');
+      img.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          openLightbox(img);
+        }
+      });
+    });
+
+    lightboxClose.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', function (e) {
+      if (e.target === lightbox) closeLightbox();
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && lightbox.classList.contains('is-open')) {
+        closeLightbox();
+      }
+    });
+  }
+
+  /* ------------------------------------------------------------------------
+     6. FORMULAIRE DE CONTACT — prêt à brancher sur un service d'envoi
+     ------------------------------------------------------------------------ */
+  var form = document.querySelector('[data-contact-form]');
+
+  if (form) {
+    var successMessage = form.querySelector('.form-message--success');
+    var errorMessage = form.querySelector('.form-message--error');
+    var submitButton = form.querySelector('[type="submit"]');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (successMessage) successMessage.classList.remove('is-visible');
+      if (errorMessage) errorMessage.classList.remove('is-visible');
+
+      // Mode démo : pas d'endpoint configuré, on confirme simplement.
+      if (!FORM_ENDPOINT) {
+        if (successMessage) successMessage.classList.add('is-visible');
+        form.reset();
+        return;
+      }
+
+      var data = {};
+      new FormData(form).forEach(function (value, key) { data[key] = value; });
+
+      if (submitButton) {
+        submitButton.disabled = true;
+        submitButton.dataset.label = submitButton.textContent;
+        submitButton.textContent = 'Envoi en cours…';
+      }
+
+      fetch(FORM_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(data)
+      })
+        .then(function (response) {
+          if (!response.ok) throw new Error('Réponse ' + response.status);
+          if (successMessage) successMessage.classList.add('is-visible');
+          form.reset();
+        })
+        .catch(function () {
+          if (errorMessage) errorMessage.classList.add('is-visible');
+        })
+        .then(function () {
+          if (submitButton) {
+            submitButton.disabled = false;
+            submitButton.textContent = submitButton.dataset.label;
+          }
+        });
+    });
+  }
+
+  /* ------------------------------------------------------------------------
+     7. CARROUSEL COVERFLOW D'AVIS GOOGLE — avis central + latéraux en retrait
+     Positions calculées en JS (translate + scale + opacity + léger rotateY).
+     Clic sur une carte latérale, flèches, puces, glissement tactile et
+     clavier. Défilement auto doux, en pause au survol/focus/onglet masqué.
+     ------------------------------------------------------------------------ */
+  var coverflow = document.querySelector('[data-coverflow]');
+
+  if (coverflow) {
+    var stage = coverflow.querySelector('.coverflow__stage');
+    var cards = Array.prototype.slice.call(
+      coverflow.querySelectorAll('[data-cf-item]')
+    );
+    var cfDots = Array.prototype.slice.call(
+      coverflow.querySelectorAll('[data-cf-dot]')
+    );
+    var prevBtn = coverflow.querySelector('[data-cf-prev]');
+    var nextBtn = coverflow.querySelector('[data-cf-next]');
+
+    if (cards.length > 1) {
+      var activeIndex = Math.floor(cards.length / 2); // démarre au centre
+      var cfTimer = null;
+      var CF_DELAY = 6000;
+
+      // Gabarit des positions selon la largeur d'écran. Sur mobile, les
+      // cartes latérales sont plus effacées pour privilégier l'avis central.
+      function cfMetrics() {
+        var w = window.innerWidth;
+        if (w < 600) return { gap: 60, scale: 0.8, side: 0.18, depth: -90 };
+        if (w < 900) return { gap: 232, scale: 0.82, side: 0.5, depth: -130 };
+        return { gap: 300, scale: 0.84, side: 0.55, depth: -150 };
+      }
+
+      function cfLayout() {
+        var m = cfMetrics();
+        cards.forEach(function (card, i) {
+          var pos = i - activeIndex;            // décalage par rapport au centre
+          var dist = Math.abs(pos);
+          var x = pos * m.gap;                  // translation horizontale (px)
+          var scale = dist === 0 ? 1 : (dist === 1 ? m.scale : m.scale * 0.85);
+          var rotate = -pos * 16;               // léger pivot « Coverflow »
+          var depth = dist === 0 ? 0 : (dist === 1 ? m.depth : m.depth * 1.6);
+          var opacity = dist === 0 ? 1 : (dist === 1 ? m.side : 0);
+
+          card.style.transform =
+            'translate(-50%, -50%) translateX(' + x + 'px) translateZ(' + depth +
+            'px) scale(' + scale + ') rotateY(' + rotate + 'deg)';
+          card.style.opacity = opacity;
+          card.style.zIndex = String(30 - dist);
+          card.style.pointerEvents = dist <= 1 ? 'auto' : 'none';
+          card.setAttribute('aria-hidden', dist === 0 ? 'false' : 'true');
+          card.setAttribute('tabindex', dist <= 1 ? '0' : '-1');
+          card.classList.toggle('is-center', dist === 0);
+        });
+        cfDots.forEach(function (dot, i) {
+          dot.classList.toggle('is-active', i === activeIndex);
+          dot.setAttribute('aria-selected', String(i === activeIndex));
+        });
+        // La hauteur de la scène suit la carte centrale (contenu variable)
+        stage.style.height = cards[activeIndex].offsetHeight + 'px';
+      }
+
+      function cfGo(i) {
+        activeIndex = (i + cards.length) % cards.length;
+        cfLayout();
+      }
+      function cfNext() { cfGo(activeIndex + 1); }
+      function cfPrev() { cfGo(activeIndex - 1); }
+
+      function cfStart() {
+        if (prefersReducedMotion || cfTimer) return;
+        cfTimer = window.setInterval(cfNext, CF_DELAY);
+      }
+      function cfStop() {
+        if (cfTimer) { window.clearInterval(cfTimer); cfTimer = null; }
+      }
+      function cfRestart() { cfStop(); cfStart(); }
+
+      cards.forEach(function (card, i) {
+        card.addEventListener('click', function () {
+          if (i !== activeIndex) { cfGo(i); cfRestart(); }
+        });
+        card.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            cfGo(i);
+            cfRestart();
+          }
+        });
+      });
+      cfDots.forEach(function (dot, i) {
+        dot.addEventListener('click', function () { cfGo(i); cfRestart(); });
+      });
+      if (prevBtn) prevBtn.addEventListener('click', function () { cfPrev(); cfRestart(); });
+      if (nextBtn) nextBtn.addEventListener('click', function () { cfNext(); cfRestart(); });
+
+      // Glissement tactile / souris
+      var dragX = null;
+      stage.addEventListener('pointerdown', function (e) { dragX = e.clientX; });
+      stage.addEventListener('pointerup', function (e) {
+        if (dragX === null) return;
+        var delta = e.clientX - dragX;
+        if (Math.abs(delta) > 40) { delta < 0 ? cfNext() : cfPrev(); cfRestart(); }
+        dragX = null;
+      });
+
+      coverflow.addEventListener('mouseenter', cfStop);
+      coverflow.addEventListener('mouseleave', cfStart);
+      coverflow.addEventListener('focusin', cfStop);
+      coverflow.addEventListener('focusout', cfStart);
+      document.addEventListener('visibilitychange', function () {
+        if (document.hidden) cfStop(); else cfStart();
+      });
+
+      var cfResizeTimer = null;
+      window.addEventListener('resize', function () {
+        window.clearTimeout(cfResizeTimer);
+        cfResizeTimer = window.setTimeout(cfLayout, 120);
+      });
+
+      cfLayout();
+      // Recalcule la hauteur une fois les polices chargées (évite un saut)
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(cfLayout);
+      window.addEventListener('load', cfLayout);
+      cfStart();
+    }
+  }
+
+  /* ------------------------------------------------------------------------
+     8. BOUTON D'APPEL FLOTTANT — visible sur mobile après un léger scroll
+     ------------------------------------------------------------------------ */
+  var callFab = document.querySelector('[data-call-fab]');
+
+  function updateCallFab() {
+    if (!callFab) return;
+    callFab.classList.toggle('is-visible', window.scrollY > 320);
+  }
+  updateCallFab();
+
+  /* ------------------------------------------------------------------------
+     Année automatique du pied de page
+     ------------------------------------------------------------------------ */
+  document.querySelectorAll('[data-year]').forEach(function (el) {
+    el.textContent = String(new Date().getFullYear());
+  });
+})();

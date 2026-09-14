@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600" role="img" aria-label="Terrasse et pergola en bois">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#241c12"/>
+      <stop offset="0.5" stop-color="#2e2416"/>
+      <stop offset="1" stop-color="#16120c"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.12" r="0.9">
+      <stop offset="0" stop-color="#C9954E" stop-opacity="0.3"/>
+      <stop offset="1" stop-color="#C9954E" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <rect width="800" height="600" fill="url(#glow)"/>
+  <!-- pergola : poutres en perspective -->
+  <g stroke="#E4CBA3" stroke-opacity="0.85" stroke-width="3" stroke-linecap="round">
+    <line x1="150" y1="70" x2="650" y2="70"/>
+    <line x1="120" y1="120" x2="680" y2="120"/>
+  </g>
+  <g stroke="#E4CBA3" stroke-opacity="0.6" stroke-width="2">
+    <line x1="180" y1="60" x2="150" y2="130"/><line x1="260" y1="60" x2="238" y2="130"/>
+    <line x1="340" y1="60" x2="326" y2="130"/><line x1="420" y1="60" x2="414" y2="130"/>
+    <line x1="500" y1="60" x2="502" y2="130"/><line x1="580" y1="60" x2="590" y2="130"/>
+  </g>
+  <!-- poteaux -->
+  <g stroke="#D3A873" stroke-opacity="0.8" stroke-width="4" stroke-linecap="round">
+    <line x1="150" y1="120" x2="150" y2="360"/>
+    <line x1="650" y1="120" x2="650" y2="360"/>
+  </g>
+  <!-- lames de terrasse en perspective -->
+  <g stroke="#E4CBA3" stroke-opacity="0.7" stroke-width="2">
+    <path d="M120 360 L680 360"/>
+    <path d="M96 410 L704 410"/>
+    <path d="M66 470 L734 470"/>
+    <path d="M34 540 L766 540"/>
+  </g>
+  <g stroke="#E4CBA3" stroke-opacity="0.28" stroke-width="1.5">
+    <line x1="230" y1="360" x2="205" y2="540"/><line x1="340" y1="360" x2="330" y2="540"/>
+    <line x1="450" y1="360" x2="460" y2="540"/><line x1="560" y1="360" x2="585" y2="540"/>
+  </g>
+  <!-- végétal discret -->
+  <g stroke="#D3A873" stroke-opacity="0.65" stroke-width="2" stroke-linecap="round" fill="none">
+    <path d="M690 360 Q705 320 700 280 Q696 250 712 232"/>
+    <path d="M700 300 Q718 296 726 280"/>
+    <path d="M698 336 Q680 330 672 314"/>
+  </g>
+</svg>

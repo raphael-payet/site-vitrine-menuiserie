@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- SEO — À PERSONNALISER -->
+  <title>Contact — Devis gratuit | Menuiserie Dubois, Lyon</title>
+  <meta name="description" content="Contactez la Menuiserie Dubois à Lyon : devis gratuit sous 48 h, appel immédiat au 04 78 12 34 56, formulaire de demande et plan d'accès.">
+  <meta name="theme-color" content="#100D0A">
+  <link rel="canonical" href="https://www.menuiserie-dubois.fr/contact.html">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Contact — Menuiserie Dubois">
+  <meta property="og:description" content="Devis gratuit et sans engagement. Réponse sous 48 h.">
+  <meta property="og:image" content="assets/img/hero.svg">
+  <meta property="og:locale" content="fr_FR">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="assets/js/main.js" defer></script>
+</head>
+<body>
+
+<a class="skip-link" href="#contenu">Aller au contenu</a>
+
+<header class="site-header" data-header>
+  <div class="site-header__inner">
+    <a href="index.html" class="brand" aria-label="Menuiserie Dubois — Accueil">
+      <span class="brand__diamond" aria-hidden="true"></span>
+      <span class="brand__text">
+        <span class="brand__name">Menuiserie Dubois</span>
+        <span class="brand__tagline">Artisan menuisier</span>
+      </span>
+    </a>
+    <nav class="nav-desktop" aria-label="Navigation principale">
+      <a href="index.html">Accueil</a>
+      <a href="services.html">Services</a>
+      <a href="galerie.html">Galerie</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html" class="is-active" aria-current="page">Contact</a>
+    </nav>
+    <div class="header-actions">
+      <a href="tel:+33478123456" class="header-phone">04 78 12 34 56</a>
+      <a href="contact.html" class="btn btn--primary btn--sm">Devis gratuit</a>
+    </div>
+    <button type="button" class="menu-toggle" data-menu-toggle aria-expanded="false" aria-controls="menu-mobile">Menu</button>
+  </div>
+  <nav class="nav-mobile" id="menu-mobile" aria-label="Navigation mobile">
+    <a href="index.html">Accueil</a>
+    <a href="services.html">Services</a>
+    <a href="galerie.html">Galerie</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact.html" class="is-active" aria-current="page">Contact</a>
+    <a href="contact.html" class="btn btn--primary">Devis gratuit</a>
+  </nav>
+</header>
+
+<main id="contenu">
+
+  <!-- ============ EN-TÊTE DE PAGE + APPEL IMMÉDIAT ============ -->
+  <section class="page-head" style="padding-bottom:70px;">
+    <div class="container page-head__split" style="padding-inline:0;">
+      <div>
+        <p class="kicker">Contact</p>
+        <h1>Parlons de votre projet</h1>
+        <p class="page-head__text" style="max-width:52ch;">Devis gratuit et sans engagement. Nous répondons sous 48 h, par téléphone ou par écrit, comme vous préférez.</p>
+      </div>
+      <a href="tel:+33478123456" class="call-cta">
+        <span class="call-cta__label">Appel immédiat</span>
+        <span class="call-cta__number">04 78 12 34 56</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ============ BANDE BEIGE MARBRÉE — FORMULAIRE + INFOS ============ -->
+  <div class="band" style="padding-top:clamp(120px,15vw,170px);padding-bottom:clamp(120px,15vw,170px);">
+    <section class="section" style="padding-block:0;">
+      <div class="container contact-layout" style="padding-inline:0;">
+
+        <!-- Formulaire — prêt à brancher : renseignez FORM_ENDPOINT
+             en haut de assets/js/main.js (Formspree, Getform, Web3Forms…) -->
+        <form class="contact-form" data-contact-form data-reveal>
+          <h2>Demande de devis</h2>
+
+          <div class="contact-form__row">
+            <label class="field">
+              <span>Nom *</span>
+              <input required name="nom" type="text" autocomplete="name" placeholder="Votre nom">
+            </label>
+            <label class="field">
+              <span>Téléphone *</span>
+              <input required name="telephone" type="tel" autocomplete="tel" placeholder="06 12 34 56 78">
+            </label>
+          </div>
+
+          <label class="field">
+            <span>Email</span>
+            <input name="email" type="email" autocomplete="email" placeholder="vous@exemple.fr">
+          </label>
+
+          <label class="field">
+            <span>Votre projet *</span>
+            <textarea required name="message" rows="5" placeholder="Décrivez votre projet : type d'ouvrage, dimensions approximatives, délais souhaités…"></textarea>
+          </label>
+
+          <p class="form-message form-message--success" role="status">Merci&nbsp;! Votre demande a bien été envoyée. Nous vous recontactons sous 48 h.</p>
+          <p class="form-message form-message--error" role="alert">Une erreur est survenue. Merci de réessayer ou de nous appeler directement.</p>
+
+          <button type="submit" class="btn btn--dark">Envoyer ma demande</button>
+          <p class="form-note">* Champs obligatoires. Vos coordonnées ne servent qu'à vous recontacter.</p>
+        </form>
+
+        <!-- Coordonnées — À PERSONNALISER -->
+        <div class="contact-info" data-reveal>
+          <div class="contact-info__item">
+            <span class="contact-info__label">Adresse</span>
+            <p>12 rue des Charpentiers<br>69003 Lyon</p>
+          </div>
+          <div class="contact-info__item">
+            <span class="contact-info__label">Téléphone</span>
+            <a href="tel:+33478123456" class="contact-info__phone">04 78 12 34 56</a>
+          </div>
+          <div class="contact-info__item">
+            <span class="contact-info__label">Email</span>
+            <a href="mailto:contact@menuiserie-dubois.fr" class="contact-info__email">contact@menuiserie-dubois.fr</a>
+          </div>
+          <div class="contact-info__item">
+            <span class="contact-info__label">Horaires</span>
+            <p class="contact-info__hours">Lundi – Vendredi : 8h – 18h<br>Samedi : sur rendez-vous<br>Dimanche : fermé</p>
+          </div>
+          <div class="contact-info__item contact-info__item--zone">
+            <span class="contact-info__label">Zone d'intervention</span>
+            <p>Lyon et sa métropole, dans un rayon de 50 km. Au-delà, contactez-nous pour étudier votre projet.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </div><!-- /.band -->
+
+  <!-- ============ CARTE GOOGLE MAPS ============
+       Conteneur premium (arrondis + ombre). Pour changer d'adresse,
+       remplacez-la dans le paramètre "q=" de l'iframe ET dans le lien
+       "destination=" du bouton Itinéraire. -->
+  <section class="map-section">
+    <div class="container">
+      <div class="map-card" data-reveal>
+        <div class="map-card__frame">
+          <iframe
+            src="https://www.google.com/maps?q=12%20rue%20des%20Charpentiers%2C%2069003%20Lyon&z=15&output=embed"
+            title="Plan d'accès — Menuiserie Dubois, 12 rue des Charpentiers, 69003 Lyon"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            allowfullscreen></iframe>
+        </div>
+        <div class="map-card__bar">
+          <div class="map-card__place">
+            <span class="map-card__label">Nous trouver</span>
+            <p class="map-card__address">12 rue des Charpentiers, 69003 Lyon</p>
+          </div>
+          <a class="btn btn--primary btn--sm"
+             href="https://www.google.com/maps/dir/?api=1&destination=12+rue+des+Charpentiers,+69003+Lyon"
+             target="_blank" rel="noopener">Itinéraire →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer__grid">
+    <div class="site-footer__brand">
+      <span class="site-footer__brand-name">
+        <span class="diamond" aria-hidden="true"></span>
+        Menuiserie Dubois
+      </span>
+      <p>Menuiserie artisanale sur mesure. Agencement, escaliers, portes et fenêtres — un savoir-faire transmis depuis trois générations.</p>
+      <div class="site-footer__social">
+        <a href="#">Instagram</a>
+        <a href="#">Facebook</a>
+      </div>
+    </div>
+    <div class="site-footer__col">
+      <span class="site-footer__title">Pages</span>
+      <a href="index.html">Accueil</a>
+      <a href="services.html">Services</a>
+      <a href="galerie.html">Galerie</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="site-footer__col">
+      <span class="site-footer__title">Contact</span>
+      <a href="tel:+33478123456" class="site-footer__phone">04 78 12 34 56</a>
+      <a href="mailto:contact@menuiserie-dubois.fr">contact@menuiserie-dubois.fr</a>
+      <p>12 rue des Charpentiers<br>69003 Lyon</p>
+    </div>
+    <div class="site-footer__col">
+      <span class="site-footer__title">Horaires</span>
+      <p>Lundi – Vendredi : 8h – 18h<br>Samedi : sur rendez-vous<br>Dimanche : fermé</p>
+    </div>
+  </div>
+  <div class="site-footer__bottom">
+    <span>© <span data-year>2026</span> Menuiserie Dubois — Tous droits réservés</span>
+    <div class="site-footer__legal">
+      <a href="mentions-legales.html">Mentions légales</a>
+      <a href="politique-confidentialite.html">Politique de confidentialité</a>
+    </div>
+  </div>
+</footer>
+
+<a href="tel:+33478123456" class="call-fab" data-call-fab aria-label="Appeler la menuiserie">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.85 21 3 13.15 3 3.5a1 1 0 0 1 1-1H7.5a1 1 0 0 1 1 1c0 1.24.2 2.45.57 3.57a1 1 0 0 1-.24 1.02l-2.2 2.2Z"/></svg>
+  Appeler
+</a>
+
+</body>
+</html>

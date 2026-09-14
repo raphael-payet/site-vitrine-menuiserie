@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- ==================================================================
+       SEO — À PERSONNALISER (titre, description, URL canonique)
+       ================================================================== -->
+  <title>Menuiserie Dubois — Menuiserie d'art sur mesure à Lyon</title>
+  <meta name="description" content="Menuiserie artisanale à Lyon depuis plus de 25 ans. Agencements, escaliers, cuisines, portes et fenêtres en bois massif sur mesure. Devis gratuit sous 48 h.">
+  <meta name="theme-color" content="#100D0A">
+  <link rel="canonical" href="https://www.menuiserie-dubois.fr/">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+
+  <!-- Open Graph / réseaux sociaux -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Menuiserie Dubois — Menuiserie d'art sur mesure à Lyon">
+  <meta property="og:description" content="Agencements, escaliers et mobilier d'exception, conçus et fabriqués dans notre atelier lyonnais.">
+  <meta property="og:image" content="assets/img/hero.svg">
+  <meta property="og:locale" content="fr_FR">
+
+  <!-- Polices -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="assets/js/main.js" defer></script>
+
+  <!-- Données structurées (SEO local) — À PERSONNALISER -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Carpenter",
+    "name": "Menuiserie Dubois",
+    "description": "Menuiserie d'art sur mesure à Lyon depuis plus de 25 ans.",
+    "image": "https://www.menuiserie-dubois.fr/assets/img/hero.svg",
+    "telephone": "+33478123456",
+    "email": "contact@menuiserie-dubois.fr",
+    "url": "https://www.menuiserie-dubois.fr/",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "12 rue des Charpentiers",
+      "postalCode": "69003",
+      "addressLocality": "Lyon",
+      "addressCountry": "FR"
+    },
+    "areaServed": "Lyon et sa métropole (50 km)",
+    "openingHours": "Mo-Fr 08:00-18:00",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "47"
+    }
+  }
+  </script>
+</head>
+<body>
+
+<a class="skip-link" href="#contenu">Aller au contenu</a>
+
+<!-- ====================================================================
+     EN-TÊTE — coordonnées et liens à personnaliser une seule fois,
+     puis à recopier à l'identique sur chaque page.
+     ==================================================================== -->
+<header class="site-header" data-header>
+  <div class="site-header__inner">
+    <a href="index.html" class="brand" aria-label="Menuiserie Dubois — Accueil">
+      <!-- Logo : remplacez le losange par <img src="assets/img/logo.svg" alt="" height="40"> -->
+      <span class="brand__diamond" aria-hidden="true"></span>
+      <span class="brand__text">
+        <span class="brand__name">Menuiserie Dubois</span>
+        <span class="brand__tagline">Artisan menuisier</span>
+      </span>
+    </a>
+
+    <nav class="nav-desktop" aria-label="Navigation principale">
+      <a href="index.html" class="is-active" aria-current="page">Accueil</a>
+      <a href="services.html">Services</a>
+      <a href="galerie.html">Galerie</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
+    <div class="header-actions">
+      <a href="tel:+33478123456" class="header-phone">04 78 12 34 56</a>
+      <a href="contact.html" class="btn btn--primary btn--sm">Devis gratuit</a>
+    </div>
+
+    <button type="button" class="menu-toggle" data-menu-toggle aria-expanded="false" aria-controls="menu-mobile">Menu</button>
+  </div>
+
+  <nav class="nav-mobile" id="menu-mobile" aria-label="Navigation mobile">
+    <a href="index.html" class="is-active" aria-current="page">Accueil</a>
+    <a href="services.html">Services</a>
+    <a href="galerie.html">Galerie</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact.html">Contact</a>
+    <a href="contact.html" class="btn btn--primary">Devis gratuit</a>
+  </nav>
+</header>
+
+<!-- ====================================================================
+     HERO — vidéo de fond visible uniquement ici. La section suivante
+     vient recouvrir le hero au défilement (voir CSS .hero / .page-cover).
+     Pour changer la vidéo : remplacez le src de <source> ci-dessous
+     (idéalement un .mp4 local : assets/video/hero.mp4).
+     ==================================================================== -->
+<section class="hero" data-hero>
+  <div class="hero__media" data-hero-media aria-hidden="true">
+    <video class="hero__video" autoplay muted loop playsinline preload="metadata" poster="assets/img/hero.svg" data-hero-video>
+      <source src="https://assets.mixkit.co/videos/773/773-720.mp4" type="video/mp4">
+    </video>
+    <div class="hero__overlay"></div>
+  </div>
+
+  <div class="hero__inner" data-hero-inner>
+    <p class="hero__kicker">Menuiserie d'art — Lyon</p>
+    <h1 class="hero__title">L'art du bois, façonné sur mesure.</h1>
+    <p class="hero__text">Agencements, escaliers et mobilier d'exception, conçus et fabriqués dans notre atelier. Un savoir-faire artisanal au service de votre intérieur, depuis plus de vingt-cinq ans.</p>
+
+    <div class="hero__actions">
+      <a href="contact.html" class="btn btn--primary">Nous contacter</a>
+      <a href="galerie.html" class="btn btn--ghost">Voir nos réalisations</a>
+      <a href="tel:+33478123456" class="phone-block">
+        <span class="phone-block__label">Appelez-nous</span>
+        <span class="phone-block__number">04 78 12 34 56</span>
+      </a>
+    </div>
+
+    <div class="hero__trust">
+      <span><span class="stars">★★★★★</span>&nbsp;&nbsp;4,9/5 — Avis Google</span>
+      <span>Devis gratuit sous 48 h</span>
+      <span>Fabrication 100 % atelier</span>
+    </div>
+  </div>
+</section>
+
+<!-- Tout ce qui suit recouvre progressivement le hero -->
+<div class="page-cover">
+<main id="contenu">
+
+  <!-- ============ PRÉSENTATION ============ -->
+  <section class="section--intro">
+    <div class="centered" data-reveal>
+      <span class="diamond" aria-hidden="true"></span>
+      <h2>Chaque projet commence par une essence de bois, et se termine par un ouvrage qui traverse le temps.</h2>
+      <p>Menuiserie familiale installée à Lyon, nous concevons et réalisons des ouvrages entièrement sur mesure&nbsp;: de la première esquisse à la pose finale, tout est fait dans notre atelier, avec des bois sélectionnés et des finitions soignées.</p>
+    </div>
+  </section>
+
+  <!-- ============ SERVICES ============ -->
+  <section class="section--alt">
+    <div class="container" style="padding-inline:0;">
+      <div class="section-head" data-reveal>
+        <div>
+          <p class="kicker">Nos services</p>
+          <h2>Un savoir-faire complet</h2>
+        </div>
+        <a href="services.html" class="link-more">Tous nos services →</a>
+      </div>
+
+      <div class="dark-cards" data-reveal-stagger>
+        <a href="services.html" class="dark-card">
+          <span class="dark-card__num">01</span>
+          <h3>Agencement &amp; mobilier sur mesure</h3>
+          <p>Bibliothèques, dressings, cuisines et meubles dessinés pour votre espace, au millimètre près.</p>
+        </a>
+        <a href="services.html" class="dark-card">
+          <span class="dark-card__num">02</span>
+          <h3>Escaliers &amp; garde-corps</h3>
+          <p>Escaliers droits, hélicoïdaux ou suspendus, en bois massif — la pièce maîtresse de votre maison.</p>
+        </a>
+        <a href="services.html" class="dark-card">
+          <span class="dark-card__num">03</span>
+          <h3>Portes, fenêtres &amp; volets</h3>
+          <p>Menuiseries extérieures et intérieures sur mesure, en neuf comme en rénovation.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BANDE BEIGE MARBRÉE ============ -->
+  <div class="band">
+
+    <!-- Galerie aperçu -->
+    <section class="section" style="padding-top:0;">
+      <div class="container" style="padding-inline:0;">
+        <div class="section-head" data-reveal>
+          <div>
+            <p class="kicker">Réalisations</p>
+            <h2>Le bois parle de lui-même</h2>
+          </div>
+          <a href="galerie.html" class="link-more">Toute la galerie →</a>
+        </div>
+
+        <!-- Photos : remplacez les fichiers assets/img/work-*.svg (mêmes noms)
+             ou changez les src ci-dessous. data-caption = légende plein écran. -->
+        <div class="gallery-grid" data-reveal-stagger>
+          <figure class="gallery-item">
+            <img src="assets/img/work-1.svg" alt="Cuisine sur mesure en chêne massif" loading="lazy" width="800" height="600" data-lightbox data-caption="Cuisine — chêne massif">
+            <figcaption>Cuisine — chêne massif</figcaption>
+          </figure>
+          <figure class="gallery-item">
+            <img src="assets/img/work-2.svg" alt="Escalier suspendu en noyer" loading="lazy" width="800" height="600" data-lightbox data-caption="Escalier suspendu — noyer">
+            <figcaption>Escalier suspendu — noyer</figcaption>
+          </figure>
+          <figure class="gallery-item">
+            <img src="assets/img/work-3.svg" alt="Bibliothèque sur mesure toute hauteur" loading="lazy" width="800" height="600" data-lightbox data-caption="Bibliothèque — sur mesure">
+            <figcaption>Bibliothèque — sur mesure</figcaption>
+          </figure>
+          <figure class="gallery-item">
+            <img src="assets/img/work-4.svg" alt="Dressing en chêne clair" loading="lazy" width="800" height="600" data-lightbox data-caption="Dressing — chêne clair">
+            <figcaption>Dressing — chêne clair</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- À propos -->
+    <section class="section">
+      <div class="container about" style="padding-inline:0;">
+        <img class="about__photo" src="assets/img/about.svg" alt="Portrait de l'artisan dans l'atelier" loading="lazy" width="800" height="1000" data-reveal>
+        <div class="about__content" data-reveal>
+          <p class="kicker">À propos</p>
+          <h2>Une menuiserie familiale, trois générations de passion</h2>
+          <p>Fondée par notre grand-père, la menuiserie perpétue un savoir-faire transmis de main en main. Chaque ouvrage est pensé, dessiné et fabriqué dans notre atelier lyonnais, avec des bois issus de forêts gérées durablement.</p>
+          <p>Notre engagement&nbsp;: un travail soigné, des délais tenus et un accompagnement de la première visite jusqu'à la pose.</p>
+          <div class="about__stats">
+            <div class="about__stat">
+              <span class="about__stat-num">25+</span>
+              <span class="about__stat-label">Ans d'expérience</span>
+            </div>
+            <div class="about__stat">
+              <span class="about__stat-num">300+</span>
+              <span class="about__stat-label">Projets livrés</span>
+            </div>
+            <div class="about__stat">
+              <span class="about__stat-num">100&nbsp;%</span>
+              <span class="about__stat-label">Sur mesure</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Avis Google — dupliquez / éditez les blocs <figure class="review"> -->
+    <section class="section" id="avis">
+      <div class="container" style="padding-inline:0;">
+        <div class="section-head section-head--center" data-reveal>
+          <p class="kicker" style="margin:0;">Avis Google</p>
+          <h2>Ils nous font confiance</h2>
+          <p class="reviews-intro"><span class="stars" style="font-size:18px;">★★★★★</span>&nbsp;&nbsp;Note de 4,9/5 — 47 avis publiés sur Google</p>
+        </div>
+
+        <!-- Coverflow d'avis Google — dupliquez / éditez les <figure class="cf-review">
+             et gardez le même nombre de puces .cf-dot. L'avis du milieu est
+             mis en avant au chargement. -->
+        <div class="coverflow" data-coverflow data-reveal aria-roledescription="carrousel" aria-label="Avis Google de nos clients">
+          <div class="coverflow__stage">
+            <figure class="cf-review" data-cf-item tabindex="0" role="button" aria-label="Avis de Claire M.">
+              <div class="cf-review__top">
+                <span class="cf-review__stars" aria-label="5 étoiles sur 5">★★★★★</span>
+                <span class="cf-google">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="#4285F4" d="M23.5 12.3c0-.8-.1-1.6-.2-2.3H12v4.5h6.4a5.5 5.5 0 0 1-2.4 3.6v3h3.9c2.3-2.1 3.6-5.2 3.6-8.8z"/><path fill="#34A853" d="M12 24c3.2 0 6-1.1 8-2.9l-3.9-3c-1 .7-2.4 1.2-4.1 1.2-3.1 0-5.8-2.1-6.7-5H1.3v3.1A12 12 0 0 0 12 24z"/><path fill="#FBBC05" d="M5.3 14.3a7.2 7.2 0 0 1 0-4.6V6.6H1.3a12 12 0 0 0 0 10.8l4-3.1z"/><path fill="#EA4335" d="M12 4.8c1.8 0 3.3.6 4.6 1.8l3.4-3.4A12 12 0 0 0 1.3 6.6l4 3.1C6.2 6.9 8.9 4.8 12 4.8z"/></svg>
+                  Google
+                </span>
+              </div>
+              <blockquote>«&nbsp;Un travail remarquable sur notre escalier en chêne. Ponctuels, soigneux, de vrais artisans. Le résultat dépasse largement nos attentes.&nbsp;»</blockquote>
+              <figcaption>
+                <span class="cf-review__name">Claire M.</span>
+                <span class="cf-review__meta">Il y a 2 mois · Publié sur Google</span>
+              </figcaption>
+            </figure>
+            <figure class="cf-review" data-cf-item tabindex="0" role="button" aria-label="Avis de Julien R.">
+              <div class="cf-review__top">
+                <span class="cf-review__stars" aria-label="5 étoiles sur 5">★★★★★</span>
+                <span class="cf-google">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="#4285F4" d="M23.5 12.3c0-.8-.1-1.6-.2-2.3H12v4.5h6.4a5.5 5.5 0 0 1-2.4 3.6v3h3.9c2.3-2.1 3.6-5.2 3.6-8.8z"/><path fill="#34A853" d="M12 24c3.2 0 6-1.1 8-2.9l-3.9-3c-1 .7-2.4 1.2-4.1 1.2-3.1 0-5.8-2.1-6.7-5H1.3v3.1A12 12 0 0 0 12 24z"/><path fill="#FBBC05" d="M5.3 14.3a7.2 7.2 0 0 1 0-4.6V6.6H1.3a12 12 0 0 0 0 10.8l4-3.1z"/><path fill="#EA4335" d="M12 4.8c1.8 0 3.3.6 4.6 1.8l3.4-3.4A12 12 0 0 0 1.3 6.6l4 3.1C6.2 6.9 8.9 4.8 12 4.8z"/></svg>
+                  Google
+                </span>
+              </div>
+              <blockquote>«&nbsp;Dressing et bibliothèque sur mesure&nbsp;: conception impeccable, pose parfaite, chantier laissé propre. Je recommande vivement.&nbsp;»</blockquote>
+              <figcaption>
+                <span class="cf-review__name">Julien R.</span>
+                <span class="cf-review__meta">Il y a 4 mois · Publié sur Google</span>
+              </figcaption>
+            </figure>
+            <figure class="cf-review" data-cf-item tabindex="0" role="button" aria-label="Avis d'Anne et Pierre L.">
+              <div class="cf-review__top">
+                <span class="cf-review__stars" aria-label="5 étoiles sur 5">★★★★★</span>
+                <span class="cf-google">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="#4285F4" d="M23.5 12.3c0-.8-.1-1.6-.2-2.3H12v4.5h6.4a5.5 5.5 0 0 1-2.4 3.6v3h3.9c2.3-2.1 3.6-5.2 3.6-8.8z"/><path fill="#34A853" d="M12 24c3.2 0 6-1.1 8-2.9l-3.9-3c-1 .7-2.4 1.2-4.1 1.2-3.1 0-5.8-2.1-6.7-5H1.3v3.1A12 12 0 0 0 12 24z"/><path fill="#FBBC05" d="M5.3 14.3a7.2 7.2 0 0 1 0-4.6V6.6H1.3a12 12 0 0 0 0 10.8l4-3.1z"/><path fill="#EA4335" d="M12 4.8c1.8 0 3.3.6 4.6 1.8l3.4-3.4A12 12 0 0 0 1.3 6.6l4 3.1C6.2 6.9 8.9 4.8 12 4.8z"/></svg>
+                  Google
+                </span>
+              </div>
+              <blockquote>«&nbsp;Remplacement de toutes nos fenêtres bois. Conseils précieux, devis clair, finitions superbes. Une entreprise vraiment sérieuse.&nbsp;»</blockquote>
+              <figcaption>
+                <span class="cf-review__name">Anne &amp; Pierre L.</span>
+                <span class="cf-review__meta">Il y a 6 mois · Publié sur Google</span>
+              </figcaption>
+            </figure>
+            <figure class="cf-review" data-cf-item tabindex="0" role="button" aria-label="Avis de Sophie D.">
+              <div class="cf-review__top">
+                <span class="cf-review__stars" aria-label="5 étoiles sur 5">★★★★★</span>
+                <span class="cf-google">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="#4285F4" d="M23.5 12.3c0-.8-.1-1.6-.2-2.3H12v4.5h6.4a5.5 5.5 0 0 1-2.4 3.6v3h3.9c2.3-2.1 3.6-5.2 3.6-8.8z"/><path fill="#34A853" d="M12 24c3.2 0 6-1.1 8-2.9l-3.9-3c-1 .7-2.4 1.2-4.1 1.2-3.1 0-5.8-2.1-6.7-5H1.3v3.1A12 12 0 0 0 12 24z"/><path fill="#FBBC05" d="M5.3 14.3a7.2 7.2 0 0 1 0-4.6V6.6H1.3a12 12 0 0 0 0 10.8l4-3.1z"/><path fill="#EA4335" d="M12 4.8c1.8 0 3.3.6 4.6 1.8l3.4-3.4A12 12 0 0 0 1.3 6.6l4 3.1C6.2 6.9 8.9 4.8 12 4.8z"/></svg>
+                  Google
+                </span>
+              </div>
+              <blockquote>«&nbsp;Cuisine en chêne massif absolument magnifique. Une équipe à l'écoute, ponctuelle, et un chantier laissé impeccable.&nbsp;»</blockquote>
+              <figcaption>
+                <span class="cf-review__name">Sophie D.</span>
+                <span class="cf-review__meta">Il y a 3 mois · Publié sur Google</span>
+              </figcaption>
+            </figure>
+            <figure class="cf-review" data-cf-item tabindex="0" role="button" aria-label="Avis de Marc T.">
+              <div class="cf-review__top">
+                <span class="cf-review__stars" aria-label="5 étoiles sur 5">★★★★★</span>
+                <span class="cf-google">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="#4285F4" d="M23.5 12.3c0-.8-.1-1.6-.2-2.3H12v4.5h6.4a5.5 5.5 0 0 1-2.4 3.6v3h3.9c2.3-2.1 3.6-5.2 3.6-8.8z"/><path fill="#34A853" d="M12 24c3.2 0 6-1.1 8-2.9l-3.9-3c-1 .7-2.4 1.2-4.1 1.2-3.1 0-5.8-2.1-6.7-5H1.3v3.1A12 12 0 0 0 12 24z"/><path fill="#FBBC05" d="M5.3 14.3a7.2 7.2 0 0 1 0-4.6V6.6H1.3a12 12 0 0 0 0 10.8l4-3.1z"/><path fill="#EA4335" d="M12 4.8c1.8 0 3.3.6 4.6 1.8l3.4-3.4A12 12 0 0 0 1.3 6.6l4 3.1C6.2 6.9 8.9 4.8 12 4.8z"/></svg>
+                  Google
+                </span>
+              </div>
+              <blockquote>«&nbsp;Une terrasse et une pergola en bois superbes, livrées dans les délais annoncés. Travail soigné, je recommande sans hésiter.&nbsp;»</blockquote>
+              <figcaption>
+                <span class="cf-review__name">Marc T.</span>
+                <span class="cf-review__meta">Il y a 5 mois · Publié sur Google</span>
+              </figcaption>
+            </figure>
+          </div>
+
+          <div class="coverflow__nav">
+            <button type="button" class="cf-arrow" data-cf-prev aria-label="Avis précédent">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M15 5l-7 7 7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="cf-dots" role="tablist" aria-label="Choisir un avis">
+              <button type="button" class="cf-dot" data-cf-dot aria-label="Avis 1"></button>
+              <button type="button" class="cf-dot" data-cf-dot aria-label="Avis 2"></button>
+              <button type="button" class="cf-dot" data-cf-dot aria-label="Avis 3"></button>
+              <button type="button" class="cf-dot" data-cf-dot aria-label="Avis 4"></button>
+              <button type="button" class="cf-dot" data-cf-dot aria-label="Avis 5"></button>
+            </div>
+            <button type="button" class="cf-arrow" data-cf-next aria-label="Avis suivant">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="reviews-footer" data-reveal>
+          <!-- Lien vers votre fiche Google Business — À PERSONNALISER -->
+          <a href="#" class="link-more">Voir tous les avis sur Google →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Blog aperçu — supprimez cette section si vous n'utilisez pas le blog -->
+    <section class="section" style="padding-bottom:0;">
+      <div class="container" style="padding-inline:0;">
+        <div class="section-head" data-reveal>
+          <div>
+            <p class="kicker">Le journal de l'atelier</p>
+            <h2>Nos derniers articles</h2>
+          </div>
+          <a href="blog.html" class="link-more">Tout le blog →</a>
+        </div>
+
+        <div class="blog-grid" data-reveal-stagger>
+          <a href="blog.html" class="blog-card">
+            <img src="assets/img/work-5.svg" alt="" loading="lazy" width="800" height="600">
+            <span class="blog-card__meta">Conseils · 12 juin 2026</span>
+            <h3>Quelle essence de bois choisir pour un escalier&nbsp;?</h3>
+            <span class="blog-card__more">Lire l'article →</span>
+          </a>
+          <a href="blog.html" class="blog-card">
+            <img src="assets/img/work-6.svg" alt="" loading="lazy" width="800" height="600">
+            <span class="blog-card__meta">Entretien · 28 mai 2026</span>
+            <h3>Entretenir ses menuiseries extérieures en bois</h3>
+            <span class="blog-card__more">Lire l'article →</span>
+          </a>
+          <a href="blog.html" class="blog-card">
+            <img src="assets/img/work-1.svg" alt="" loading="lazy" width="800" height="600">
+            <span class="blog-card__meta">Projets · 15 mai 2026</span>
+            <h3>Aménager une cuisine sur mesure&nbsp;: les étapes clés</h3>
+            <span class="blog-card__more">Lire l'article →</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </div><!-- /.band -->
+
+  <!-- ============ CTA FINAL ============ -->
+  <section class="cta">
+    <div class="centered" data-reveal>
+      <span class="diamond" aria-hidden="true"></span>
+      <h2>Parlons de votre projet</h2>
+      <p>Étude et devis gratuits. Nous nous déplaçons chez vous pour prendre les mesures et vous conseiller.</p>
+      <div class="cta__actions">
+        <a href="contact.html" class="btn btn--primary">Demander un devis</a>
+        <a href="tel:+33478123456" class="btn btn--ghost" style="letter-spacing:0.1em;">04 78 12 34 56</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ====================================================================
+     PIED DE PAGE — identique sur toutes les pages
+     ==================================================================== -->
+<footer class="site-footer">
+  <div class="site-footer__grid">
+    <div class="site-footer__brand">
+      <span class="site-footer__brand-name">
+        <span class="diamond" aria-hidden="true"></span>
+        Menuiserie Dubois
+      </span>
+      <p>Menuiserie artisanale sur mesure. Agencement, escaliers, portes et fenêtres — un savoir-faire transmis depuis trois générations.</p>
+      <div class="site-footer__social">
+        <!-- Réseaux sociaux — À PERSONNALISER -->
+        <a href="#">Instagram</a>
+        <a href="#">Facebook</a>
+      </div>
+    </div>
+    <div class="site-footer__col">
+      <span class="site-footer__title">Pages</span>
+      <a href="index.html">Accueil</a>
+      <a href="services.html">Services</a>
+      <a href="galerie.html">Galerie</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="site-footer__col">
+      <span class="site-footer__title">Contact</span>
+      <a href="tel:+33478123456" class="site-footer__phone">04 78 12 34 56</a>
+      <a href="mailto:contact@menuiserie-dubois.fr">contact@menuiserie-dubois.fr</a>
+      <p>12 rue des Charpentiers<br>69003 Lyon</p>
+    </div>
+    <div class="site-footer__col">
+      <span class="site-footer__title">Horaires</span>
+      <p>Lundi – Vendredi : 8h – 18h<br>Samedi : sur rendez-vous<br>Dimanche : fermé</p>
+    </div>
+  </div>
+  <div class="site-footer__bottom">
+    <span>© <span data-year>2026</span> Menuiserie Dubois — Tous droits réservés</span>
+    <div class="site-footer__legal">
+      <a href="mentions-legales.html">Mentions légales</a>
+      <a href="politique-confidentialite.html">Politique de confidentialité</a>
+    </div>
+  </div>
+</footer>
+</div><!-- /.page-cover -->
+
+<!-- Bouton d'appel flottant (mobile) -->
+<a href="tel:+33478123456" class="call-fab" data-call-fab aria-label="Appeler la menuiserie">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.85 21 3 13.15 3 3.5a1 1 0 0 1 1-1H7.5a1 1 0 0 1 1 1c0 1.24.2 2.45.57 3.57a1 1 0 0 1-.24 1.02l-2.2 2.2Z"/></svg>
+  Appeler
+</a>
+
+</body>
+</html>
