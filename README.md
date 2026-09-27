@@ -126,6 +126,8 @@ dans `contact.html`, en haut du formulaire.
   indique quoi effacer).
 - Client qui préfère les **SMS** : remplacer `https://wa.me/33612345678` par
   `sms:+33612345678` et le texte « par WhatsApp » par « par SMS ».
+- Client sur **Messenger** : remplacer le lien par
+  `https://m.me/NomDeLaPageFacebook` et le texte par « par Messenger ».
 
 **c) Tester avant la livraison** : envoyer une vraie demande depuis le site
 en ligne et vérifier que le client la reçoit. En cliquant « Répondre » dans

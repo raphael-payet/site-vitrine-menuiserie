@@ -75,9 +75,16 @@ En-tête au scroll · menu mobile · hero parallaxe · apparition au scroll
 
 Le `README.md` détaille la procédure complète. En résumé : couleurs (`:root`),
 nom/coordonnées (rechercher-remplacer sur les 7 pages), images
-(`assets/img/`, mêmes noms de fichiers), avis Google, services, endpoint du
+(`assets/img/`, mêmes noms de fichiers), avis Google, services, clé
+Web3Forms et messagerie pour les photos (WhatsApp, SMS ou Messenger) du
 formulaire, adresse Google Maps, placeholders légaux, métadonnées SEO et
 JSON-LD dans `index.html`.
+
+- **Ne rien inventer** (coordonnées, SIRET, avis, chiffres) : demander à
+  Raphaël ce qui manque, notamment la **clé Web3Forms** (il la crée avec
+  l'email du client).
+- L'adresse est aussi **encodée dans les deux liens Google Maps** de
+  `contact.html` (`%20` et `+`) : un rechercher-remplacer simple les rate.
 
 ## État actuel
 
