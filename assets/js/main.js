@@ -14,6 +14,7 @@
    8. Barre d'action mobile (CSS seul)
    9. Carte Google Maps au clic (RGPD)
    10. Avant / après (galerie)
+   11. FAQ (ouverture animée)
    ========================================================================== */
 (function () {
   'use strict';
@@ -588,6 +589,52 @@
     range.addEventListener('input', update);
     update();
   });
+
+  /* ------------------------------------------------------------------------
+     11. FAQ — ouverture / fermeture en douceur
+     Les questions sont des <details> natifs : sans JS (ou si le visiteur a
+     demandé moins d'animations), elles s'ouvrent instantanément. Ici, on
+     anime la hauteur pour que la suite de la page glisse au lieu de sauter.
+     ------------------------------------------------------------------------ */
+  if (!prefersReducedMotion && Element.prototype.animate) {
+    document.querySelectorAll('.faq__item').forEach(function (item) {
+      var summary = item.querySelector('summary');
+      var answer = item.querySelector('summary ~ *');
+      var anim = null;
+      var DURATION = 320;
+      var EASING = 'cubic-bezier(0.22, 0.61, 0.36, 1)';
+
+      summary.addEventListener('click', function (e) {
+        e.preventDefault();
+        var start = item.offsetHeight;                 // hauteur actuelle
+        var opening = !item.open || item.dataset.closing === '1';
+        if (anim) { anim.cancel(); anim = null; }
+
+        var end;
+        if (opening) {
+          delete item.dataset.closing;
+          item.open = true;
+          end = item.offsetHeight;                     // hauteur ouverte
+        } else {
+          item.dataset.closing = '1';                  // reste ouvert pendant l'animation
+          end = summary.offsetHeight + (item.offsetHeight - item.clientHeight);
+        }
+
+        item.style.overflow = 'hidden';
+        anim = item.animate({ height: [start + 'px', end + 'px'] },
+                            { duration: DURATION, easing: EASING });
+        if (opening && answer) {
+          answer.animate({ opacity: [0, 1], transform: ['translateY(-6px)', 'none'] },
+                         { duration: DURATION, easing: EASING });
+        }
+        anim.onfinish = function () {
+          anim = null;
+          if (!opening) { item.open = false; delete item.dataset.closing; }
+          item.style.overflow = '';
+        };
+      });
+    });
+  }
 
   /* ------------------------------------------------------------------------
      Année automatique du pied de page
