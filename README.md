@@ -97,8 +97,10 @@ Business.
 
 ### 8. Google Maps (30 s)
 Dans `contact.html`, section « CARTE » (conteneur premium `.map-card`) :
-changez l'adresse à **deux** endroits — le paramètre `q=` de l'iframe **et**
-le `destination=` du bouton « Itinéraire ».
+changez l'adresse à **deux** endroits — le paramètre `q=` du lien
+« Afficher la carte » **et** le `destination=` du bouton « Itinéraire ».
+Pour respecter le RGPD, la carte Google ne se charge qu'au clic du visiteur
+(avant, un aperçu sans aucun appel à Google s'affiche).
 
 ### 9. Le formulaire de devis (5 min)
 Les demandes sont envoyées par [Web3Forms](https://web3forms.com) (gratuit,

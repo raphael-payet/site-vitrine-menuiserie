@@ -10,7 +10,9 @@
    4. Apparition au scroll
    5. Lightbox galerie
    6. Formulaire de contact
-   7. Bouton d'appel mobile
+   7. Carrousel d'avis Google
+   8. Bouton d'appel mobile
+   9. Carte Google Maps au clic (RGPD)
    ========================================================================== */
 (function () {
   'use strict';
@@ -553,6 +555,29 @@
     callFab.classList.toggle('is-visible', window.scrollY > 320);
   }
   updateCallFab();
+
+  /* ------------------------------------------------------------------------
+     9. CARTE GOOGLE MAPS AU CLIC (RGPD)
+     Aucun appel à Google tant que le visiteur n'a pas cliqué sur
+     « Afficher la carte ». L'adresse vient du lien lui-même (paramètre q=),
+     auquel on ajoute &output=embed pour obtenir la carte intégrable.
+     ------------------------------------------------------------------------ */
+  document.querySelectorAll('[data-map]').forEach(function (frame) {
+    var loadLink = frame.querySelector('[data-map-load]');
+    if (!loadLink) return;
+
+    loadLink.addEventListener('click', function (e) {
+      e.preventDefault();
+      var iframe = document.createElement('iframe');
+      iframe.src = loadLink.href + '&output=embed';
+      iframe.title = frame.getAttribute('data-map-title') || 'Plan d\'accès';
+      iframe.setAttribute('referrerpolicy', 'no-referrer-when-downgrade');
+      iframe.setAttribute('allowfullscreen', '');
+      frame.innerHTML = '';
+      frame.appendChild(iframe);
+      iframe.focus();
+    });
+  });
 
   /* ------------------------------------------------------------------------
      Année automatique du pied de page

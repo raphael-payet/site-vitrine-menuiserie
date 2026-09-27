@@ -1456,6 +1456,39 @@ h1, h2, h3 { font-family: var(--font-serif); font-weight: 500; }
   /* Teinte sombre pour rester cohérent avec l'univers du site */
   filter: grayscale(0.55) invert(0.92) hue-rotate(180deg) brightness(0.96) contrast(0.92);
 }
+
+/* Aperçu avant chargement de la carte (RGPD : aucun appel à Google tant
+   que le visiteur n'a pas cliqué). Quadrillage « plan » en pur CSS. */
+.map-consent {
+  height: clamp(320px, 46vw, 460px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  padding: 24px;
+  text-align: center;
+  background-color: var(--bg);
+  background-image:
+    linear-gradient(var(--line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size: 44px 44px;
+  background-position: center;
+}
+.map-consent__pin {
+  width: 34px;
+  height: 34px;
+  background-color: var(--accent);
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5Z'/%3E%3C/svg%3E") center / contain no-repeat;
+          mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5Z'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+.map-consent__text {
+  margin: 0;
+  max-width: 42ch;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--ink-muted);
+}
 .map-card__bar {
   display: flex;
   flex-wrap: wrap;
