@@ -6,7 +6,7 @@
 
   <!-- SEO — À PERSONNALISER -->
   <title>Mentions légales — Menuiserie Dubois</title>
-  <meta name="description" content="Mentions légales du site : éditeur, hébergement, propriété intellectuelle, responsabilité et données personnelles.">
+  <meta name="description" content="Mentions légales du site : éditeur, hébergement, assurance professionnelle, médiation de la consommation, propriété intellectuelle, responsabilité et données personnelles.">
   <meta name="robots" content="noindex, follow">
   <meta name="theme-color" content="#100D0A">
   <link rel="canonical" href="https://www.menuiserie-dubois.fr/mentions-legales.html">
@@ -27,9 +27,25 @@
      ÉDITEUR      : {{NOM_ENTREPRISE}}, {{FORME_JURIDIQUE}}, {{ADRESSE}},
                     {{CODE_POSTAL}}, {{VILLE}}, {{SIRET}}, {{TELEPHONE}},
                     {{EMAIL}}, {{DIRECTEUR_PUBLICATION}}
+                    {{IMMATRICULATION}} : registre + n°, ex. « RCS Lyon
+                      123 456 789 » (société commerciale) ou « Registre
+                      national des entreprises (RNE) n° 123 456 789 »
+                    {{CAPITAL_SOCIAL}}  : ex. « 10 000 € » — supprimer la
+                      ligne pour une entreprise individuelle
+                    {{TVA_INTRACOM}}    : ex. « FR 12 123456789 » — en
+                      franchise de TVA : « TVA non applicable,
+                      art. 293 B du CGI »
+     ASSURANCE    : {{ASSUREUR_NOM}}, {{ASSUREUR_ADRESSE}},
+                    {{ASSURANCE_COUVERTURE}} (zone géographique couverte,
+                    ex. « France métropolitaine »)
+     MÉDIATEUR    : {{MEDIATEUR_NOM}}, {{MEDIATEUR_ADRESSE}},
+                    {{MEDIATEUR_SITE}} (organisme de médiation auquel le
+                    client a adhéré — obligatoire dès qu'il vend à des
+                    particuliers)
      HÉBERGEUR    : {{HEBERGEUR_NOM}}, {{HEBERGEUR_ADRESSE}},
                     {{HEBERGEUR_TELEPHONE}}
      Ces mêmes valeurs sont à reporter dans politique-confidentialite.html.
+     ⚠️ Modèle indicatif : à faire relire par un professionnel du droit.
      ====================================================================== -->
 
 <a class="skip-link" href="#contenu">Aller au contenu</a>
@@ -100,6 +116,16 @@
             <dt>SIRET</dt>
             <dd>{{SIRET}}</dd>
 
+            <dt>Immatriculation</dt>
+            <dd>{{IMMATRICULATION}}</dd>
+
+            <!-- Ligne à supprimer pour une entreprise individuelle -->
+            <dt>Capital social</dt>
+            <dd>{{CAPITAL_SOCIAL}}</dd>
+
+            <dt>N° de TVA intracommunautaire</dt>
+            <dd>{{TVA_INTRACOM}}</dd>
+
             <dt>Téléphone</dt>
             <dd><a href="tel:{{TELEPHONE}}">{{TELEPHONE}}</a></dd>
 
@@ -131,9 +157,48 @@
         </div>
       </div>
 
-      <!-- 3. Propriété intellectuelle -->
+      <!-- 3. Assurance professionnelle -->
       <div class="legal-item">
         <span class="legal-item__num" aria-hidden="true">03</span>
+        <div>
+          <h2>Assurance professionnelle</h2>
+          <p>{{NOM_ENTREPRISE}} est titulaire d'une assurance responsabilité civile décennale couvrant ses travaux, souscrite auprès de&nbsp;:</p>
+          <dl class="legal-info">
+            <dt>Assureur</dt>
+            <dd>{{ASSUREUR_NOM}}</dd>
+
+            <dt>Adresse</dt>
+            <dd>{{ASSUREUR_ADRESSE}}</dd>
+
+            <dt>Couverture géographique</dt>
+            <dd>{{ASSURANCE_COUVERTURE}}</dd>
+          </dl>
+        </div>
+      </div>
+
+      <!-- 4. Médiation de la consommation -->
+      <div class="legal-item">
+        <span class="legal-item__num" aria-hidden="true">04</span>
+        <div>
+          <h2>Médiation de la consommation</h2>
+          <p>Conformément au Code de la consommation, en cas de litige non résolu directement avec {{NOM_ENTREPRISE}}, vous pouvez recourir gratuitement au médiateur de la consommation suivant&nbsp;:</p>
+          <dl class="legal-info">
+            <dt>Médiateur</dt>
+            <dd>{{MEDIATEUR_NOM}}</dd>
+
+            <dt>Adresse</dt>
+            <dd>{{MEDIATEUR_ADRESSE}}</dd>
+
+            <dt>Site internet</dt>
+            <dd>{{MEDIATEUR_SITE}}</dd>
+          </dl>
+          <p>Avant de saisir le médiateur, vous devez avoir adressé une réclamation écrite à {{NOM_ENTREPRISE}}.</p>
+        </div>
+      </div>
+
+      <!-- 5. Propriété intellectuelle -->
+      <div class="legal-item">
+        <span class="legal-item__num" aria-hidden="true">05</span>
         <div>
           <h2>Propriété intellectuelle</h2>
           <p>L'ensemble des éléments composant ce site — textes, photographies, illustrations, logos, mises en page et éléments graphiques — est protégé par le droit de la propriété intellectuelle et demeure la propriété de {{NOM_ENTREPRISE}} ou de ses ayants droit.</p>
@@ -141,9 +206,9 @@
         </div>
       </div>
 
-      <!-- 4. Responsabilité -->
+      <!-- 6. Responsabilité -->
       <div class="legal-item">
-        <span class="legal-item__num" aria-hidden="true">04</span>
+        <span class="legal-item__num" aria-hidden="true">06</span>
         <div>
           <h2>Responsabilité</h2>
           <p>Les informations publiées sur ce site sont fournies à titre indicatif. {{NOM_ENTREPRISE}} s'efforce d'en assurer l'exactitude et la mise à jour, sans pouvoir garantir qu'elles soient à tout moment complètes ou exemptes d'erreur.</p>
@@ -151,12 +216,12 @@
         </div>
       </div>
 
-      <!-- 5. Données personnelles -->
+      <!-- 7. Données personnelles -->
       <div class="legal-item">
-        <span class="legal-item__num" aria-hidden="true">05</span>
+        <span class="legal-item__num" aria-hidden="true">07</span>
         <div>
           <h2>Données personnelles</h2>
-          <p>Les informations transmises via le formulaire de contact (nom, téléphone, email et description du projet) sont utilisées uniquement pour répondre à votre demande et établir un devis. Elles ne sont ni revendues, ni cédées à des tiers.</p>
+          <p>Les informations transmises via le formulaire de contact (vos coordonnées et les précisions sur votre projet) sont utilisées uniquement pour répondre à votre demande et établir un devis. Elles ne sont ni revendues, ni cédées à des tiers.</p>
           <p>Vous disposez d'un droit d'accès, de rectification et de suppression des données vous concernant, en écrivant à <a href="mailto:{{EMAIL}}">{{EMAIL}}</a>.</p>
           <p>Pour le détail des traitements, consultez notre <a href="politique-confidentialite.html">politique de confidentialité</a>.</p>
         </div>

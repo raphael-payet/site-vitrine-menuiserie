@@ -163,10 +163,17 @@ simple rechercher/remplacer suffit :
 | `{{NOM_ENTREPRISE}}` · `{{FORME_JURIDIQUE}}` | Menuiserie Dubois · SARL |
 | `{{ADRESSE}}` · `{{CODE_POSTAL}}` · `{{VILLE}}` | 12 rue des Charpentiers · 69003 · Lyon |
 | `{{SIRET}}` · `{{DIRECTEUR_PUBLICATION}}` | 123 456 789 00012 · Jean Dubois |
+| `{{IMMATRICULATION}}` | RCS Lyon 123 456 789 · ou RNE n° 123 456 789 |
+| `{{CAPITAL_SOCIAL}}` · `{{TVA_INTRACOM}}` | 10 000 € (ligne à supprimer si entreprise individuelle) · FR 12 123456789 (ou « TVA non applicable, art. 293 B du CGI ») |
+| `{{ASSUREUR_NOM}}` · `{{ASSUREUR_ADRESSE}}` · `{{ASSURANCE_COUVERTURE}}` | Assureur de la garantie décennale · son adresse · France métropolitaine |
+| `{{MEDIATEUR_NOM}}` · `{{MEDIATEUR_ADRESSE}}` · `{{MEDIATEUR_SITE}}` | Médiateur de la consommation auquel le client a adhéré (obligatoire s'il vend à des particuliers) |
 | `{{TELEPHONE}}` · `{{EMAIL}}` | 04 78 12 34 56 · contact@… |
 | `{{HEBERGEUR_NOM}}` · `{{HEBERGEUR_ADRESSE}}` · `{{HEBERGEUR_TELEPHONE}}` | OVH · Roubaix · … |
 | `{{DUREE_CONSERVATION}}` | 3 ans |
 
+> ⚠️ Ces textes sont un **modèle indicatif** : à faire relire par un
+> professionnel du droit, au moins pour les premiers clients.
+>
 > Ces pages sont en `noindex` (elles n'ont pas vocation à être référencées) et
 > sont liées depuis le pied de page de toutes les pages du site.
 
