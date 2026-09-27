@@ -1350,7 +1350,6 @@ h1, h2, h3 { font-family: var(--font-serif); font-weight: 500; }
   cursor: default;
   box-shadow: 0 34px 70px rgba(42, 32, 19, 0.30);
 }
-.cf-review:focus-visible { outline: 2px solid var(--band-accent); outline-offset: 4px; }
 
 .cf-review__top {
   display: flex;

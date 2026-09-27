@@ -233,8 +233,13 @@
       if (e.target === lightbox) closeLightbox();
     });
     document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && lightbox.classList.contains('is-open')) {
-        closeLightbox();
+      if (!lightbox.classList.contains('is-open')) return;
+      if (e.key === 'Escape') closeLightbox();
+      // Piège de focus : « Fermer » est le seul élément actif de la
+      // lightbox, la touche Tab y reste (sinon elle part dans la page).
+      if (e.key === 'Tab') {
+        e.preventDefault();
+        lightboxClose.focus();
       }
     });
   }
@@ -464,13 +469,16 @@
           card.style.opacity = opacity;
           card.style.zIndex = String(30 - dist);
           card.style.pointerEvents = dist <= 1 ? 'auto' : 'none';
+          // Seul l'avis central est lu par les lecteurs d'écran. Les cartes
+          // ne sont pas des boutons : au clavier, on navigue avec les
+          // flèches et les puces (clic souris / doigt toujours possible).
           card.setAttribute('aria-hidden', dist === 0 ? 'false' : 'true');
-          card.setAttribute('tabindex', dist <= 1 ? '0' : '-1');
           card.classList.toggle('is-center', dist === 0);
         });
         cfDots.forEach(function (dot, i) {
           dot.classList.toggle('is-active', i === activeIndex);
-          dot.setAttribute('aria-selected', String(i === activeIndex));
+          if (i === activeIndex) dot.setAttribute('aria-current', 'true');
+          else dot.removeAttribute('aria-current');
         });
         // La hauteur de la scène suit la carte centrale (contenu variable)
         stage.style.height = cards[activeIndex].offsetHeight + 'px';
@@ -495,13 +503,6 @@
       cards.forEach(function (card, i) {
         card.addEventListener('click', function () {
           if (i !== activeIndex) { cfGo(i); cfRestart(); }
-        });
-        card.addEventListener('keydown', function (e) {
-          if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            cfGo(i);
-            cfRestart();
-          }
         });
       });
       cfDots.forEach(function (dot, i) {
