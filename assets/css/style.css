@@ -711,6 +711,18 @@ h1, h2, h3 { font-family: var(--font-serif); font-weight: 500; }
   background: linear-gradient(180deg, var(--bg) 0%, #19130C 100%);
 }
 .cta .centered { max-width: 760px; }
+
+/* Téléphone : marges verticales réduites d'environ un quart (moins de
+   défilement à vide). Placé APRÈS .section, .section--alt, .cta et
+   .page-head pour l'emporter. Les marges des bandes beiges (.band) ne
+   changent pas : elles doivent rester plus grandes que leurs fondus. */
+@media (max-width: 600px) {
+  .section { padding-block: 52px; }
+  .section--intro,
+  .section--alt { padding-block: 60px; }
+  .cta { padding-block: 68px; }
+  .page-head { padding-top: 140px; padding-bottom: 56px; }
+}
 .cta h2 { font-size: clamp(36px, 5vw, 60px); line-height: 1.15; }
 .cta p { max-width: 48ch; line-height: 1.75; }
 .cta__actions {
