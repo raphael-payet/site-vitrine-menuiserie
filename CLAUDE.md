@@ -83,6 +83,9 @@ JSON-LD dans `index.html`.
 - **Ne rien inventer** (coordonnées, SIRET, avis, chiffres) : demander à
   Raphaël ce qui manque, notamment la **clé Web3Forms** (il la crée avec
   l'email du client).
+- Ne **jamais** ajouter `aggregateRating` (note des avis) au JSON-LD :
+  Google interdit qu'une entreprise déclare la note de ses propres avis.
+  La note visible sur la page, elle, se met à jour normalement.
 - L'adresse est aussi **encodée dans les deux liens Google Maps** de
   `contact.html` (`%20` et `+`) : un rechercher-remplacer simple les rate.
 
