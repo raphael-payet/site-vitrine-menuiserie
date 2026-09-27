@@ -433,8 +433,18 @@
       function cfMetrics() {
         var w = window.innerWidth;
         if (w < 600) return { gap: 60, scale: 0.8, side: 0.18, depth: -90 };
-        if (w < 900) return { gap: 232, scale: 0.82, side: 0.5, depth: -130 };
-        return { gap: 300, scale: 0.84, side: 0.55, depth: -150 };
+        var m = w < 900
+          ? { gap: 232, scale: 0.82, side: 0.5, depth: -130 }
+          : { gap: 300, scale: 0.84, side: 0.55, depth: -150 };
+        // L'écart ne doit pas faire sortir les cartes latérales du carrousel
+        // (sinon elles sont coupées au bord de l'écran sur tablette). On
+        // tient compte de la perspective, qui rapproche les cartes du centre.
+        var perspective = parseFloat(window.getComputedStyle(stage).perspective) || 1600;
+        var shrink = perspective / (perspective - m.depth);
+        var sideHalf = cards[0].offsetWidth * m.scale / 2;
+        var maxGap = (coverflow.clientWidth / 2 - 8) / shrink - sideHalf;
+        m.gap = Math.max(0, Math.min(m.gap, maxGap));
+        return m;
       }
 
       function cfLayout() {
