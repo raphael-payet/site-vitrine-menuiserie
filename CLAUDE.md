@@ -54,7 +54,7 @@ répercutée sur les 7 pages.
 
 En-tête au scroll · menu mobile · hero parallaxe · apparition au scroll
 (`data-reveal` / `data-reveal-stagger`) · lightbox galerie · formulaire ·
-**coverflow d'avis Google** · bouton d'appel flottant mobile · carte Google
+**coverflow d'avis Google** · barre d'action mobile (CSS seul) · carte Google
 Maps chargée au clic (RGPD) · **comparateur avant / après** (galerie :
 `input type="range"` invisible qui pilote la variable CSS `--pos`).
 

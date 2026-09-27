@@ -284,31 +284,40 @@ h1, h2, h3 { font-family: var(--font-serif); font-weight: 500; }
 .call-cta__label { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 500; }
 .call-cta__number { font-size: 22px; font-weight: 600; letter-spacing: 0.03em; }
 
-/* Bouton d'appel flottant — mobile uniquement */
-.call-fab {
-  position: fixed;
-  right: 16px;
-  bottom: 16px;
-  z-index: 90;
-  display: none;
-  align-items: center;
-  gap: 10px;
-  background: var(--accent);
-  color: var(--on-accent);
-  padding: 14px 22px;
-  font-size: 15px;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.45);
-  opacity: 0;
-  transform: translateY(12px);
-  pointer-events: none;
-  transition: opacity 0.35s var(--ease), transform 0.35s var(--ease);
-}
-.call-fab.is-visible { opacity: 1; transform: none; pointer-events: auto; }
-.call-fab:hover { color: var(--on-accent); background: var(--accent-strong); }
+/* Barre d'action mobile (Appeler / Devis) — visible dès l'arrivée sur
+   téléphone, sous le voile du menu (z-index 90 < 99). */
+.mobile-bar { display: none; }
 @media (max-width: 720px) {
-  .call-fab { display: inline-flex; }
+  .mobile-bar {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 90;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    padding: 8px 12px calc(8px + env(safe-area-inset-bottom));
+    background: var(--bg-deep);
+    border-top: 1px solid var(--line);
+  }
+  .mobile-bar a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 48px;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  .mobile-bar__call { color: var(--accent); border: 1px solid var(--accent); }
+  .mobile-bar__quote { color: var(--on-accent); background: var(--accent); }
+  .mobile-bar__call:hover { color: var(--accent-strong); border-color: var(--accent-strong); }
+  .mobile-bar__quote:hover { color: var(--on-accent); background: var(--accent-strong); }
+  /* Le bas de page ne doit pas être caché derrière la barre */
+  body { padding-bottom: calc(64px + env(safe-area-inset-bottom)); }
 }
 
 
@@ -1106,6 +1115,7 @@ h1, h2, h3 { font-family: var(--font-serif); font-weight: 500; }
 }
 
 .contact-form {
+  scroll-margin-top: calc(var(--header-h) + 16px); /* lien « Devis gratuit » */
   display: flex;
   flex-direction: column;
   gap: 22px;

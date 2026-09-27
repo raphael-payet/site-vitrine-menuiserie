@@ -11,7 +11,7 @@
    5. Lightbox galerie
    6. Formulaire de contact
    7. Carrousel d'avis Google
-   8. Bouton d'appel mobile
+   8. Barre d'action mobile (CSS seul)
    9. Carte Google Maps au clic (RGPD)
    10. Avant / après (galerie)
    ========================================================================== */
@@ -151,7 +151,6 @@
     window.requestAnimationFrame(function () {
       updateHeader();
       updateHero();
-      updateCallFab();
       ticking = false;
     });
   }
@@ -547,15 +546,9 @@
   }
 
   /* ------------------------------------------------------------------------
-     8. BOUTON D'APPEL FLOTTANT — visible sur mobile après un léger scroll
+     8. BARRE D'ACTION MOBILE (Appeler / Devis) — pur HTML + CSS, visible
+     dès l'arrivée sur téléphone ; aucun JavaScript nécessaire.
      ------------------------------------------------------------------------ */
-  var callFab = document.querySelector('[data-call-fab]');
-
-  function updateCallFab() {
-    if (!callFab) return;
-    callFab.classList.toggle('is-visible', window.scrollY > 320);
-  }
-  updateCallFab();
 
   /* ------------------------------------------------------------------------
      9. CARTE GOOGLE MAPS AU CLIC (RGPD)

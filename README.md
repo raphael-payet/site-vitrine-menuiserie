@@ -210,8 +210,8 @@ simple rechercher/remplacer suffit :
   sombre assortie, bouton « Itinéraire » vers Google Maps.
 - **Galerie** : ouverture des photos en plein écran (lightbox), clavier
   et touche Échap gérés.
-- **Mobile** : bouton d'appel flottant visible après un léger défilement,
-  téléphone toujours accessible dans l'en-tête.
+- **Mobile** : barre fixe « Appeler / Devis gratuit » en bas de l'écran,
+  visible dès l'arrivée ; téléphone aussi accessible dans l'en-tête.
 
 ## Détails techniques
 
