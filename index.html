@@ -100,11 +100,15 @@
      vient recouvrir le hero au défilement (voir CSS .hero / .page-cover).
      Pour changer la vidéo : remplacez le src de <source> ci-dessous
      (idéalement un .mp4 local : assets/video/hero.mp4).
+     La vidéo n'est chargée que sur les écrans ≥ 768 px (attribut media) :
+     sur téléphone, l'image « poster » s'affiche seule (site plus rapide en
+     4G). Idem si le visiteur a demandé à réduire les animations.
      ==================================================================== -->
 <section class="hero" data-hero>
   <div class="hero__media" data-hero-media aria-hidden="true">
     <video class="hero__video" autoplay muted loop playsinline preload="metadata" poster="assets/img/hero.svg" data-hero-video>
-      <source src="https://assets.mixkit.co/videos/773/773-720.mp4" type="video/mp4">
+      <source src="https://assets.mixkit.co/videos/773/773-720.mp4" type="video/mp4"
+              media="(min-width: 768px) and (prefers-reduced-motion: no-preference)">
     </video>
     <div class="hero__overlay"></div>
   </div>

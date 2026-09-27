@@ -90,7 +90,9 @@ Dans `index.html`, bloc `<video>` du hero : remplacez le `src` de la balise
 `<source>` (idéalement un `.mp4` local, ex. `assets/video/hero.mp4`, sombre,
 muet, en boucle). L'image `poster` s'affiche pendant le chargement.
 La vidéo n'apparaît que dans le hero et se met en pause automatiquement dès
-qu'il est recouvert.
+qu'il est recouvert. Elle n'est **pas chargée sur téléphone** (moins de
+768 px) : l'image `poster` suffit — soignez-la. Conseil : vidéo de moins de
+2 Mo, sans piste audio.
 
 ### 6. Les avis Google (2 min)
 Dans `index.html`, section « Ils nous font confiance » : le **carrousel
