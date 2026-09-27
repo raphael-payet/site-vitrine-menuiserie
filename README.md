@@ -82,6 +82,11 @@ remplacés par vos **photos réelles** en **gardant les mêmes noms** :
 - Vous pouvez aussi mettre des `.jpg`/`.webp` : changez alors les attributs
   `src` des balises `<img>` correspondantes.
 - Les légendes plein écran de la galerie se règlent via `data-caption`.
+- **Image d'aperçu** (partage WhatsApp, Facebook, SMS…) : `og-image.jpg`,
+  à remplacer par une belle photo du client en **1200 × 630 px, JPEG, moins
+  de 300 Ko** (au-delà, WhatsApp n'affiche pas l'aperçu). Son adresse dans
+  les pages est absolue (`https://www.menuiserie-dubois.fr/…`) : elle suit
+  le rechercher-remplacer du domaine.
 - **Avant / après** (bas de la galerie) : remplacer `avant-1.svg` et
   `apres-1.svg` par deux photos **prises du même endroit, avec le même
   cadrage** (sinon la comparaison ne fonctionne pas), et adapter les textes

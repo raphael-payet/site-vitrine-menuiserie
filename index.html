@@ -17,7 +17,13 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="Menuiserie Dubois — Menuiserie d'art sur mesure à Lyon">
   <meta property="og:description" content="Agencements, escaliers et mobilier d'exception, conçus et fabriqués dans notre atelier lyonnais.">
-  <meta property="og:image" content="assets/img/hero.svg">
+  <meta property="og:url" content="https://www.menuiserie-dubois.fr/">
+  <meta property="og:site_name" content="Menuiserie Dubois">
+  <meta property="og:image" content="https://www.menuiserie-dubois.fr/assets/img/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="L'atelier de la Menuiserie Dubois">
+  <meta name="twitter:card" content="summary_large_image">
   <meta property="og:locale" content="fr_FR">
 
   <!-- Polices -->
@@ -27,14 +33,17 @@
   <link rel="stylesheet" href="assets/css/style.css">
   <script src="assets/js/main.js" defer></script>
 
-  <!-- Données structurées (SEO local) — À PERSONNALISER -->
+  <!-- Données structurées (SEO local) — À PERSONNALISER : coordonnées,
+       horaires (openingHoursSpecification), zone, liste des services.
+       Réseaux sociaux du client : ajouter "sameAs": ["https://…"].
+       Ne jamais ajouter de note d'avis (aggregateRating) : voir CLAUDE.md. -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Carpenter",
     "name": "Menuiserie Dubois",
     "description": "Menuiserie d'art sur mesure à Lyon depuis plus de 25 ans.",
-    "image": "https://www.menuiserie-dubois.fr/assets/img/hero.svg",
+    "image": "https://www.menuiserie-dubois.fr/assets/img/og-image.jpg",
     "telephone": "+33478123456",
     "email": "contact@menuiserie-dubois.fr",
     "url": "https://www.menuiserie-dubois.fr/",
@@ -46,7 +55,24 @@
       "addressCountry": "FR"
     },
     "areaServed": "Lyon et sa métropole (50 km)",
-    "openingHours": "Mo-Fr 08:00-18:00"
+    "openingHoursSpecification": [{
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "08:00",
+      "closes": "18:00"
+    }],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Services de menuiserie",
+      "itemListElement": [
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Agencement et mobilier sur mesure" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Cuisines en bois massif" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Escaliers et garde-corps" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Portes, fenêtres et volets" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Parquets et habillages" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Terrasses et extérieurs" } }
+      ]
+    }
   }
   </script>
 </head>
