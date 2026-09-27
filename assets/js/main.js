@@ -231,6 +231,80 @@
       if (errorMessage) errorMessage.classList.add('is-visible');
     };
 
+    // --- Choix « Autre » : affiche le champ « précisez » associé ----------
+    var otherFields = Array.prototype.slice.call(
+      form.querySelectorAll('[data-other-for]')
+    );
+    var syncOtherFields = function () {
+      otherFields.forEach(function (wrap) {
+        var select = form.querySelector('[name="' + wrap.getAttribute('data-other-for') + '"]');
+        wrap.hidden = !select || select.value !== 'Autre';
+      });
+    };
+    otherFields.forEach(function (wrap) {
+      var select = form.querySelector('[name="' + wrap.getAttribute('data-other-for') + '"]');
+      if (select) select.addEventListener('change', syncOtherFields);
+    });
+    // form.reset() remet les listes à zéro après l'événement : on attend
+    form.addEventListener('reset', function () { setTimeout(syncOtherFields, 0); });
+    syncOtherFields();
+
+    // --- Deux étapes : coordonnées, puis précisions sur le projet ---------
+    // Purement visuel : un seul formulaire, un seul envoi à la fin.
+    var step2 = form.querySelector('[data-form-step2]');
+    var nextButton = form.querySelector('[data-form-next]');
+    var progress = form.querySelector('[data-form-progress]');
+
+    if (step2 && nextButton) {
+      var step1Fields = Array.prototype.filter.call(
+        form.querySelectorAll('input, textarea, select'),
+        function (el) {
+          return el.type !== 'hidden' && !step2.contains(el) &&
+            !el.closest('.form-trap');
+        }
+      );
+
+      var setStep = function (n) {
+        step2.hidden = n !== 2;
+        nextButton.hidden = n === 2;
+        if (progress) {
+          progress.hidden = false;
+          progress.textContent = n === 2
+            ? 'Étape 2 sur 2 · Votre projet'
+            : 'Étape 1 sur 2 · Vos coordonnées';
+        }
+      };
+
+      var goToStep2 = function () {
+        // Vérifie les champs de l'étape 1 avant d'avancer
+        for (var i = 0; i < step1Fields.length; i++) {
+          if (!step1Fields[i].checkValidity()) {
+            step1Fields[i].reportValidity();
+            return;
+          }
+        }
+        setStep(2);
+        var fields = step2.querySelector('.form-step__fields');
+        if (fields) fields.focus({ preventScroll: true });
+        step2.scrollIntoView({
+          behavior: prefersReducedMotion ? 'auto' : 'smooth',
+          block: 'nearest'
+        });
+      };
+
+      setStep(1);
+      nextButton.addEventListener('click', goToStep2);
+
+      // Entrée dans un champ de l'étape 1 = « Continuer », pas « Envoyer »
+      form.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' && step2.hidden &&
+            e.target.tagName === 'INPUT') {
+          e.preventDefault();
+          goToStep2();
+        }
+      });
+    }
+
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       if (successMessage) successMessage.classList.remove('is-visible');
@@ -254,6 +328,19 @@
       var data = {};
       new FormData(form).forEach(function (value, key) { data[key] = value; });
       delete data.champ_controle; // inutile dans l'email reçu
+      // « Autre » + précision → une seule ligne lisible dans l'email
+      // (ex. « Autre — pergola ») ; précision ignorée si « Autre » n'est
+      // pas sélectionné.
+      otherFields.forEach(function (wrap) {
+        var name = wrap.getAttribute('data-other-for');
+        var input = wrap.querySelector('input');
+        if (!input) return;
+        var detail = (data[input.name] || '').trim();
+        if (data[name] === 'Autre' && detail) data[name] = 'Autre — ' + detail;
+        delete data[input.name];
+      });
+      // Champs facultatifs laissés vides : on ne les envoie pas
+      Object.keys(data).forEach(function (k) { if (data[k] === '') delete data[k]; });
 
       if (submitButton) {
         submitButton.disabled = true;

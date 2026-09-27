@@ -129,6 +129,16 @@ dans `contact.html`, en haut du formulaire.
 en ligne et vérifier que le client la reçoit. En cliquant « Répondre » dans
 sa messagerie, il répond directement au prospect.
 
+**d) Le formulaire en 2 étapes** : le prospect remplit d'abord ses
+coordonnées et son projet, clique « Continuer », puis peut préciser (sans
+obligation) le type de projet, la commune, le budget, le délai et comment il
+a connu l'entreprise. Tout part en un seul envoi. Les **listes de choix** se
+modifient dans `contact.html` (une ligne `<option>` par choix) : aligner les
+types de projet sur les services du client. Quand le prospect choisit
+« Autre », un champ « Si autre, précisez » apparaît (garder le mot exact
+`Autre` pour que ça fonctionne). Garder des choix **courts
+(25 caractères maximum)**, sinon ils apparaissent coupés sur ordinateur.
+
 **Options** :
 - L'email du prospect est **obligatoire** par défaut. Pour le rendre
   facultatif : retirer le mot `required` sur le champ email (un commentaire

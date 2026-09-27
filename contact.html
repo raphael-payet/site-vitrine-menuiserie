@@ -93,6 +93,8 @@
         <form class="contact-form" data-contact-form data-reveal
               action="https://api.web3forms.com/submit" method="POST">
           <h2>Demande de devis</h2>
+          <!-- Indicateur d'étape : affiché par le JS uniquement -->
+          <p class="form-progress" data-form-progress aria-live="polite" hidden></p>
 
           <!-- Réglages Web3Forms (champs cachés) -->
           <input type="hidden" name="access_key" value="{{WEB3FORMS_ACCESS_KEY}}">
@@ -128,18 +130,100 @@
             <textarea required name="message" rows="5" placeholder="Décrivez votre projet : type d'ouvrage, dimensions approximatives, délais souhaités…"></textarea>
           </label>
 
-          <label class="field-check">
-            <input required type="checkbox" name="consentement" value="Oui">
-            <span>J'accepte que mes coordonnées soient utilisées pour être recontacté(e) au sujet de ma demande. <a href="politique-confidentialite.html">Politique de confidentialité</a> *</span>
-          </label>
+          <!-- ÉTAPE 2 — révélée par « Continuer » (sans JS, tout est visible).
+               Un seul formulaire, un seul envoi à la fin.
+               ⚙️ Listes à adapter au client : une ligne <option> par choix,
+               25 caractères maximum (sinon le choix est coupé à l'écran). -->
+          <button type="button" class="btn btn--dark" data-form-next hidden>Continuer</button>
 
-          <p class="form-message form-message--success" role="status">
-            Merci&nbsp;! Votre demande est bien partie, nous vous recontactons sous 48&nbsp;h.<br>
-            Vous avez des photos ou un croquis&nbsp;? Envoyez-les à <a href="mailto:contact@menuiserie-dubois.fr">contact@menuiserie-dubois.fr</a><!-- WHATSAPP : supprimer de « ou » jusqu'à </a> si le client n'utilise pas WhatsApp --> ou <a href="https://wa.me/{{WHATSAPP_NUMERO}}" target="_blank" rel="noopener">par WhatsApp</a> — ça nous aide beaucoup à préparer le devis.
-          </p>
-          <p class="form-message form-message--error" role="alert">Une erreur est survenue et votre demande n'a pas pu être envoyée. Merci de réessayer ou de nous appeler directement au <a href="tel:+33478123456">04 78 12 34 56</a>.</p>
+          <div class="form-step" data-form-step2>
+            <fieldset class="form-step__fields" tabindex="-1">
+              <legend>Précisez votre projet <span>(facultatif)</span></legend>
 
-          <button type="submit" class="btn btn--dark">Envoyer ma demande</button>
+              <!-- Choix « Autre » : le champ « précisez » associé (data-other-for)
+                   n'apparaît que si « Autre » est sélectionné. -->
+              <div class="contact-form__row">
+                <div class="field-group">
+                  <label class="field">
+                    <span>Type de projet</span>
+                    <select name="type_projet">
+                      <option value="">— Choisir —</option>
+                      <option>Agencement sur mesure</option>
+                      <option>Cuisine</option>
+                      <option>Escalier &amp; garde-corps</option>
+                      <option>Portes, fenêtres &amp; volets</option>
+                      <option>Parquet &amp; habillage</option>
+                      <option>Terrasse &amp; extérieur</option>
+                      <option>Autre</option>
+                    </select>
+                  </label>
+                  <label class="field field--other" data-other-for="type_projet">
+                    <span>Si autre, précisez</span>
+                    <input name="type_projet_precision" type="text" autocomplete="off" placeholder="Ex. : pergola, dressing…">
+                  </label>
+                </div>
+                <label class="field">
+                  <span>Commune du chantier</span>
+                  <input name="commune_chantier" type="text" autocomplete="address-level2" placeholder="Ville ou code postal">
+                </label>
+              </div>
+
+              <div class="contact-form__row">
+                <label class="field">
+                  <span>Budget approximatif</span>
+                  <select name="budget">
+                    <option value="">— Choisir —</option>
+                    <option>Moins de 2 000 €</option>
+                    <option>2 000 à 5 000 €</option>
+                    <option>5 000 à 15 000 €</option>
+                    <option>Plus de 15 000 €</option>
+                    <option>Je ne sais pas encore</option>
+                  </select>
+                </label>
+                <label class="field">
+                  <span>Délai souhaité</span>
+                  <select name="delai">
+                    <option value="">— Choisir —</option>
+                    <option>Dès que possible</option>
+                    <option>Dans 1 à 3 mois</option>
+                    <option>Dans 3 à 6 mois</option>
+                    <option>Pas encore défini</option>
+                  </select>
+                </label>
+              </div>
+
+              <label class="field">
+                <span>Comment nous avez-vous connus&nbsp;?</span>
+                <select name="connu_par">
+                  <option value="">— Choisir —</option>
+                  <option>Recherche Google</option>
+                  <option>Bouche-à-oreille</option>
+                  <option>Réseaux sociaux</option>
+                  <option>Chantier ou véhicule vu</option>
+                  <option>Autre</option>
+                </select>
+              </label>
+              <label class="field field--other" data-other-for="connu_par">
+                <span>Si autre, précisez</span>
+                <input name="connu_par_precision" type="text" autocomplete="off" placeholder="Ex. : salon de l'habitat, un voisin…">
+              </label>
+            </fieldset>
+
+            <label class="field-check">
+              <input required type="checkbox" name="consentement" value="Oui">
+              <span>J'accepte que mes coordonnées soient utilisées pour être recontacté(e) au sujet de ma demande. <a href="politique-confidentialite.html">Politique de confidentialité</a> *</span>
+            </label>
+
+            <p class="form-message form-message--success" role="status">
+              Merci&nbsp;! Votre demande est bien partie, nous vous recontactons sous 48&nbsp;h.<br>
+              Vous avez des photos ou un croquis&nbsp;? Envoyez-les à <a href="mailto:contact@menuiserie-dubois.fr">contact@menuiserie-dubois.fr</a><!-- WHATSAPP : supprimer de « ou » jusqu'à </a> si le client n'utilise pas WhatsApp --> ou <a href="https://wa.me/{{WHATSAPP_NUMERO}}" target="_blank" rel="noopener">par WhatsApp</a> — ça nous aide beaucoup à préparer le devis.
+            </p>
+            <p class="form-message form-message--error" role="alert">Une erreur est survenue et votre demande n'a pas pu être envoyée. Merci de réessayer ou de nous appeler directement au <a href="tel:+33478123456">04 78 12 34 56</a>.</p>
+
+            <button type="submit" class="btn btn--dark">Envoyer ma demande</button>
+          </div>
+          <!-- /ÉTAPE 2 -->
+
           <p class="form-note">* Champs obligatoires. Vos coordonnées ne servent qu'à vous recontacter.</p>
         </form>
 
