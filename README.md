@@ -78,6 +78,12 @@ remplacés par vos **photos réelles** en **gardant les mêmes noms** :
 - Vous pouvez aussi mettre des `.jpg`/`.webp` : changez alors les attributs
   `src` des balises `<img>` correspondantes.
 - Les légendes plein écran de la galerie se règlent via `data-caption`.
+- **Avant / après** (bas de la galerie) : remplacer `avant-1.svg` et
+  `apres-1.svg` par deux photos **prises du même endroit, avec le même
+  cadrage** (sinon la comparaison ne fonctionne pas), et adapter les textes
+  `alt` et la légende. Pour ajouter une comparaison, dupliquer le bloc
+  `<figure class="ba">`. Pas de photos avant/après → supprimer tout le bloc
+  `<div class="before-after">`.
 
 ### 5. La vidéo du hero (1 min)
 Dans `index.html`, bloc `<video>` du hero : remplacez le `src` de la balise

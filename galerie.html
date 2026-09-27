@@ -128,6 +128,34 @@
           </figure>
         </div>
 
+        <!-- ============ AVANT / APRÈS ============
+             Comparateur à curseur : glisser (doigt, souris) ou flèches du
+             clavier. Deux photos au MÊME cadrage : avant-1 / apres-1.
+             Pour en ajouter un, dupliquez le bloc <figure class="ba">. -->
+        <div class="before-after" data-reveal>
+          <div class="before-after__head">
+            <p class="kicker">Avant / après</p>
+            <h2>La transformation d'un chantier</h2>
+          </div>
+          <figure class="ba">
+            <div class="ba__frame" data-ba>
+              <img class="ba__img" src="assets/img/apres-1.svg" alt="Après : escalier suspendu en noyer, marches flottantes et garde-corps fin" loading="lazy" width="800" height="600">
+              <div class="ba__before">
+                <img class="ba__img" src="assets/img/avant-1.svg" alt="Avant : ancien escalier fermé, tapis usé, rampe abîmée" loading="lazy" width="800" height="600">
+              </div>
+              <span class="ba__tag ba__tag--before" aria-hidden="true">Avant</span>
+              <span class="ba__tag ba__tag--after" aria-hidden="true">Après</span>
+              <input class="ba__range" type="range" min="0" max="100" value="50" step="1"
+                     aria-label="Comparer avant et après : glisser vers la droite pour voir l'avant" data-ba-range>
+              <span class="ba__handle" aria-hidden="true"></span>
+            </div>
+            <figcaption>
+              <span class="showcase__title">Escalier ancien remplacé par un escalier suspendu en noyer</span>
+              <span class="showcase__place">Rénovation — Caluire</span>
+            </figcaption>
+          </figure>
+        </div>
+
       </div>
     </section>
   </div><!-- /.band -->

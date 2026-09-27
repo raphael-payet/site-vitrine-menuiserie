@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600" role="img" aria-label="Avant : ancien escalier fermé, marches usées">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1d1a16"/>
+      <stop offset="0.55" stop-color="#24201a"/>
+      <stop offset="1" stop-color="#131110"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.28" cy="0.2" r="0.85">
+      <stop offset="0" stop-color="#8f8676" stop-opacity="0.16"/>
+      <stop offset="1" stop-color="#8f8676" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <rect width="800" height="600" fill="url(#glow)"/>
+  <!-- tache d'humidité au mur -->
+  <ellipse cx="640" cy="250" rx="90" ry="60" fill="#5b5243" fill-opacity="0.18"/>
+  <line x1="60" y1="520" x2="740" y2="520" stroke="#9C8F7A" stroke-opacity="0.25" stroke-width="1.5"/>
+  <!-- escalier fermé (caisson plein) -->
+  <path d="M100 520 L100 470 L170 470 L170 410 L240 410 L240 350 L310 350 L310 290 L380 290 L380 230 L450 230 L450 170 L520 170 L520 110 L620 110 L620 520 Z"
+        fill="#2b251d" fill-opacity="0.9" stroke="#9C8F7A" stroke-opacity="0.55" stroke-width="2" stroke-linejoin="round"/>
+  <!-- tapis d'escalier usé -->
+  <path d="M110 470 L170 470 L170 410 L240 410 L240 350 L310 350 L310 290 L380 290 L380 230 L450 230 L450 170 L520 170 L520 110 L590 110"
+        fill="none" stroke="#7a4d3c" stroke-opacity="0.35" stroke-width="9" stroke-dasharray="46 10"/>
+  <!-- fissures -->
+  <g fill="none" stroke="#9C8F7A" stroke-opacity="0.35" stroke-width="1.2">
+    <path d="M560 300 L548 330 L562 352 L551 390"/>
+    <path d="M470 420 L486 446 L476 470"/>
+  </g>
+  <!-- ancienne rampe : un barreau cassé, un manquant -->
+  <path d="M150 300 L585 -10" fill="none" stroke="#9C8F7A" stroke-opacity="0.6" stroke-width="4" stroke-linecap="round"/>
+  <g stroke="#9C8F7A" stroke-opacity="0.55" stroke-width="3" stroke-linecap="round">
+    <line x1="150" y1="470" x2="150" y2="300"/>
+    <line x1="220" y1="410" x2="220" y2="250"/>
+    <line x1="290" y1="350" x2="290" y2="200"/>
+    <line x1="360" y1="290" x2="360" y2="252"/>
+    <line x1="430" y1="230" x2="430" y2="100"/>
+  </g>
+</svg>

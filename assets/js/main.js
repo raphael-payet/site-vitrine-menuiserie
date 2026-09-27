@@ -13,6 +13,7 @@
    7. Carrousel d'avis Google
    8. Bouton d'appel mobile
    9. Carte Google Maps au clic (RGPD)
+   10. Avant / après (galerie)
    ========================================================================== */
 (function () {
   'use strict';
@@ -577,6 +578,22 @@
       frame.appendChild(iframe);
       iframe.focus();
     });
+  });
+
+  /* ------------------------------------------------------------------------
+     10. AVANT / APRÈS — comparateur à curseur (galerie)
+     Le curseur natif (input range) pilote la variable CSS --pos, qui
+     découpe l'image « avant » et place la poignée.
+     ------------------------------------------------------------------------ */
+  document.querySelectorAll('[data-ba]').forEach(function (frame) {
+    var range = frame.querySelector('[data-ba-range]');
+    if (!range) return;
+    var update = function () {
+      frame.style.setProperty('--pos', range.value + '%');
+      range.setAttribute('aria-valuetext', range.value + ' % de l\'image « avant » visible');
+    };
+    range.addEventListener('input', update);
+    update();
   });
 
   /* ------------------------------------------------------------------------
