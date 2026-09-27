@@ -636,6 +636,44 @@ h1, h2, h3 { font-family: var(--font-serif); font-weight: 500; }
    ========================================================================== */
 .section { padding: clamp(70px, 9vw, 110px) 24px; }
 .section--intro { padding: clamp(80px, 10vw, 130px) 24px; }
+
+/* Bandeau de garanties (accueil, sous la présentation) */
+.guarantees {
+  list-style: none;
+  max-width: var(--container);
+  margin: clamp(56px, 7vw, 90px) auto 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+}
+.guarantees li {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 26px 24px;
+  background: var(--bg);
+}
+.guarantees__title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-serif);
+  font-size: 21px;
+  font-weight: 600;
+  color: var(--ink);
+}
+.guarantees__title::before {
+  content: "";
+  flex: none;
+  width: 8px;
+  height: 8px;
+  background: var(--accent);
+  transform: rotate(45deg);
+}
+.guarantees__text { font-size: 14px; line-height: 1.6; color: var(--ink-muted); padding-left: 20px; }
 .section--alt {
   background: var(--bg-2);
   border-top: 1px solid var(--line);
