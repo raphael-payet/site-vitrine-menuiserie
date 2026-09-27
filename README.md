@@ -8,7 +8,8 @@ Ouvrez `index.html` dans un navigateur, c'est tout.
 ```
 .
 ├── index.html            → Accueil (hero vidéo + effet de recouvrement)
-├── services.html         → Services + méthode
+├── services.html         → Services + méthode + FAQ
+├── service-escaliers.html → Page service type (modèle à dupliquer par métier)
 ├── galerie.html          → Réalisations (lightbox plein écran)
 ├── blog.html             → Journal de l'atelier
 ├── contact.html          → Formulaire, coordonnées, Google Maps
@@ -50,7 +51,7 @@ Chaque variable est commentée ; changez-les, tout le site suit.
 
 ### 3. Nom, textes, coordonnées (5 min)
 Tout est dans les fichiers HTML, en clair. Recherchez / remplacez sur les
-8 pages (sans oublier `404.html`) :
+9 pages (sans oublier `404.html` et `service-escaliers.html`) :
 - **Nom** : `Menuiserie Dubois` — si le nom dépasse ~25 caractères, mettre une
   version courte dans l'en-tête (`<span class="brand__name">`) : sur les
   petits téléphones, il passe sinon sur 3 lignes.
@@ -115,7 +116,17 @@ Business.
 ### 7. Les services (2 min)
 - Accueil : cartes `<a class="dark-card">` (3 aperçus).
 - Page services : blocs `<article class="service-card">` — dupliquez-en
-  un pour ajouter un service.
+  un pour ajouter un service. La **FAQ** en bas de page est à valider avec
+  le client (zone, délais, essences).
+- **Page dédiée à un métier** : `service-escaliers.html` sert de modèle.
+  Pour un autre métier, la dupliquer (ex. `service-cuisines.html`), adapter
+  titre, description, adresses (canonical, og:url, fil d'Ariane), textes,
+  image et FAQ, puis l'ajouter au `sitemap.xml` et mettre un lien
+  « En savoir plus → » sur la carte correspondante de `services.html`.
+  Client sans pages dédiées : supprimer le fichier, son lien et sa ligne
+  du sitemap.
+- **Galerie** : chaque réalisation a une fiche technique
+  (`showcase__specs` : essence · finition · durée) à remplir.
 
 ### 8. Google Maps (30 s)
 Dans `contact.html`, section « CARTE » (conteneur premium `.map-card`) :
