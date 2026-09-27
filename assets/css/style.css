@@ -405,6 +405,45 @@ h1, h2, h3 { font-family: var(--font-serif); font-weight: 500; }
   .header-phone { font-size: 14px; }
 }
 
+/* Petits écrans : tout doit tenir sur une ligne, quel que soit le nom du
+   client. La marque se réduit (et passe sur 2 lignes si le nom est très
+   long) ; le téléphone devient une pastille icône ; le bouton Menu garde
+   une largeur fixe pour ne pas bouger en passant à « Fermer ». */
+@media (max-width: 600px) {
+  .site-header__inner { gap: 12px; padding-inline: 16px; }
+  .brand { flex: 1 1 auto; min-width: 0; gap: 10px; }
+  .brand__text { min-width: 0; }
+  .brand__name { font-size: 19px; line-height: 1.1; }
+  .brand__tagline { display: none; }
+  .header-actions { flex: none; gap: 10px; }
+  .menu-toggle { flex: none; min-width: 84px; padding: 9px 10px; }
+
+  /* Téléphone : le numéro reste lu par les lecteurs d'écran, mais
+     l'affichage devient une icône (même dessin que le bouton flottant). */
+  .header-phone {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    font-size: 0;
+    letter-spacing: 0;
+    border: 1px solid var(--accent);
+    border-radius: 50%;
+  }
+  .header-phone::before {
+    content: "";
+    width: 18px;
+    height: 18px;
+    background-color: currentColor;
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.85 21 3 13.15 3 3.5a1 1 0 0 1 1-1H7.5a1 1 0 0 1 1 1c0 1.24.2 2.45.57 3.57a1 1 0 0 1-.24 1.02l-2.2 2.2Z'/%3E%3C/svg%3E") center / contain no-repeat;
+            mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.85 21 3 13.15 3 3.5a1 1 0 0 1 1-1H7.5a1 1 0 0 1 1 1c0 1.24.2 2.45.57 3.57a1 1 0 0 1-.24 1.02l-2.2 2.2Z'/%3E%3C/svg%3E") center / contain no-repeat;
+  }
+  .header-phone:hover { background: var(--accent); color: var(--on-accent); }
+
+  .nav-mobile { padding-inline: 16px; }
+}
+
 
 /* ==========================================================================
    6. HERO — vidéo de fond, contenu qui défile, section suivante qui recouvre
@@ -610,6 +649,11 @@ h1, h2, h3 { font-family: var(--font-serif); font-weight: 500; }
   padding-top: clamp(130px, 16vw, 180px);
   padding-bottom: clamp(140px, 17vw, 190px);
   color: var(--band-ink-2);
+  /* Coupe au bord de l'écran ce qui dépasse sur les côtés (cartes latérales
+     du carrousel d'avis). Sans ça, un téléphone élargit toute la page et
+     l'en-tête sort de l'écran. « clip » (et non « hidden ») : ne gêne pas
+     le défilement ni les éléments collants. */
+  overflow-x: clip;
 }
 .band h2 { color: var(--band-ink); }
 .band a { color: var(--band-ink); }
@@ -623,7 +667,7 @@ h1, h2, h3 { font-family: var(--font-serif); font-weight: 500; }
 /* --- Cartes services (fond sombre, page d'accueil) */
 .dark-cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
   gap: 24px;
 }
 .dark-card {
@@ -643,7 +687,7 @@ h1, h2, h3 { font-family: var(--font-serif); font-weight: 500; }
 /* --- Grille galerie (accueil) */
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
   gap: 24px;
 }
 .gallery-item { display: flex; flex-direction: column; gap: 14px; margin: 0; }
@@ -666,7 +710,7 @@ h1, h2, h3 { font-family: var(--font-serif); font-weight: 500; }
 .showcase { display: flex; flex-direction: column; gap: clamp(48px, 6vw, 80px); }
 .showcase__duo {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
   gap: clamp(24px, 3vw, 40px);
 }
 .showcase figure { margin: 0; display: flex; flex-direction: column; gap: 16px; }
@@ -705,7 +749,7 @@ h1, h2, h3 { font-family: var(--font-serif); font-weight: 500; }
 /* --- À propos */
 .about {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
   gap: clamp(40px, 6vw, 90px);
   align-items: center;
 }
@@ -744,7 +788,7 @@ h1, h2, h3 { font-family: var(--font-serif); font-weight: 500; }
 .reviews-intro { margin: 0; font-size: 16px; color: var(--band-text); }
 .reviews {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
   gap: 24px;
 }
 .review {
@@ -775,7 +819,7 @@ h1, h2, h3 { font-family: var(--font-serif); font-weight: 500; }
 /* --- Cartes blog */
 .blog-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
   gap: clamp(24px, 3vw, 40px);
 }
 .blog-card {
@@ -816,7 +860,7 @@ h1, h2, h3 { font-family: var(--font-serif); font-weight: 500; }
 /* --- Article à la une (page blog) */
 .blog-featured {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
   gap: clamp(32px, 5vw, 70px);
   align-items: center;
   background: var(--band-card);
@@ -846,7 +890,7 @@ h1, h2, h3 { font-family: var(--font-serif); font-weight: 500; }
 /* --- Cartes services (page services, sur beige) */
 .service-cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
   gap: 24px;
 }
 .service-card {

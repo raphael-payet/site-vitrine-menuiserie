@@ -44,7 +44,9 @@ Chaque variable est commentée ; changez-les, tout le site suit.
 ### 3. Nom, textes, coordonnées (5 min)
 Tout est dans les fichiers HTML, en clair. Recherchez / remplacez sur les
 5 pages :
-- **Nom** : `Menuiserie Dubois`
+- **Nom** : `Menuiserie Dubois` — si le nom dépasse ~25 caractères, mettre une
+  version courte dans l'en-tête (`<span class="brand__name">`) : sur les
+  petits téléphones, il passe sinon sur 3 lignes.
 - **Téléphone** : `04 78 12 34 56` et les liens `tel:+33478123456`
 - **Email** : `contact@menuiserie-dubois.fr`
 - **Adresse** : `12 rue des Charpentiers`, `69003 Lyon`
