@@ -14,6 +14,8 @@ Ouvrez `index.html` dans un navigateur, c'est tout.
 ├── contact.html          → Formulaire, coordonnées, Google Maps
 ├── mentions-legales.html          → Mentions légales ({{PLACEHOLDERS}})
 ├── politique-confidentialite.html → Politique de confidentialité ({{PLACEHOLDERS}})
+├── 404.html              → Page « introuvable » (servie par l'hébergeur)
+├── robots.txt, sitemap.xml → Pour les moteurs de recherche (domaine à changer)
 ├── assets/
 │   ├── css/style.css     → styles (couleurs & polices dans :root, tout en haut)
 │   ├── js/main.js        → interactions (config en haut du fichier)
@@ -48,7 +50,7 @@ Chaque variable est commentée ; changez-les, tout le site suit.
 
 ### 3. Nom, textes, coordonnées (5 min)
 Tout est dans les fichiers HTML, en clair. Recherchez / remplacez sur les
-5 pages :
+8 pages (sans oublier `404.html`) :
 - **Nom** : `Menuiserie Dubois` — si le nom dépasse ~25 caractères, mettre une
   version courte dans l'en-tête (`<span class="brand__name">`) : sur les
   petits téléphones, il passe sinon sur 3 lignes.
@@ -59,6 +61,8 @@ Tout est dans les fichiers HTML, en clair. Recherchez / remplacez sur les
 - Le bloc **SEO** de chaque page (`<title>`, `<meta name="description">`,
   `<link rel="canonical">`) et les **données structurées** JSON-LD dans
   `index.html`.
+- **Domaine du site** : `robots.txt` et `sitemap.xml` (même domaine que les
+  URL canoniques). Nouvelle page ? L'ajouter au `sitemap.xml`.
 - **Logo** : remplacez le losange `<span class="brand__diamond">` par
   `<img src="assets/img/logo.svg" alt="" height="40">` (commentaire dans
   le code).

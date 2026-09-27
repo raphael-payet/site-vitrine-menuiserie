@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Plan du site pour les moteurs de recherche.
+     ⚙️ À PERSONNALISER : remplacer le domaine par celui du client
+     (même domaine que les <link rel="canonical"> des pages).
+     Les pages légales et la 404 (en noindex) n'y figurent pas. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://www.menuiserie-dubois.fr/</loc></url>
+  <url><loc>https://www.menuiserie-dubois.fr/services.html</loc></url>
+  <url><loc>https://www.menuiserie-dubois.fr/galerie.html</loc></url>
+  <url><loc>https://www.menuiserie-dubois.fr/blog.html</loc></url>
+  <url><loc>https://www.menuiserie-dubois.fr/contact.html</loc></url>
+</urlset>

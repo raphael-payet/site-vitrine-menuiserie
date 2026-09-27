@@ -612,6 +612,9 @@ h1, h2, h3 { font-family: var(--font-serif); font-weight: 500; }
   max-width: 16ch;
 }
 .page-head .kicker { margin-bottom: 18px; letter-spacing: 0.3em; }
+/* Page 404 : occupe l'écran, boutons pour repartir */
+.page-head--404 { min-height: 70svh; display: flex; align-items: center; }
+.page-head__actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 34px; }
 .page-head__text {
   margin: 26px 0 0;
   font-size: 17px;

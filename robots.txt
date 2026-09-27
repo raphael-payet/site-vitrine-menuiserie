@@ -1,0 +1,6 @@
+# Autorise tous les moteurs de recherche à parcourir le site.
+# ⚙️ À PERSONNALISER : remplacer le domaine par celui du client.
+User-agent: *
+Allow: /
+
+Sitemap: https://www.menuiserie-dubois.fr/sitemap.xml

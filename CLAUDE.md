@@ -20,6 +20,8 @@ nécessaire pour que la carte Google Maps de la page contact s'affiche.
 index.html                       Accueil
 services.html  galerie.html  blog.html  contact.html
 mentions-legales.html  politique-confidentialite.html
+404.html                         Page introuvable (noindex)
+robots.txt  sitemap.xml          Pour les moteurs (domaine à personnaliser)
 assets/css/style.css             TOUS les styles (sections numérotées)
 assets/js/main.js                TOUTES les interactions (modules numérotés)
 assets/img/                      Illustrations SVG + texture + favicon
@@ -28,7 +30,7 @@ assets/fonts/                    Polices hébergées (RGPD) + licences OFL
 
 L'en-tête et le pied de page sont **dupliqués dans chaque page** (pas
 d'includes, site statique). Toute modification de nav/footer doit être
-répercutée sur les 7 pages.
+répercutée sur les 8 pages (y compris `404.html`).
 
 ## Conventions
 
@@ -77,7 +79,8 @@ Maps chargée au clic (RGPD) · **comparateur avant / après** (galerie :
 ## À personnaliser pour un nouveau client
 
 Le `README.md` détaille la procédure complète. En résumé : couleurs (`:root`),
-nom/coordonnées (rechercher-remplacer sur les 7 pages), images
+nom/coordonnées (rechercher-remplacer sur les 8 pages, plus le domaine
+dans `robots.txt` et `sitemap.xml`), images
 (`assets/img/`, mêmes noms de fichiers), avis Google, services, clé
 Web3Forms et messagerie pour les photos (WhatsApp, SMS ou Messenger) du
 formulaire, adresse Google Maps, placeholders légaux, métadonnées SEO et
