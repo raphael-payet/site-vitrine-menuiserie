@@ -17,6 +17,7 @@ Ouvrez `index.html` dans un navigateur, c'est tout.
 ├── assets/
 │   ├── css/style.css     → styles (couleurs & polices dans :root, tout en haut)
 │   ├── js/main.js        → interactions (config en haut du fichier)
+│   ├── fonts/            → polices hébergées + leurs licences
 │   └── img/              → images (placeholders SVG à remplacer)
 └── README.md
 ```
@@ -38,8 +39,12 @@ Chaque variable est commentée ; changez-les, tout le site suit.
 
 ### 2. Les polices (1 min)
 - Titres : `--font-serif` (Cormorant Garamond) — texte : `--font-sans` (Jost).
-- Si vous changez de police, mettez aussi à jour le `<link>` Google Fonts
-  dans le `<head>` de **chaque page**.
+- Les polices sont **hébergées sur le site** (`assets/fonts/`) : aucun appel
+  à Google Fonts, donc aucune adresse IP de visiteur transmise (RGPD).
+- Pour changer de police : télécharger le fichier `.woff2` « variable »
+  (jeu latin) et sa licence dans `assets/fonts/`, mettre à jour les deux
+  blocs `@font-face` juste après `:root` dans `style.css`, puis les deux
+  lignes `<link rel="preload">` dans le `<head>` de **chaque page**.
 
 ### 3. Nom, textes, coordonnées (5 min)
 Tout est dans les fichiers HTML, en clair. Recherchez / remplacez sur les
@@ -204,7 +209,8 @@ simple rechercher/remplacer suffit :
 
 ## Détails techniques
 
-- **Performances** : aucune dépendance hors Google Fonts (préconnecté),
+- **Performances** : aucune dépendance externe (polices hébergées et
+  préchargées),
   images `loading="lazy"`, JS `defer`, une seule boucle de scroll (rAF).
 - **SEO** : HTML sémantique, métadonnées par page, Open Graph, JSON-LD
   `Carpenter` (schema.org), `alt` sur toutes les images.

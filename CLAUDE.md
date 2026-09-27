@@ -23,6 +23,7 @@ mentions-legales.html  politique-confidentialite.html
 assets/css/style.css             TOUS les styles (sections numérotées)
 assets/js/main.js                TOUTES les interactions (modules numérotés)
 assets/img/                      Illustrations SVG + texture + favicon
+assets/fonts/                    Polices hébergées (RGPD) + licences OFL
 ```
 
 L'en-tête et le pied de page sont **dupliqués dans chaque page** (pas
