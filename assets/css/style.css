@@ -51,10 +51,13 @@
   --band-ink:   #2A2013;   /* titres sur beige                      */
   --band-ink-2: #3A2E1B;   /* texte fort sur beige                  */
   --band-text:  #5A4830;   /* texte courant sur beige               */
-  --band-muted: #6E5A3C;   /* légendes sur beige                    */
-  --band-faint: #7C6A47;   /* mentions discrètes sur beige          */
-  --band-accent:        #8A5A22;   /* accent sur beige              */
-  --band-accent-strong: #5E3B14;   /* accent au survol              */
+  --band-muted: #5A4931;   /* légendes sur beige                    */
+  --band-faint: #69593C;   /* mentions discrètes (sur cartes)       */
+  --band-accent:        #8A5A22;   /* doré : étoiles, grands chiffres, puces */
+  --band-accent-text:   #69441A;   /* doré des petits textes (lisible)      */
+  --band-accent-strong: #4B2F10;   /* doré au survol                        */
+  /* Lisibilité (contraste ≥ 4,5 pour les petits textes) : si vous changez
+     --band-bg, vérifiez --band-accent-text, --band-muted et --band-faint. */
   --band-line: rgba(42, 32, 19, 0.14);
 
   /* --- Gabarit */
@@ -139,7 +142,7 @@ h1, h2, h3 { font-family: var(--font-serif); font-weight: 500; }
   color: var(--accent);
   font-weight: 500;
 }
-.band .kicker { color: var(--band-accent); }
+.band .kicker { color: var(--band-accent-text); }
 
 .diamond {
   width: 9px;
@@ -167,7 +170,7 @@ h1, h2, h3 { font-family: var(--font-serif); font-weight: 500; }
   padding-bottom: 6px;
 }
 .link-more:hover { color: var(--accent-strong); border-color: var(--accent); }
-.band .link-more { color: var(--band-accent); border-color: rgba(138, 90, 34, 0.4); }
+.band .link-more { color: var(--band-accent-text); border-color: rgba(138, 90, 34, 0.4); }
 .band .link-more:hover { color: var(--band-accent-strong); border-color: var(--band-accent-strong); }
 
 /* En-tête de section : titre + lien à droite */
@@ -671,7 +674,7 @@ h1, h2, h3 { font-family: var(--font-serif); font-weight: 500; }
 }
 .band h2 { color: var(--band-ink); }
 .band a { color: var(--band-ink); }
-.band a:hover { color: var(--band-accent); }
+.band a:hover { color: var(--band-accent-text); }
 
 
 /* ==========================================================================
@@ -842,7 +845,7 @@ h1, h2, h3 { font-family: var(--font-serif); font-weight: 500; }
   gap: 18px;
   color: var(--band-ink);
 }
-.blog-card:hover { color: var(--band-accent); }
+.blog-card:hover { color: var(--band-accent-text); }
 .blog-card:hover img { transform: scale(1.02); }
 .blog-card img {
   width: 100%;
@@ -868,7 +871,7 @@ h1, h2, h3 { font-family: var(--font-serif); font-weight: 500; }
   font-size: 13px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--band-accent);
+  color: var(--band-accent-text);
 }
 
 /* --- Article à la une (page blog) */
@@ -890,7 +893,7 @@ h1, h2, h3 { font-family: var(--font-serif); font-weight: 500; }
   font-size: 12px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--band-accent);
+  color: var(--band-accent-text);
 }
 .blog-featured h2 {
   margin: 0;
@@ -923,7 +926,7 @@ h1, h2, h3 { font-family: var(--font-serif); font-weight: 500; }
   gap: 14px;
   flex: 1;
 }
-.service-card__num { font-family: var(--font-serif); font-size: 19px; color: var(--band-accent); }
+.service-card__num { font-family: var(--font-serif); font-size: 19px; color: var(--band-accent-text); }
 .service-card h2 {
   margin: 0;
   font-family: var(--font-serif);
@@ -939,7 +942,7 @@ h1, h2, h3 { font-family: var(--font-serif); font-weight: 500; }
   font-size: 13px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--band-accent);
+  color: var(--band-accent-text);
 }
 .service-card__link:hover { color: var(--band-accent-strong); }
 
@@ -1137,7 +1140,7 @@ h1, h2, h3 { font-family: var(--font-serif); font-weight: 500; }
   font-size: 12px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--band-accent);
+  color: var(--band-accent-text);
 }
 .contact-info__item p { margin: 0; font-size: 17px; line-height: 1.7; color: var(--band-ink-2); }
 .contact-info__phone { font-size: 22px; font-weight: 500; color: var(--band-ink); }
