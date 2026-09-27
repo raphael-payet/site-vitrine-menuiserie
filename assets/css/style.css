@@ -655,13 +655,17 @@ h1, h2, h3 { font-family: var(--font-serif); font-weight: 500; }
    coupure brutale entre les sections.
    ========================================================================== */
 .band {
+  /* Hauteur des fondus haut/bas : toujours inférieure aux marges internes
+     (padding) de la bande, pour que le texte ne tombe jamais dans la zone
+     assombrie. Si vous réduisez le padding d'une bande, vérifiez-le. */
+  --band-fade: clamp(100px, 12vw, 160px);
   background:
-    linear-gradient(180deg, var(--bg) 0%, rgba(16, 13, 10, 0) 200px),
-    linear-gradient(0deg,  var(--bg) 0%, rgba(16, 13, 10, 0) 200px),
+    linear-gradient(180deg, var(--bg), rgba(16, 13, 10, 0)),
+    linear-gradient(0deg,  var(--bg), rgba(16, 13, 10, 0)),
     url('../img/texture-marbre.svg'),
     var(--band-bg);
   background-repeat: no-repeat, no-repeat, repeat, repeat;
-  background-size: 100% 200px, 100% 200px, 880px, auto;
+  background-size: 100% var(--band-fade), 100% var(--band-fade), 880px, auto;
   background-position: top, bottom, center, center;
   padding-top: clamp(130px, 16vw, 180px);
   padding-bottom: clamp(140px, 17vw, 190px);
