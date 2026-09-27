@@ -17,6 +17,7 @@ Ouvrez `index.html` dans un navigateur, c'est tout.
 ├── politique-confidentialite.html → Politique de confidentialité ({{PLACEHOLDERS}})
 ├── 404.html              → Page « introuvable » (servie par l'hébergeur)
 ├── robots.txt, sitemap.xml → Pour les moteurs de recherche (domaine à changer)
+├── manifest.webmanifest → Nom et icônes pour l'écran d'accueil des téléphones
 ├── assets/
 │   ├── css/style.css     → styles (couleurs & polices dans :root, tout en haut)
 │   ├── js/main.js        → interactions (config en haut du fichier)
@@ -79,6 +80,21 @@ remplacés par vos **photos réelles** en **gardant les mêmes noms** :
 > Pour une photo, remplacez le fichier `.svg` par un `.jpg`/`.webp` et mettez
 > à jour l'attribut `src` de la balise `<img>` (ou `poster` de la vidéo)
 > correspondante.
+
+**Consigne photos à donner au client** (sinon le site devient très lent) :
+- photos **horizontales**, bien éclairées, sans personnes reconnaissables
+  sans leur accord ;
+- avant mise en ligne, les redimensionner à **1600 px de large maximum** et
+  les enregistrer en **JPEG qualité ~80** (ou WebP) : viser **200 à 300 Ko
+  par photo**. Une photo de téléphone brute (4 à 8 Mo) ralentit tout le
+  site ;
+- garder les attributs `width` / `height` des balises `<img>` (évite que la
+  page « saute » au chargement).
+
+**Icônes** (écran d'accueil iPhone / Android) : `apple-touch-icon.png`
+(180 px), `icon-192.png` et `icon-512.png`, carrées, **sans transparence**,
+générées à partir du logo du client. Le nom affiché est dans
+`manifest.webmanifest`.
 
 - Vous pouvez aussi mettre des `.jpg`/`.webp` : changez alors les attributs
   `src` des balises `<img>` correspondantes.

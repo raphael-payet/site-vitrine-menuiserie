@@ -19,6 +19,7 @@
    15. Carte Google Maps (conteneur premium)
    16. Pages légales
    17. Accessibilité & préférences
+   18. Impression
    ========================================================================== */
 
 
@@ -1813,4 +1814,36 @@ h1, h2, h3 { font-family: var(--font-serif); font-weight: 500; }
   .js [data-reveal-stagger] > * { opacity: 1; transform: none; }
   .hero { position: relative; }
   .cf-review { transition: none; }
+}
+
+
+/* ==========================================================================
+   18. IMPRESSION
+   Un prospect qui imprime une page (contact, services…) obtient du texte
+   noir sur fond blanc, sans menus, vidéo, carte ni boutons d'action.
+   ========================================================================== */
+@media print {
+  *, *::before, *::after {
+    color: #000 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+    filter: none !important;
+  }
+  body { padding: 0 !important; font-size: 12pt; }
+  .site-header, .nav-mobile, .menu-veil, .mobile-bar, .skip-link,
+  .hero__media, .cta__actions, .map-section, .coverflow__nav,
+  .lightbox, .form-trap, .ba__range, .ba__handle, [data-map] {
+    display: none !important;
+  }
+  .hero { position: static; min-height: 0; padding: 24pt 0; }
+  .hero__inner { transform: none !important; opacity: 1 !important; }
+  .page-head, .section, .section--intro, .section--alt, .cta, .band {
+    padding: 16pt 0 !important;
+  }
+  [data-reveal], [data-reveal-stagger] > * { opacity: 1 !important; transform: none !important; }
+  img { max-width: 60% !important; height: auto !important; page-break-inside: avoid; }
+  h1, h2, h3 { page-break-after: avoid; }
+  /* Adresse des liens externes imprimée après le texte */
+  main a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 9pt; }
 }

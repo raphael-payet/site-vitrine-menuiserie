@@ -23,6 +23,7 @@ galerie.html  blog.html  contact.html
 mentions-legales.html  politique-confidentialite.html
 404.html                         Page introuvable (noindex)
 robots.txt  sitemap.xml          Pour les moteurs (domaine à personnaliser)
+manifest.webmanifest             Nom + icônes pour l'écran d'accueil des téléphones
 assets/css/style.css             TOUS les styles (sections numérotées)
 assets/js/main.js                TOUTES les interactions (modules numérotés)
 assets/img/                      Illustrations SVG + texture + favicon
