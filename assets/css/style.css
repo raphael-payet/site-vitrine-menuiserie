@@ -398,6 +398,20 @@ h1, h2, h3 { font-family: var(--font-serif); font-weight: 500; }
 .nav-mobile .btn { margin-top: 20px; border-bottom: none; }
 .site-header.is-open .nav-mobile { display: flex; }
 
+/* Voile sombre derrière le menu ouvert (élément créé par main.js, placé
+   hors de l'en-tête : le flou de l'en-tête empêcherait un voile interne de
+   couvrir tout l'écran). Un toucher dessus referme le menu. */
+.menu-veil {
+  position: fixed;
+  inset: 0;
+  z-index: 99;               /* juste sous l'en-tête (100) */
+  background: var(--bg);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s var(--ease), visibility 0.3s;
+}
+.menu-veil.is-visible { opacity: 0.6; visibility: visible; }
+
 @media (max-width: 960px) {
   .nav-desktop, .header-actions .btn { display: none; }
   .menu-toggle { display: inline-block; }

@@ -47,20 +47,47 @@
   var menuToggle = document.querySelector('[data-menu-toggle]');
 
   if (menuToggle && header) {
-    menuToggle.addEventListener('click', function () {
-      var open = header.classList.toggle('is-open');
+    // Voile sombre derrière le menu (voir CSS .menu-veil)
+    var menuVeil = document.createElement('div');
+    menuVeil.className = 'menu-veil';
+    menuVeil.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(menuVeil);
+
+    // Ouvre / ferme le menu. Tant qu'il est ouvert, la page derrière ne
+    // défile plus (même mécanisme que la lightbox) et le voile la recouvre.
+    var setMenu = function (open) {
+      header.classList.toggle('is-open', open);
+      menuVeil.classList.toggle('is-visible', open);
       menuToggle.setAttribute('aria-expanded', String(open));
       menuToggle.textContent = open ? 'Fermer' : 'Menu';
-    });
+      document.body.style.overflow = open ? 'hidden' : '';
+    };
+    var isMenuOpen = function () { return header.classList.contains('is-open'); };
+
+    menuToggle.addEventListener('click', function () { setMenu(!isMenuOpen()); });
 
     // Referme le menu quand on choisit une page
     header.querySelectorAll('.nav-mobile a').forEach(function (link) {
-      link.addEventListener('click', function () {
-        header.classList.remove('is-open');
-        menuToggle.setAttribute('aria-expanded', 'false');
-        menuToggle.textContent = 'Menu';
-      });
+      link.addEventListener('click', function () { setMenu(false); });
     });
+
+    // Toucher le voile (en dehors du menu) referme le menu
+    menuVeil.addEventListener('click', function () { setMenu(false); });
+
+    // Touche Échap : referme et rend le focus au bouton
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && isMenuOpen()) {
+        setMenu(false);
+        menuToggle.focus();
+      }
+    });
+
+    // Passage en affichage ordinateur (rotation de tablette…) : le menu
+    // mobile disparaît, on libère aussi le défilement.
+    var desktopQuery = window.matchMedia('(min-width: 961px)');
+    var onDesktop = function (mq) { if (mq.matches && isMenuOpen()) setMenu(false); };
+    if (desktopQuery.addEventListener) desktopQuery.addEventListener('change', onDesktop);
+    else if (desktopQuery.addListener) desktopQuery.addListener(onDesktop);
   }
 
   /* ------------------------------------------------------------------------
