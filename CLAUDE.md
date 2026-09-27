@@ -36,9 +36,13 @@ répercutée sur les 7 pages.
   et bande beige marbrée (`--band-*`). Ne pas coder de couleur en dur.
 - **`style.css` et `main.js`** sont organisés en sections numérotées avec un
   sommaire en tête. Ajouter une fonctionnalité = ajouter une section.
-- **Formulaire de contact** : prêt à brancher, via la constante
-  `FORM_ENDPOINT` en haut de `main.js` (vide = mode démo qui confirme sans
-  envoyer).
+- **Formulaire de contact** : envoi via Web3Forms. La clé du client vit à
+  **un seul endroit** : le champ caché `access_key` de `contact.html`
+  (placeholder `{{WEB3FORMS_ACCESS_KEY}}`). Garde-fou : clé absente ou
+  placeholder → message d'**erreur**. Le succès ne s'affiche que si
+  Web3Forms répond `success: true`. Ne jamais réintroduire de « mode démo »
+  qui confirme sans envoyer. Anti-spam : champ piège maison
+  `champ_controle` (le `botcheck` de Web3Forms est déprécié).
 - **Pages légales** : rédigées avec des placeholders `{{NOM_ENTREPRISE}}`,
   `{{SIRET}}`… Chaque page liste ses variables dans un commentaire HTML en
   tête.

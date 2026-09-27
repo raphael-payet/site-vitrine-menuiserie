@@ -82,10 +82,29 @@
     <section class="section" style="padding-block:0;">
       <div class="container contact-layout" style="padding-inline:0;">
 
-        <!-- Formulaire — prêt à brancher : renseignez FORM_ENDPOINT
-             en haut de assets/js/main.js (Formspree, Getform, Web3Forms…) -->
-        <form class="contact-form" data-contact-form data-reveal>
+        <!-- Formulaire — envoi via Web3Forms (voir README, étape 9).
+             ⚙️ À PERSONNALISER :
+               {{WEB3FORMS_ACCESS_KEY}} → clé reçue par email de Web3Forms
+               {{WHATSAPP_NUMERO}}      → portable du client au format
+                                          international sans « + » ni 0
+                                          (06 12 34 56 78 → 33612345678)
+             Tant que la clé n'est pas renseignée, l'envoi affiche une
+             ERREUR (jamais un faux succès). -->
+        <form class="contact-form" data-contact-form data-reveal
+              action="https://api.web3forms.com/submit" method="POST">
           <h2>Demande de devis</h2>
+
+          <!-- Réglages Web3Forms (champs cachés) -->
+          <input type="hidden" name="access_key" value="{{WEB3FORMS_ACCESS_KEY}}">
+          <input type="hidden" name="subject" value="Nouvelle demande de devis — site Menuiserie Dubois">
+          <input type="hidden" name="from_name" value="Site Menuiserie Dubois">
+
+          <!-- Piège à robots : invisible et inatteignable pour un humain.
+               Un robot qui le remplit bloque l'envoi. -->
+          <div class="form-trap" aria-hidden="true">
+            <label>Ne pas remplir <input type="text" name="champ_controle" tabindex="-1" autocomplete="off"></label>
+            <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off">
+          </div>
 
           <div class="contact-form__row">
             <label class="field">
@@ -99,8 +118,9 @@
           </div>
 
           <label class="field">
-            <span>Email</span>
-            <input name="email" type="email" autocomplete="email" placeholder="vous@exemple.fr">
+            <span>Email *</span>
+            <!-- « required » à retirer pour rendre l'email facultatif (README, étape 9) -->
+            <input required name="email" type="email" autocomplete="email" placeholder="vous@exemple.fr">
           </label>
 
           <label class="field">
@@ -108,8 +128,16 @@
             <textarea required name="message" rows="5" placeholder="Décrivez votre projet : type d'ouvrage, dimensions approximatives, délais souhaités…"></textarea>
           </label>
 
-          <p class="form-message form-message--success" role="status">Merci&nbsp;! Votre demande a bien été envoyée. Nous vous recontactons sous 48 h.</p>
-          <p class="form-message form-message--error" role="alert">Une erreur est survenue. Merci de réessayer ou de nous appeler directement.</p>
+          <label class="field-check">
+            <input required type="checkbox" name="consentement" value="Oui">
+            <span>J'accepte que mes coordonnées soient utilisées pour être recontacté(e) au sujet de ma demande. <a href="politique-confidentialite.html">Politique de confidentialité</a> *</span>
+          </label>
+
+          <p class="form-message form-message--success" role="status">
+            Merci&nbsp;! Votre demande est bien partie, nous vous recontactons sous 48&nbsp;h.<br>
+            Vous avez des photos ou un croquis&nbsp;? Envoyez-les à <a href="mailto:contact@menuiserie-dubois.fr">contact@menuiserie-dubois.fr</a><!-- WHATSAPP : supprimer de « ou » jusqu'à </a> si le client n'utilise pas WhatsApp --> ou <a href="https://wa.me/{{WHATSAPP_NUMERO}}" target="_blank" rel="noopener">par WhatsApp</a> — ça nous aide beaucoup à préparer le devis.
+          </p>
+          <p class="form-message form-message--error" role="alert">Une erreur est survenue et votre demande n'a pas pu être envoyée. Merci de réessayer ou de nous appeler directement au <a href="tel:+33478123456">04 78 12 34 56</a>.</p>
 
           <button type="submit" class="btn btn--dark">Envoyer ma demande</button>
           <p class="form-note">* Champs obligatoires. Vos coordonnées ne servent qu'à vous recontacter.</p>

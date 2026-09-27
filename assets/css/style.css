@@ -967,8 +967,39 @@ h1, h2, h3 { font-family: var(--font-serif); font-weight: 500; }
 .field textarea:focus { border-color: var(--band-accent); }
 .field ::placeholder { color: var(--band-faint); opacity: 1; }
 
+/* Case de consentement RGPD */
+.field-check {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--band-text);
+  cursor: pointer;
+}
+.field-check input {
+  flex: none;
+  width: 18px;
+  height: 18px;
+  margin: 2px 0 0;
+  accent-color: var(--band-accent);
+  cursor: pointer;
+}
+.field-check input:focus-visible { outline: 2px solid var(--band-accent); outline-offset: 3px; }
+.field-check a { text-decoration: underline; text-underline-offset: 3px; }
+
+/* Piège à robots : hors écran, jamais visible ni atteignable */
+.form-trap {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
 .contact-form .btn { align-self: flex-start; }
 .form-note { margin: 0; font-size: 12.5px; color: var(--band-faint); }
+.form-message a { text-decoration: underline; text-underline-offset: 3px; }
 
 .form-message {
   margin: 0;

@@ -3,7 +3,7 @@
    Vanilla JS, aucune dépendance.
    --------------------------------------------------------------------------
    SOMMAIRE
-   0. Configuration            ← À PERSONNALISER
+   0. Configuration
    1. En-tête (fond au scroll)
    2. Menu mobile
    3. Hero (parallaxe + recouvrement)
@@ -18,11 +18,10 @@
   /* ------------------------------------------------------------------------
      0. CONFIGURATION
      ------------------------------------------------------------------------ */
-  // Endpoint d'envoi du formulaire (Formspree, Getform, Basin, Web3Forms…).
-  // Laisser vide pour le mode démo : un message de confirmation s'affiche
-  // sans rien envoyer.
-  // Exemple : var FORM_ENDPOINT = 'https://formspree.io/f/VOTRE_ID';
-  var FORM_ENDPOINT = '';
+  // Service d'envoi du formulaire : Web3Forms. Ne pas modifier.
+  // La clé propre à chaque client se renseigne dans contact.html
+  // (champ caché access_key), et nulle part ailleurs.
+  var FORM_ENDPOINT = 'https://api.web3forms.com/submit';
 
   var prefersReducedMotion =
     window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -214,7 +213,10 @@
   }
 
   /* ------------------------------------------------------------------------
-     6. FORMULAIRE DE CONTACT — prêt à brancher sur un service d'envoi
+     6. FORMULAIRE DE CONTACT — envoi via Web3Forms
+     Règle d'or : le message de succès ne s'affiche QUE si Web3Forms confirme
+     la réception (success: true). Clé absente, piège à robots déclenché,
+     erreur réseau ou refus du service → message d'erreur, jamais de succès.
      ------------------------------------------------------------------------ */
   var form = document.querySelector('[data-contact-form]');
 
@@ -222,21 +224,36 @@
     var successMessage = form.querySelector('.form-message--success');
     var errorMessage = form.querySelector('.form-message--error');
     var submitButton = form.querySelector('[type="submit"]');
+    var keyField = form.querySelector('[name="access_key"]');
+
+    var showError = function (reason) {
+      if (window.console) console.error('[Formulaire] Demande NON envoyée : ' + reason);
+      if (errorMessage) errorMessage.classList.add('is-visible');
+    };
 
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       if (successMessage) successMessage.classList.remove('is-visible');
       if (errorMessage) errorMessage.classList.remove('is-visible');
 
-      // Mode démo : pas d'endpoint configuré, on confirme simplement.
-      if (!FORM_ENDPOINT) {
-        if (successMessage) successMessage.classList.add('is-visible');
-        form.reset();
+      // Garde-fou : clé absente ou placeholder {{…}} non remplacé.
+      var accessKey = keyField ? keyField.value.trim() : '';
+      if (!accessKey || accessKey.indexOf('{{') !== -1) {
+        showError('clé Web3Forms non configurée dans contact.html (champ access_key).');
+        return;
+      }
+
+      // Piège à robots : un humain ne voit pas ces champs.
+      var trapField = form.querySelector('[name="champ_controle"]');
+      var trapBox = form.querySelector('[name="botcheck"]');
+      if ((trapField && trapField.value) || (trapBox && trapBox.checked)) {
+        showError('champ piège rempli (robot probable).');
         return;
       }
 
       var data = {};
       new FormData(form).forEach(function (value, key) { data[key] = value; });
+      delete data.champ_controle; // inutile dans l'email reçu
 
       if (submitButton) {
         submitButton.disabled = true;
@@ -250,12 +267,19 @@
         body: JSON.stringify(data)
       })
         .then(function (response) {
-          if (!response.ok) throw new Error('Réponse ' + response.status);
+          return response.json().then(function (result) {
+            if (!response.ok || !result || result.success !== true) {
+              throw new Error('réponse ' + response.status +
+                (result && result.message ? ' : ' + result.message : ''));
+            }
+          });
+        })
+        .then(function () {
           if (successMessage) successMessage.classList.add('is-visible');
           form.reset();
         })
-        .catch(function () {
-          if (errorMessage) errorMessage.classList.add('is-visible');
+        .catch(function (err) {
+          showError('refus ou panne du service d\'envoi (' + err.message + ').');
         })
         .then(function () {
           if (submitButton) {

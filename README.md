@@ -98,19 +98,43 @@ Dans `contact.html`, section « CARTE » (conteneur premium `.map-card`) :
 changez l'adresse à **deux** endroits — le paramètre `q=` de l'iframe **et**
 le `destination=` du bouton « Itinéraire ».
 
-### 9. Le formulaire de contact (2 min)
-Prêt à être connecté. Par défaut il affiche un message de confirmation sans
-rien envoyer. Pour recevoir les demandes par email :
+### 9. Le formulaire de devis (5 min)
+Les demandes sont envoyées par [Web3Forms](https://web3forms.com) (gratuit,
+250 envois/mois) directement dans la boîte mail du client. Tout se règle
+dans `contact.html`, en haut du formulaire.
 
-1. Créez un endpoint chez un service au choix — [Formspree](https://formspree.io),
-   [Getform](https://getform.io), [Basin](https://usebasin.com),
-   [Web3Forms](https://web3forms.com)…
-2. Ouvrez `assets/js/main.js` et renseignez la constante en haut du fichier :
-   ```js
-   var FORM_ENDPOINT = 'https://formspree.io/f/VOTRE_ID';
-   ```
-Le formulaire enverra les champs en `POST` (JSON) et gérera les états
-d'envoi, de succès et d'erreur automatiquement.
+**a) La clé Web3Forms** — c'est nous qui la créons :
+1. Sur [web3forms.com](https://web3forms.com), saisir l'**adresse mail du
+   client** (celle qui doit recevoir les devis).
+2. Web3Forms envoie la clé à cette adresse : demander au client de nous
+   transférer ce mail.
+3. Dans `contact.html`, remplacer `{{WEB3FORMS_ACCESS_KEY}}` par la clé.
+
+> La clé n'est pas un mot de passe : elle indique seulement à quelle adresse
+> envoyer les demandes. Elle peut rester visible dans le code.
+>
+> **Tant que la clé n'est pas renseignée, le formulaire affiche un message
+> d'erreur** (jamais un faux « Merci ! »). C'est voulu : un oubli se voit
+> immédiatement.
+
+**b) WhatsApp pour les photos** — dans le message de confirmation, remplacer
+`{{WHATSAPP_NUMERO}}` par le portable du client au format international,
+**sans le 0 ni le +** : `06 12 34 56 78` → `33612345678`.
+- Client **sans WhatsApp** : supprimer « ou par WhatsApp » (un commentaire
+  indique quoi effacer).
+- Client qui préfère les **SMS** : remplacer `https://wa.me/33612345678` par
+  `sms:+33612345678` et le texte « par WhatsApp » par « par SMS ».
+
+**c) Tester avant la livraison** : envoyer une vraie demande depuis le site
+en ligne et vérifier que le client la reçoit. En cliquant « Répondre » dans
+sa messagerie, il répond directement au prospect.
+
+**Options** :
+- L'email du prospect est **obligatoire** par défaut. Pour le rendre
+  facultatif : retirer le mot `required` sur le champ email (un commentaire
+  l'indique) et l'astérisque de son libellé.
+- Les photos ne peuvent pas être jointes au formulaire (option payante chez
+  Web3Forms) : d'où l'invitation à les envoyer par mail ou WhatsApp.
 
 ### 10. Les pages légales (2 min)
 `mentions-legales.html` et `politique-confidentialite.html` sont rédigées avec
@@ -125,7 +149,7 @@ simple rechercher/remplacer suffit :
 | `{{SIRET}}` · `{{DIRECTEUR_PUBLICATION}}` | 123 456 789 00012 · Jean Dubois |
 | `{{TELEPHONE}}` · `{{EMAIL}}` | 04 78 12 34 56 · contact@… |
 | `{{HEBERGEUR_NOM}}` · `{{HEBERGEUR_ADRESSE}}` · `{{HEBERGEUR_TELEPHONE}}` | OVH · Roubaix · … |
-| `{{DUREE_CONSERVATION}}` · `{{SERVICE_FORMULAIRE}}` | 3 ans · Formspree |
+| `{{DUREE_CONSERVATION}}` | 3 ans |
 
 > Ces pages sont en `noindex` (elles n'ont pas vocation à être référencées) et
 > sont liées depuis le pied de page de toutes les pages du site.
