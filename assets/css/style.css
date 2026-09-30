@@ -864,6 +864,9 @@ h1, h2, h3 { font-family: var(--font-serif); font-weight: 500; }
   color: var(--band-ink);
 }
 .showcase__duo .showcase__title { font-size: 22px; }
+/* Titre qui mène à la page service : même aspect, souligné au survol */
+.showcase__link { text-decoration: none; align-self: flex-start; }
+.showcase__link:hover { text-decoration: underline; text-underline-offset: 4px; }
 .showcase__place {
   font-size: 13px;
   letter-spacing: 0.14em;

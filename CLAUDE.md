@@ -48,6 +48,11 @@ répercutée sur les 9 pages (y compris `404.html` et `service-escaliers.html`).
   Web3Forms répond `success: true`. Ne jamais réintroduire de « mode démo »
   qui confirme sans envoyer. Anti-spam : champ piège maison
   `champ_controle` (le `botcheck` de Web3Forms est déprécié).
+- **Liens internes** : quand une page service dédiée existe (modèle
+  `service-escaliers.html`), la carte de l'accueil, celle de
+  `services.html` et les titres des réalisations correspondantes de la
+  galerie pointent vers elle. Tous les boutons « Devis » pointent vers
+  `contact.html#devis` (directement au formulaire).
 - **Pages légales** : rédigées avec des placeholders `{{NOM_ENTREPRISE}}`,
   `{{SIRET}}`… Chaque page liste ses variables dans un commentaire HTML en
   tête.
