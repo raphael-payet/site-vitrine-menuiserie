@@ -107,9 +107,10 @@
                                           international sans « + » ni 0
                                           (06 12 34 56 78 → 33612345678)
              Tant que la clé n'est pas renseignée, l'envoi affiche une
-             ERREUR (jamais un faux succès). -->
-        <form class="contact-form" id="devis" data-contact-form data-reveal
-              action="https://api.web3forms.com/submit" method="POST">
+             ERREUR (jamais un faux succès).
+             Pas d'attribut action : l'adresse d'envoi n'est connue que de
+             main.js, pour que les robots de spam ne la trouvent pas. -->
+        <form class="contact-form" id="devis" data-contact-form data-reveal method="POST">
           <h2>Demande de devis</h2>
           <!-- Indicateur d'étape : affiché par le JS uniquement -->
           <p class="form-progress" data-form-progress aria-live="polite" hidden></p>

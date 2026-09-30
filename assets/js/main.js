@@ -383,10 +383,17 @@
         submitButton.textContent = 'Envoi en cours…';
       }
 
+      // Délai maximal : sans réponse au bout de 15 s (réseau mobile qui
+      // décroche…), on abandonne et on affiche l'erreur plutôt que de
+      // laisser le bouton bloqué sur « Envoi en cours… ».
+      var controller = window.AbortController ? new AbortController() : null;
+      var timeout = controller && setTimeout(function () { controller.abort(); }, 15000);
+
       fetch(FORM_ENDPOINT, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify(data)
+        body: JSON.stringify(data),
+        signal: controller ? controller.signal : undefined
       })
         .then(function (response) {
           return response.json().then(function (result) {
@@ -401,9 +408,12 @@
           form.reset();
         })
         .catch(function (err) {
-          showError('refus ou panne du service d\'envoi (' + err.message + ').');
+          showError(err.name === 'AbortError'
+            ? 'aucune réponse du service d\'envoi après 15 s.'
+            : 'refus ou panne du service d\'envoi (' + err.message + ').');
         })
         .then(function () {
+          clearTimeout(timeout);
           if (submitButton) {
             submitButton.disabled = false;
             submitButton.textContent = submitButton.dataset.label;
