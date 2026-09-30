@@ -96,6 +96,11 @@ JSON-LD dans `index.html`.
 - **Ne rien inventer** (coordonnées, SIRET, avis, chiffres) : demander à
   Raphaël ce qui manque, notamment la **clé Web3Forms** (il la crée avec
   l'email du client).
+- **Allégations interdites sans preuve** (directive UE 2024/825, en
+  vigueur depuis le 27/09/2026) : pas de « bois durable », « forêts
+  gérées », « écologique »… ; seulement « Bois certifiés PEFC / FSC » si
+  le client a le certificat. Décennale : ne jamais écrire que *tous* les
+  ouvrages sont couverts.
 - Ne **jamais** ajouter `aggregateRating` (note des avis) au JSON-LD :
   Google interdit qu'une entreprise déclare la note de ses propres avis.
   La note visible sur la page, elle, se met à jour normalement.
