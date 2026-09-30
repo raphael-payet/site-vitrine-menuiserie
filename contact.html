@@ -112,6 +112,15 @@
              main.js, pour que les robots de spam ne la trouvent pas. -->
         <form class="contact-form" id="devis" data-contact-form data-reveal method="POST">
           <h2>Demande de devis</h2>
+
+          <!-- Confirmation : après un envoi réussi, elle remplace tout le
+               formulaire (évite les envois en double). -->
+          <div class="form-message form-message--success" role="status" tabindex="-1">
+            <p>Merci&nbsp;! Votre demande est bien partie, nous vous recontactons sous 48&nbsp;h.</p>
+            <p>Vous avez des photos ou un croquis&nbsp;? Envoyez-les à <a href="mailto:contact@menuiserie-dubois.fr">contact@menuiserie-dubois.fr</a><!-- WHATSAPP : supprimer de « ou » jusqu'à </a> si le client n'utilise pas WhatsApp --> ou <a href="https://wa.me/{{WHATSAPP_NUMERO}}" target="_blank" rel="noopener">par WhatsApp</a> — ça nous aide beaucoup à préparer le devis.</p>
+            <button type="button" class="form-again" data-form-again>Envoyer une autre demande</button>
+          </div>
+
           <!-- Indicateur d'étape : affiché par le JS uniquement -->
           <p class="form-progress" data-form-progress aria-live="polite" hidden></p>
 
@@ -233,10 +242,6 @@
               <span>J'accepte que mes coordonnées soient utilisées pour être recontacté(e) au sujet de ma demande. <a href="politique-confidentialite.html">Politique de confidentialité</a> *</span>
             </label>
 
-            <p class="form-message form-message--success" role="status">
-              Merci&nbsp;! Votre demande est bien partie, nous vous recontactons sous 48&nbsp;h.<br>
-              Vous avez des photos ou un croquis&nbsp;? Envoyez-les à <a href="mailto:contact@menuiserie-dubois.fr">contact@menuiserie-dubois.fr</a><!-- WHATSAPP : supprimer de « ou » jusqu'à </a> si le client n'utilise pas WhatsApp --> ou <a href="https://wa.me/{{WHATSAPP_NUMERO}}" target="_blank" rel="noopener">par WhatsApp</a> — ça nous aide beaucoup à préparer le devis.
-            </p>
             <p class="form-message form-message--error" role="alert">Une erreur est survenue et votre demande n'a pas pu être envoyée. Merci de réessayer ou de nous appeler directement au <a href="tel:+33478123456">04 78 12 34 56</a>.</p>
 
             <button type="submit" class="btn btn--dark">Envoyer ma demande</button>

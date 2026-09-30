@@ -353,6 +353,18 @@
       });
     }
 
+    // « Envoyer une autre demande » : formulaire vierge, retour à l'étape 1
+    var againButton = form.querySelector('[data-form-again]');
+    if (againButton) {
+      againButton.addEventListener('click', function () {
+        form.classList.remove('is-sent');
+        if (successMessage) successMessage.classList.remove('is-visible');
+        if (typeof setStep === 'function') setStep(1);
+        var firstField = form.querySelector('[name="nom"]');
+        if (firstField) firstField.focus();
+      });
+    }
+
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       if (successMessage) successMessage.classList.remove('is-visible');
@@ -417,8 +429,17 @@
           });
         })
         .then(function () {
-          if (successMessage) successMessage.classList.add('is-visible');
           form.reset();
+          // La confirmation remplace le formulaire (pas de renvoi en double)
+          form.classList.add('is-sent');
+          if (successMessage) {
+            successMessage.classList.add('is-visible');
+            successMessage.focus({ preventScroll: true });
+          }
+          form.scrollIntoView({
+            behavior: prefersReducedMotion ? 'auto' : 'smooth',
+            block: 'start'
+          });
         })
         .catch(function (err) {
           showError(err.name === 'AbortError'
