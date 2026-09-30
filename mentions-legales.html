@@ -28,6 +28,13 @@
      ÉDITEUR      : {{NOM_ENTREPRISE}}, {{FORME_JURIDIQUE}}, {{ADRESSE}},
                     {{CODE_POSTAL}}, {{VILLE}}, {{SIRET}}, {{TELEPHONE}},
                     {{EMAIL}}, {{DIRECTEUR_PUBLICATION}}
+                    {{FORME_JURIDIQUE}} : ex. « SARL », « SAS »… ou
+                      « Entrepreneur individuel (EI) » (aussi pour un
+                      micro-entrepreneur)
+                    ENTREPRISE INDIVIDUELLE : la dénomination doit
+                      contenir le nom de l'entrepreneur suivi de « EI »
+                      (ex. « Jean Martin EI — Menuiserie Martin ») ;
+                      supprimer la ligne Capital social
                     {{IMMATRICULATION}} : registre + n°, ex. « RCS Lyon
                       123 456 789 » (société commerciale) ou « Registre
                       national des entreprises (RNE) n° 123 456 789 »
@@ -105,6 +112,7 @@
           <h2>Éditeur du site</h2>
           <p>Le présent site est édité par&nbsp;:</p>
           <dl class="legal-info">
+            <!-- Entreprise individuelle : nom de l'entrepreneur + « EI » -->
             <dt>Dénomination</dt>
             <dd>{{NOM_ENTREPRISE}}</dd>
 

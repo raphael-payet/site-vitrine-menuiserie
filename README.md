@@ -209,7 +209,7 @@ simple rechercher/remplacer suffit :
 
 | Placeholder | Exemple |
 |---|---|
-| `{{NOM_ENTREPRISE}}` · `{{FORME_JURIDIQUE}}` | Menuiserie Dubois · SARL |
+| `{{NOM_ENTREPRISE}}` · `{{FORME_JURIDIQUE}}` | Menuiserie Dubois · SARL — **entreprise individuelle** (y compris micro) : « Jean Martin EI — Menuiserie Martin » · Entrepreneur individuel (EI) |
 | `{{ADRESSE}}` · `{{CODE_POSTAL}}` · `{{VILLE}}` | 12 rue des Charpentiers · 69003 · Lyon |
 | `{{SIRET}}` · `{{DIRECTEUR_PUBLICATION}}` | 123 456 789 00012 · Jean Dubois |
 | `{{IMMATRICULATION}}` | RCS Lyon 123 456 789 · ou RNE n° 123 456 789 |
