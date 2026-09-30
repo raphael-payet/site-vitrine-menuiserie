@@ -105,7 +105,10 @@
 
         <!-- Formulaire — envoi via Web3Forms (voir README, étape 9).
              ⚙️ À PERSONNALISER :
-               {{WEB3FORMS_ACCESS_KEY}} → clé reçue par email de Web3Forms
+               access_key → PENDANT LA DÉMO : clé de Raphaël (ci-dessous,
+                            5b403389-…), sujet commençant par « [DÉMO] ».
+                            À LA LIVRAISON : clé du client (reçue par
+                            email de Web3Forms) et retirer « [DÉMO] ».
                {{WHATSAPP_NUMERO}}      → portable du client au format
                                           international sans « + » ni 0
                                           (06 12 34 56 78 → 33612345678)
@@ -128,8 +131,8 @@
           <p class="form-progress" data-form-progress aria-live="polite" hidden></p>
 
           <!-- Réglages Web3Forms (champs cachés) -->
-          <input type="hidden" name="access_key" value="{{WEB3FORMS_ACCESS_KEY}}">
-          <input type="hidden" name="subject" value="Nouvelle demande de devis — site Menuiserie Ferlanne">
+          <input type="hidden" name="access_key" value="5b403389-e894-4e55-8c35-9e050495f699">
+          <input type="hidden" name="subject" value="[DÉMO] Nouvelle demande de devis — site Menuiserie Ferlanne">
           <input type="hidden" name="from_name" value="Site Menuiserie Ferlanne">
 
           <!-- Piège à robots : invisible et inatteignable pour un humain.

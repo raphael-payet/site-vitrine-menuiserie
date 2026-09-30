@@ -44,8 +44,10 @@ répercutée sur les 19 pages (y compris `404.html`, les 6 pages
 - **`style.css` et `main.js`** sont organisés en sections numérotées avec un
   sommaire en tête. Ajouter une fonctionnalité = ajouter une section.
 - **Formulaire de contact** : envoi via Web3Forms. La clé du client vit à
-  **un seul endroit** : le champ caché `access_key` de `contact.html`
-  (placeholder `{{WEB3FORMS_ACCESS_KEY}}`). Garde-fou : clé absente ou
+  **un seul endroit** : le champ caché `access_key` de `contact.html`.
+  Le modèle contient la **clé de démo de Raphaël** (`5b403389-…`, emails
+  vers payet.raphael.run@gmail.com) : à garder pendant la démo, à
+  remplacer par celle du client à la livraison. Garde-fou : clé absente ou
   placeholder → message d'**erreur**. Le succès ne s'affiche que si
   Web3Forms répond `success: true`. Ne jamais réintroduire de « mode démo »
   qui confirme sans envoyer. Anti-spam : champ piège maison

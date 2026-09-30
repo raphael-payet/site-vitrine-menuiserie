@@ -173,7 +173,10 @@ dans `contact.html`, en haut du formulaire.
    client** (celle qui doit recevoir les devis).
 2. Web3Forms envoie la clé à cette adresse : demander au client de nous
    transférer ce mail.
-3. Dans `contact.html`, remplacer `{{WEB3FORMS_ACCESS_KEY}}` par la clé.
+3. Dans `contact.html`, remplacer la clé de démo de Raphaël
+   (`5b403389-…`, champ `access_key`) par celle du client, et retirer
+   « [DÉMO] » du sujet (champ `subject`). **Pendant la démo**, garder la
+   clé de Raphaël : les essais du client arrivent chez lui.
 
 > La clé n'est pas un mot de passe : elle indique seulement à quelle adresse
 > envoyer les demandes. Elle peut rester visible dans le code.
@@ -290,4 +293,6 @@ ajouter aussi dans le fichier `.htaccess` : `ErrorDocument 404 /404.html`.
 
 **Contrôle avant livraison** : dans les pages `.html`, plus aucune variable
 entre doubles accolades en dehors des commentaires, et plus aucun lien
-`href="#"` (réseaux sociaux, lien « Voir tous les avis sur Google »).
+`href="#"` (réseaux sociaux, lien « Voir tous les avis sur Google »),
+plus de clé Web3Forms de démo (`5b403389-…`) ni de « [DÉMO] » dans le
+sujet, et plus de `noindex` sur les pages publiques.
