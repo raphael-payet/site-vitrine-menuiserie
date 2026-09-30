@@ -71,7 +71,8 @@
     menuToggle.addEventListener('click', function () { setMenu(!isMenuOpen()); });
 
     // Referme le menu quand on choisit une page
-    header.querySelectorAll('.nav-mobile a').forEach(function (link) {
+    var menuLinks = header.querySelectorAll('.nav-mobile a');
+    menuLinks.forEach(function (link) {
       link.addEventListener('click', function () { setMenu(false); });
     });
 
@@ -79,10 +80,22 @@
     menuVeil.addEventListener('click', function () { setMenu(false); });
 
     // Touche Échap : referme et rend le focus au bouton
+    // Touche Tab : le focus tourne entre « Fermer » et les liens du menu
+    // (sinon il part dans la page, cachée sous le voile).
+    var lastMenuLink = menuLinks[menuLinks.length - 1];
     document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && isMenuOpen()) {
+      if (!isMenuOpen()) return;
+      if (e.key === 'Escape') {
         setMenu(false);
         menuToggle.focus();
+      } else if (e.key === 'Tab' && lastMenuLink) {
+        if (!e.shiftKey && document.activeElement === lastMenuLink) {
+          e.preventDefault();
+          menuToggle.focus();
+        } else if (e.shiftKey && document.activeElement === menuToggle) {
+          e.preventDefault();
+          lastMenuLink.focus();
+        }
       }
     });
 
