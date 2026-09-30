@@ -4,10 +4,10 @@
      (même domaine que les <link rel="canonical"> des pages).
      Les pages légales et la 404 (en noindex) n'y figurent pas. -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://www.menuiserie-dubois.fr/</loc></url>
-  <url><loc>https://www.menuiserie-dubois.fr/services.html</loc></url>
-  <url><loc>https://www.menuiserie-dubois.fr/service-escaliers.html</loc></url>
-  <url><loc>https://www.menuiserie-dubois.fr/galerie.html</loc></url>
-  <url><loc>https://www.menuiserie-dubois.fr/blog.html</loc></url>
-  <url><loc>https://www.menuiserie-dubois.fr/contact.html</loc></url>
+  <url><loc>https://raphael-payet.github.io/site-vitrine-menuiserie/</loc></url>
+  <url><loc>https://raphael-payet.github.io/site-vitrine-menuiserie/services.html</loc></url>
+  <url><loc>https://raphael-payet.github.io/site-vitrine-menuiserie/service-escaliers.html</loc></url>
+  <url><loc>https://raphael-payet.github.io/site-vitrine-menuiserie/galerie.html</loc></url>
+  <url><loc>https://raphael-payet.github.io/site-vitrine-menuiserie/blog.html</loc></url>
+  <url><loc>https://raphael-payet.github.io/site-vitrine-menuiserie/contact.html</loc></url>
 </urlset>

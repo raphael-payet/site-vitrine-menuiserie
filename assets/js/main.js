@@ -1,5 +1,5 @@
 /* ==========================================================================
-   MENUISERIE DUBOIS — Interactions front-end
+   MENUISERIE FERLANNE — Interactions front-end
    Vanilla JS, aucune dépendance.
    --------------------------------------------------------------------------
    SOMMAIRE

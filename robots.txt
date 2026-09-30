@@ -3,4 +3,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.menuiserie-dubois.fr/sitemap.xml
+Sitemap: https://raphael-payet.github.io/site-vitrine-menuiserie/sitemap.xml

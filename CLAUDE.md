@@ -109,10 +109,20 @@ JSON-LD dans `index.html`.
   La note visible sur la page, elle, se met à jour normalement.
 - L'adresse est aussi **encodée dans les deux liens Google Maps** de
   `contact.html` (`%20` et `+`) : un rechercher-remplacer simple les rate.
+- ⚠️ **Retirer le `noindex`** des 6 pages publiques sur le site livré
+  (commentaire « MODÈLE DE DÉMONSTRATION » au-dessus). L'oublier rend le
+  site du client invisible dans Google. Les pages légales et la 404
+  gardent le leur.
+- **Icônes** : régénérer `favicon.svg` et les 3 PNG avec l'initiale ou le
+  logo du client (voir README, étape 3).
 
 ## État actuel
 
-Contenu de démonstration (« Menuiserie Dubois », Lyon, coordonnées fictives).
+Contenu de démonstration (« Menuiserie Ferlanne », Lyon), **volontairement
+fictif** : nom vérifié introuvable au registre des entreprises (l'ancien,
+« Menuiserie Dubois », existait réellement), téléphone dans la plage
+04 65 71 que l'Arcep réserve à la fiction, domaine = adresse GitHub Pages.
+Ne pas réintroduire de coordonnées réalistes dans le modèle.
 Deux éléments restent des placeholders assumés :
 
 - la **vidéo du hero** pointe vers un fichier de démonstration externe ;

@@ -1,4 +1,4 @@
-# Site vitrine menuiserie — Menuiserie Dubois
+# Site vitrine menuiserie — Menuiserie Ferlanne
 
 Site vitrine premium multi-pages pour un artisan menuisier, fidèle au design
 Claude Design « Site vitrine menuisiers premium ».
@@ -53,18 +53,27 @@ Chaque variable est commentée ; changez-les, tout le site suit.
 ### 3. Nom, textes, coordonnées (5 min)
 Tout est dans les fichiers HTML, en clair. Recherchez / remplacez sur les
 9 pages (sans oublier `404.html` et `service-escaliers.html`) :
-- **Nom** : `Menuiserie Dubois` — si le nom dépasse ~25 caractères, mettre une
+- **Nom** : `Menuiserie Ferlanne` — si le nom dépasse ~25 caractères, mettre une
   version courte dans l'en-tête (`<span class="brand__name">`) : sur les
   petits téléphones, il passe sinon sur 3 lignes.
-- **Téléphone** : `04 78 12 34 56` et les liens `tel:+33478123456`
+- **Téléphone** : `04 65 71 23 45` et les liens `tel:+33465712345`
 - **Email** : `contact@menuiserie-dubois.fr`
 - **Adresse** : `12 rue des Charpentiers`, `69003 Lyon`
 - **Horaires** : blocs « Horaires » (pied de page + page contact)
 - Le bloc **SEO** de chaque page (`<title>`, `<meta name="description">`,
   `<link rel="canonical">`) et les **données structurées** JSON-LD dans
   `index.html`.
-- **Domaine du site** : `robots.txt` et `sitemap.xml` (même domaine que les
-  URL canoniques). Nouvelle page ? L'ajouter au `sitemap.xml`.
+- **Domaine du site** : `https://raphael-payet.github.io/site-vitrine-menuiserie/`
+  (adresse de la démo) à remplacer partout par celui du client — URL
+  canoniques, Open Graph, JSON-LD, `robots.txt` et `sitemap.xml`.
+  Nouvelle page ? L'ajouter au `sitemap.xml`.
+- ⚠️ **Visibilité Google** : le modèle est masqué à Google (ligne
+  `<meta name="robots" content="noindex">` sur les 6 pages publiques).
+  **La retirer sur le site livré**, sinon il n'apparaîtra jamais dans
+  Google. Les pages légales et la 404 gardent leur `noindex`.
+- **Icônes** : l'initiale « F » est dans `assets/img/favicon.svg` ; les
+  trois PNG (`icon-192`, `icon-512`, `apple-touch-icon`) sont à régénérer
+  avec l'initiale ou le logo du client.
 - **Logo** : remplacez le losange `<span class="brand__diamond">` par
   `<img src="assets/img/logo.svg" alt="" height="40">` (commentaire dans
   le code).
@@ -102,7 +111,7 @@ générées à partir du logo du client. Le nom affiché est dans
 - **Image d'aperçu** (partage WhatsApp, Facebook, SMS…) : `og-image.jpg`,
   à remplacer par une belle photo du client en **1200 × 630 px, JPEG, moins
   de 300 Ko** (au-delà, WhatsApp n'affiche pas l'aperçu). Son adresse dans
-  les pages est absolue (`https://www.menuiserie-dubois.fr/…`) : elle suit
+  les pages est absolue (`https://raphael-payet.github.io/site-vitrine-menuiserie/…`) : elle suit
   le rechercher-remplacer du domaine.
 - **Avant / après** (bas de la galerie) : remplacer `avant-1.svg` et
   `apres-1.svg` par deux photos **prises du même endroit, avec le même
@@ -209,14 +218,14 @@ simple rechercher/remplacer suffit :
 
 | Placeholder | Exemple |
 |---|---|
-| `{{NOM_ENTREPRISE}}` · `{{FORME_JURIDIQUE}}` | Menuiserie Dubois · SARL — **entreprise individuelle** (y compris micro) : « Jean Martin EI — Menuiserie Martin » · Entrepreneur individuel (EI) |
+| `{{NOM_ENTREPRISE}}` · `{{FORME_JURIDIQUE}}` | Menuiserie Ferlanne · SARL — **entreprise individuelle** (y compris micro) : « Jean Martin EI — Menuiserie Martin » · Entrepreneur individuel (EI) |
 | `{{ADRESSE}}` · `{{CODE_POSTAL}}` · `{{VILLE}}` | 12 rue des Charpentiers · 69003 · Lyon |
-| `{{SIRET}}` · `{{DIRECTEUR_PUBLICATION}}` | 123 456 789 00012 · Jean Dubois |
+| `{{SIRET}}` · `{{DIRECTEUR_PUBLICATION}}` | 123 456 789 00012 · Jean Ferlanne |
 | `{{IMMATRICULATION}}` | RCS Lyon 123 456 789 · ou RNE n° 123 456 789 |
 | `{{CAPITAL_SOCIAL}}` · `{{TVA_INTRACOM}}` | 10 000 € (ligne à supprimer si entreprise individuelle) · FR 12 123456789 (ou « TVA non applicable, art. 293 B du CGI ») |
 | `{{ASSUREUR_NOM}}` · `{{ASSUREUR_ADRESSE}}` · `{{ASSURANCE_COUVERTURE}}` | Assureur de la garantie décennale · son adresse · France métropolitaine |
 | `{{MEDIATEUR_NOM}}` · `{{MEDIATEUR_ADRESSE}}` · `{{MEDIATEUR_SITE}}` | Médiateur de la consommation auquel le client a adhéré (obligatoire s'il vend à des particuliers) |
-| `{{TELEPHONE}}` · `{{EMAIL}}` | 04 78 12 34 56 · contact@… |
+| `{{TELEPHONE}}` · `{{EMAIL}}` | 04 65 71 23 45 · contact@… |
 | `{{HEBERGEUR_NOM}}` · `{{HEBERGEUR_ADRESSE}}` · `{{HEBERGEUR_TELEPHONE}}` | OVH · Roubaix · … |
 | `{{DUREE_CONSERVATION}}` | 3 ans |
 
