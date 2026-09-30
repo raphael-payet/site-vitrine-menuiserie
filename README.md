@@ -57,7 +57,7 @@ Tout est dans les fichiers HTML, en clair. Recherchez / remplacez sur les
   version courte dans l'en-tête (`<span class="brand__name">`) : sur les
   petits téléphones, il passe sinon sur 3 lignes.
 - **Téléphone** : `04 65 71 23 45` et les liens `tel:+33465712345`
-- **Email** : `contact@menuiserie-dubois.fr`
+- **Email** : `payet.raphael.run@gmail.com`
 - **Adresse** : `12 rue des Charpentiers`, `69003 Lyon`
 - **Horaires** : blocs « Horaires » (pied de page + page contact)
 - Le bloc **SEO** de chaque page (`<title>`, `<meta name="description">`,

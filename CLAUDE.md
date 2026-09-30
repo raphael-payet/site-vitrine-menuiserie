@@ -93,6 +93,16 @@ Web3Forms et messagerie pour les photos (WhatsApp, SMS ou Messenger) du
 formulaire, adresse Google Maps, placeholders légaux, métadonnées SEO et
 JSON-LD dans `index.html`.
 
+**Deux temps : démo puis livraison.** Raphaël adapte le site, **envoie
+un lien** au client, reçoit ses retours et ses photos, puis finalise.
+
+| Réglage | Démo (lien envoyé au client) | Livraison |
+|---|---|---|
+| `noindex` des 6 pages publiques | **garder** | **retirer** |
+| Domaine (canonical, og, JSON-LD, sitemap, robots) | adresse de la démo | domaine du client |
+| Clé Web3Forms | celle de Raphaël, sujet commençant par « [DÉMO] » | celle du client |
+| Email affiché | celui du client s'il est connu | celui du client |
+
 - **Ne rien inventer** (coordonnées, SIRET, avis, chiffres) : demander à
   Raphaël ce qui manque, notamment la **clé Web3Forms** (il la crée avec
   l'email du client).
