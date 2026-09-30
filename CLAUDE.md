@@ -20,6 +20,7 @@ nécessaire pour que la carte Google Maps de la page contact s'affiche.
 index.html                       Accueil
 services.html  service-escaliers.html (page service type à dupliquer)
 galerie.html  blog.html  contact.html
+blog-*.html                      5 articles (modèle : blog-escalier-essences.html)
 mentions-legales.html  politique-confidentialite.html
 404.html                         Page introuvable (noindex)
 robots.txt  sitemap.xml          Pour les moteurs (domaine à personnaliser)
@@ -32,7 +33,8 @@ assets/fonts/                    Polices hébergées (RGPD) + licences OFL
 
 L'en-tête et le pied de page sont **dupliqués dans chaque page** (pas
 d'includes, site statique). Toute modification de nav/footer doit être
-répercutée sur les 9 pages (y compris `404.html` et `service-escaliers.html`).
+répercutée sur les 14 pages (y compris `404.html`, `service-escaliers.html`
+et les 5 articles `blog-*.html`).
 
 ## Conventions
 
@@ -86,7 +88,7 @@ Maps chargée au clic (RGPD) · **comparateur avant / après** (galerie :
 ## À personnaliser pour un nouveau client
 
 Le `README.md` détaille la procédure complète. En résumé : couleurs (`:root`),
-nom/coordonnées (rechercher-remplacer sur les 9 pages, plus le domaine
+nom/coordonnées (rechercher-remplacer sur les 14 pages, plus le domaine
 dans `robots.txt` et `sitemap.xml`), images
 (`assets/img/`, mêmes noms de fichiers), avis Google, services, clé
 Web3Forms et messagerie pour les photos (WhatsApp, SMS ou Messenger) du
@@ -98,7 +100,7 @@ un lien** au client, reçoit ses retours et ses photos, puis finalise.
 
 | Réglage | Démo (lien envoyé au client) | Livraison |
 |---|---|---|
-| `noindex` des 6 pages publiques | **garder** | **retirer** |
+| `noindex` des 11 pages publiques | **garder** | **retirer** |
 | Domaine (canonical, og, JSON-LD, sitemap, robots) | adresse de la démo | domaine du client |
 | Clé Web3Forms | celle de Raphaël, sujet commençant par « [DÉMO] » | celle du client |
 | Email affiché | celui du client s'il est connu | celui du client |
@@ -119,7 +121,7 @@ un lien** au client, reçoit ses retours et ses photos, puis finalise.
   La note visible sur la page, elle, se met à jour normalement.
 - L'adresse est aussi **encodée dans les deux liens Google Maps** de
   `contact.html` (`%20` et `+`) : un rechercher-remplacer simple les rate.
-- ⚠️ **Retirer le `noindex`** des 6 pages publiques sur le site livré
+- ⚠️ **Retirer le `noindex`** des 11 pages publiques sur le site livré
   (commentaire « MODÈLE DE DÉMONSTRATION » au-dessus). L'oublier rend le
   site du client invisible dans Google. Les pages légales et la 404
   gardent le leur.

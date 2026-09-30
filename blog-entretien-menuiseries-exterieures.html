@@ -4,22 +4,29 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- SEO — À PERSONNALISER -->
-  <title>Blog — Le journal de l'atelier | Menuiserie Ferlanne</title>
+  <!-- ==================================================================
+       ARTICLE DE BLOG — modèle commun aux pages blog-*.html.
+       Conseils généraux, vrais pour tout menuisier : à relire avec le
+       client, sans y ajouter de prix ni de faits inventés.
+       Nouvel article : dupliquer cette page, changer titre, description
+       (155 caractères max), canonical, og, fil d'Ariane, image et texte ;
+       puis l'ajouter à blog.html et au sitemap.xml.
+       ================================================================== -->
+  <title>Entretenir ses menuiseries extérieures en bois | Menuiserie Ferlanne</title>
   <!-- ⚠️ MODÈLE DE DÉMONSTRATION : masqué à Google. À RETIRER sur le site
        livré au client, sinon il n'apparaîtra JAMAIS dans Google. -->
   <meta name="robots" content="noindex">
-  <meta name="description" content="Conseils, choix des essences, entretien du bois et matériaux : le journal de la Menuiserie Ferlanne, artisan menuisier à Lyon.">
+  <meta name="description" content="Fenêtres, volets, porte d'entrée : les gestes simples pour entretenir vos menuiseries extérieures en bois et renouveler leur protection au bon moment.">
   <meta name="theme-color" content="#100D0A">
-  <link rel="canonical" href="https://raphael-payet.github.io/site-vitrine-menuiserie/blog.html">
+  <link rel="canonical" href="https://raphael-payet.github.io/site-vitrine-menuiserie/blog-entretien-menuiseries-exterieures.html">
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
   <link rel="manifest" href="manifest.webmanifest">
 
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Le journal de l'atelier — Menuiserie Ferlanne">
-  <meta property="og:description" content="Conseils et savoir-faire autour du bois.">
-  <meta property="og:url" content="https://raphael-payet.github.io/site-vitrine-menuiserie/blog.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Entretenir ses menuiseries extérieures en bois">
+  <meta property="og:description" content="Les bons gestes pour protéger fenêtres, volets et portes en bois, année après année.">
+  <meta property="og:url" content="https://raphael-payet.github.io/site-vitrine-menuiserie/blog-entretien-menuiseries-exterieures.html">
   <meta property="og:site_name" content="Menuiserie Ferlanne">
   <meta property="og:image" content="https://raphael-payet.github.io/site-vitrine-menuiserie/assets/img/og-image.jpg">
   <meta property="og:image:width" content="1200">
@@ -40,7 +47,8 @@
     "@type": "BreadcrumbList",
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://raphael-payet.github.io/site-vitrine-menuiserie/" },
-      { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://raphael-payet.github.io/site-vitrine-menuiserie/blog.html" }
+      { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://raphael-payet.github.io/site-vitrine-menuiserie/blog.html" },
+      { "@type": "ListItem", "position": 3, "name": "Entretenir ses menuiseries extérieures en bois", "item": "https://raphael-payet.github.io/site-vitrine-menuiserie/blog-entretien-menuiseries-exterieures.html" }
     ]
   }
   </script>
@@ -62,7 +70,7 @@
       <a href="index.html">Accueil</a>
       <a href="services.html">Services</a>
       <a href="galerie.html">Galerie</a>
-      <a href="blog.html" class="is-active" aria-current="page">Blog</a>
+      <a href="blog.html" class="is-active">Blog</a>
       <a href="contact.html">Contact</a>
     </nav>
     <div class="header-actions">
@@ -75,7 +83,7 @@
     <a href="index.html">Accueil</a>
     <a href="services.html">Services</a>
     <a href="galerie.html">Galerie</a>
-    <a href="blog.html" class="is-active" aria-current="page">Blog</a>
+    <a href="blog.html" class="is-active">Blog</a>
     <a href="contact.html">Contact</a>
     <a href="contact.html#devis" class="btn btn--primary">Devis gratuit</a>
   </nav>
@@ -83,70 +91,46 @@
 
 <main id="contenu">
 
-  <!-- ============ EN-TÊTE DE PAGE ============ -->
+  <!-- ============ EN-TÊTE DE L'ARTICLE ============ -->
   <section class="page-head">
     <div class="container" style="padding-inline:0;">
-      <p class="kicker">Le journal de l'atelier</p>
-      <h1>Conseils et savoir-faire</h1>
-      <p class="page-head__text">Guides pratiques, choix des essences, entretien du bois et matériaux — tout ce qu'il faut savoir avant de lancer votre projet.</p>
+      <p class="kicker">Entretien</p>
+      <h1>Entretenir ses menuiseries extérieures en bois</h1>
+      <p class="page-head__text">Fenêtres, volets, porte d'entrée&nbsp;: exposé au soleil et à la pluie, le bois extérieur demande un peu d'attention. Quelques gestes simples suffisent à le garder beau longtemps.</p>
     </div>
   </section>
 
-  <!-- ============ BANDE BEIGE MARBRÉE — ARTICLES ============
-       Chaque carte mène à sa page blog-*.html (modèle :
-       blog-escalier-essences.html). Pas de date affichée : un blog peu
-       alimenté paraîtrait vite abandonné. -->
+  <!-- ============ ARTICLE ============ -->
   <div class="band">
-
-    <!-- Article à la une -->
     <section class="section" style="padding-block:0;">
-      <div class="container" style="padding-inline:0;">
-        <a href="blog-escalier-essences.html" class="blog-featured" data-reveal>
-          <img src="assets/img/work-2.svg" alt="Escalier en bois dans un intérieur lumineux" loading="lazy" width="800" height="600">
-          <div class="blog-featured__content">
-            <span class="blog-featured__meta">À la une · Conseils</span>
-            <h2>Quelle essence de bois choisir pour un escalier&nbsp;?</h2>
-            <p>Chêne, hêtre, frêne ou noyer&nbsp;: chaque essence a son caractère, sa dureté et son budget. Notre guide complet pour faire le bon choix selon votre usage et votre intérieur.</p>
-            <span class="blog-card__more">Lire l'article →</span>
-          </div>
-        </a>
-      </div>
-    </section>
+      <article class="article">
+        <img class="article__img" src="assets/img/work-5.svg" alt="Fenêtres en bois sur une façade ancienne" width="800" height="600">
 
-    <!-- Grille d'articles — dupliquez / éditez les <a class="blog-card"> -->
-    <section class="section" style="padding-bottom:0;">
-      <div class="container blog-grid" style="padding-inline:0;" data-reveal-stagger>
-        <a href="blog-entretien-menuiseries-exterieures.html" class="blog-card">
-          <img src="assets/img/work-5.svg" alt="" loading="lazy" width="800" height="600">
-          <span class="blog-card__meta">Entretien</span>
-          <h3>Entretenir ses menuiseries extérieures en bois</h3>
-          <p>Nettoyage, lasure ou peinture&nbsp;: les bons gestes pour protéger fenêtres et volets, année après année.</p>
-          <span class="blog-card__more">Lire l'article →</span>
-        </a>
-        <a href="blog-cuisine-sur-mesure.html" class="blog-card">
-          <img src="assets/img/work-1.svg" alt="" loading="lazy" width="800" height="600">
-          <span class="blog-card__meta">Projets</span>
-          <h3>Aménager une cuisine sur mesure&nbsp;: les étapes clés</h3>
-          <p>De la prise de mesures à la pose&nbsp;: comment se déroule un projet de cuisine sur mesure.</p>
-          <span class="blog-card__more">Lire l'article →</span>
-        </a>
-        <a href="blog-dressing-ou-placard.html" class="blog-card">
-          <img src="assets/img/work-4.svg" alt="" loading="lazy" width="800" height="600">
-          <span class="blog-card__meta">Conseils</span>
-          <h3>Dressing sur mesure ou placard standard&nbsp;: que choisir&nbsp;?</h3>
-          <p>Budget, espace, usage&nbsp;: le comparatif honnête pour décider sereinement.</p>
-          <span class="blog-card__more">Lire l'article →</span>
-        </a>
-        <a href="blog-bois-massif-contrecolle-plaque.html" class="blog-card">
-          <img src="assets/img/work-3.svg" alt="" loading="lazy" width="800" height="600">
-          <span class="blog-card__meta">Matériaux</span>
-          <h3>Bois massif, contrecollé, plaqué&nbsp;: comprendre les différences</h3>
-          <p>Trois familles de matériaux, trois usages&nbsp;: le petit lexique pour lire un devis de menuiserie en confiance.</p>
-          <span class="blog-card__more">Lire l'article →</span>
-        </a>
-      </div>
-    </section>
+        <h2>Un coup d'œil chaque année</h2>
+        <p>Une fois par an, idéalement au printemps, faites le tour de vos menuiseries. Les signes à surveiller&nbsp;: un bois qui grise, une lasure ou une peinture qui s'écaille, de petites fissures, un joint de vitrage qui se décolle. Les façades exposées au sud et à l'ouest vieillissent plus vite&nbsp;: regardez-les en premier.</p>
 
+        <h2>Nettoyer en douceur</h2>
+        <p>Une éponge, de l'eau tiède et un peu de savon doux suffisent. Rincez, puis laissez sécher. <strong>Évitez le nettoyeur haute pression</strong>&nbsp;: il arrache les fibres du bois et fait entrer l'eau dans les assemblages.</p>
+
+        <h2>Renouveler la protection à temps</h2>
+        <p>La protection se refait avant que le bois ne soit à nu&nbsp;:</p>
+        <ul>
+          <li><strong>Lasure</strong>&nbsp;: elle laisse voir le veinage du bois. Comptez en général une nouvelle couche tous les 3 à 5&nbsp;ans, selon l'exposition.</li>
+          <li><strong>Peinture microporeuse</strong>&nbsp;: elle couvre le bois tout en le laissant respirer, et tient souvent plus longtemps, de l'ordre de 5 à 8&nbsp;ans.</li>
+        </ul>
+        <p>Dans les deux cas, un léger ponçage et un dépoussiérage avant la nouvelle couche assurent une bonne accroche. Travaillez par temps sec, hors plein soleil.</p>
+
+        <h2>Les petits gestes qui comptent</h2>
+        <ul>
+          <li>Graissez les charnières et la quincaillerie une fois par an.</li>
+          <li>Vérifiez que les petites fentes d'évacuation d'eau, en bas des fenêtres, ne sont pas bouchées.</li>
+          <li>Faites reprendre rapidement une zone abîmée&nbsp;: une petite réparation évite souvent un remplacement.</li>
+        </ul>
+        <p>Un doute sur l'état de vos fenêtres&nbsp;? Un menuisier saura vous dire s'il suffit de les entretenir, de les réparer ou s'il vaut mieux les remplacer.</p>
+
+        <a href="blog.html" class="link-more article__back">← Tous les articles</a>
+      </article>
+    </section>
   </div><!-- /.band -->
 
   <!-- ============ CTA ============ -->

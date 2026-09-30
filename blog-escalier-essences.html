@@ -4,22 +4,29 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- SEO — À PERSONNALISER -->
-  <title>Blog — Le journal de l'atelier | Menuiserie Ferlanne</title>
+  <!-- ==================================================================
+       ARTICLE DE BLOG — modèle commun aux pages blog-*.html.
+       Conseils généraux, vrais pour tout menuisier : à relire avec le
+       client, sans y ajouter de prix ni de faits inventés.
+       Nouvel article : dupliquer cette page, changer titre, description
+       (155 caractères max), canonical, og, fil d'Ariane, image et texte ;
+       puis l'ajouter à blog.html et au sitemap.xml.
+       ================================================================== -->
+  <title>Quelle essence de bois choisir pour un escalier ? | Menuiserie Ferlanne</title>
   <!-- ⚠️ MODÈLE DE DÉMONSTRATION : masqué à Google. À RETIRER sur le site
        livré au client, sinon il n'apparaîtra JAMAIS dans Google. -->
   <meta name="robots" content="noindex">
-  <meta name="description" content="Conseils, choix des essences, entretien du bois et matériaux : le journal de la Menuiserie Ferlanne, artisan menuisier à Lyon.">
+  <meta name="description" content="Chêne, hêtre, frêne ou noyer : comment choisir l'essence de bois de votre escalier selon l'usage, le style et la finition souhaitée.">
   <meta name="theme-color" content="#100D0A">
-  <link rel="canonical" href="https://raphael-payet.github.io/site-vitrine-menuiserie/blog.html">
+  <link rel="canonical" href="https://raphael-payet.github.io/site-vitrine-menuiserie/blog-escalier-essences.html">
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
   <link rel="manifest" href="manifest.webmanifest">
 
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Le journal de l'atelier — Menuiserie Ferlanne">
-  <meta property="og:description" content="Conseils et savoir-faire autour du bois.">
-  <meta property="og:url" content="https://raphael-payet.github.io/site-vitrine-menuiserie/blog.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Quelle essence de bois choisir pour un escalier ?">
+  <meta property="og:description" content="Chêne, hêtre, frêne ou noyer : le guide pour choisir le bois de votre escalier.">
+  <meta property="og:url" content="https://raphael-payet.github.io/site-vitrine-menuiserie/blog-escalier-essences.html">
   <meta property="og:site_name" content="Menuiserie Ferlanne">
   <meta property="og:image" content="https://raphael-payet.github.io/site-vitrine-menuiserie/assets/img/og-image.jpg">
   <meta property="og:image:width" content="1200">
@@ -40,7 +47,8 @@
     "@type": "BreadcrumbList",
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://raphael-payet.github.io/site-vitrine-menuiserie/" },
-      { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://raphael-payet.github.io/site-vitrine-menuiserie/blog.html" }
+      { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://raphael-payet.github.io/site-vitrine-menuiserie/blog.html" },
+      { "@type": "ListItem", "position": 3, "name": "Quelle essence de bois choisir pour un escalier ?", "item": "https://raphael-payet.github.io/site-vitrine-menuiserie/blog-escalier-essences.html" }
     ]
   }
   </script>
@@ -62,7 +70,7 @@
       <a href="index.html">Accueil</a>
       <a href="services.html">Services</a>
       <a href="galerie.html">Galerie</a>
-      <a href="blog.html" class="is-active" aria-current="page">Blog</a>
+      <a href="blog.html" class="is-active">Blog</a>
       <a href="contact.html">Contact</a>
     </nav>
     <div class="header-actions">
@@ -75,7 +83,7 @@
     <a href="index.html">Accueil</a>
     <a href="services.html">Services</a>
     <a href="galerie.html">Galerie</a>
-    <a href="blog.html" class="is-active" aria-current="page">Blog</a>
+    <a href="blog.html" class="is-active">Blog</a>
     <a href="contact.html">Contact</a>
     <a href="contact.html#devis" class="btn btn--primary">Devis gratuit</a>
   </nav>
@@ -83,70 +91,41 @@
 
 <main id="contenu">
 
-  <!-- ============ EN-TÊTE DE PAGE ============ -->
+  <!-- ============ EN-TÊTE DE L'ARTICLE ============ -->
   <section class="page-head">
     <div class="container" style="padding-inline:0;">
-      <p class="kicker">Le journal de l'atelier</p>
-      <h1>Conseils et savoir-faire</h1>
-      <p class="page-head__text">Guides pratiques, choix des essences, entretien du bois et matériaux — tout ce qu'il faut savoir avant de lancer votre projet.</p>
+      <p class="kicker">Conseils</p>
+      <h1>Quelle essence de bois choisir pour un escalier&nbsp;?</h1>
+      <p class="page-head__text">Un escalier est l'ouvrage le plus sollicité de la maison. Le choix du bois décide de son allure, mais aussi de la façon dont il vieillira.</p>
     </div>
   </section>
 
-  <!-- ============ BANDE BEIGE MARBRÉE — ARTICLES ============
-       Chaque carte mène à sa page blog-*.html (modèle :
-       blog-escalier-essences.html). Pas de date affichée : un blog peu
-       alimenté paraîtrait vite abandonné. -->
+  <!-- ============ ARTICLE ============ -->
   <div class="band">
-
-    <!-- Article à la une -->
     <section class="section" style="padding-block:0;">
-      <div class="container" style="padding-inline:0;">
-        <a href="blog-escalier-essences.html" class="blog-featured" data-reveal>
-          <img src="assets/img/work-2.svg" alt="Escalier en bois dans un intérieur lumineux" loading="lazy" width="800" height="600">
-          <div class="blog-featured__content">
-            <span class="blog-featured__meta">À la une · Conseils</span>
-            <h2>Quelle essence de bois choisir pour un escalier&nbsp;?</h2>
-            <p>Chêne, hêtre, frêne ou noyer&nbsp;: chaque essence a son caractère, sa dureté et son budget. Notre guide complet pour faire le bon choix selon votre usage et votre intérieur.</p>
-            <span class="blog-card__more">Lire l'article →</span>
-          </div>
-        </a>
-      </div>
-    </section>
+      <article class="article">
+        <img class="article__img" src="assets/img/work-2.svg" alt="Escalier en bois dans un intérieur lumineux" width="800" height="600">
 
-    <!-- Grille d'articles — dupliquez / éditez les <a class="blog-card"> -->
-    <section class="section" style="padding-bottom:0;">
-      <div class="container blog-grid" style="padding-inline:0;" data-reveal-stagger>
-        <a href="blog-entretien-menuiseries-exterieures.html" class="blog-card">
-          <img src="assets/img/work-5.svg" alt="" loading="lazy" width="800" height="600">
-          <span class="blog-card__meta">Entretien</span>
-          <h3>Entretenir ses menuiseries extérieures en bois</h3>
-          <p>Nettoyage, lasure ou peinture&nbsp;: les bons gestes pour protéger fenêtres et volets, année après année.</p>
-          <span class="blog-card__more">Lire l'article →</span>
-        </a>
-        <a href="blog-cuisine-sur-mesure.html" class="blog-card">
-          <img src="assets/img/work-1.svg" alt="" loading="lazy" width="800" height="600">
-          <span class="blog-card__meta">Projets</span>
-          <h3>Aménager une cuisine sur mesure&nbsp;: les étapes clés</h3>
-          <p>De la prise de mesures à la pose&nbsp;: comment se déroule un projet de cuisine sur mesure.</p>
-          <span class="blog-card__more">Lire l'article →</span>
-        </a>
-        <a href="blog-dressing-ou-placard.html" class="blog-card">
-          <img src="assets/img/work-4.svg" alt="" loading="lazy" width="800" height="600">
-          <span class="blog-card__meta">Conseils</span>
-          <h3>Dressing sur mesure ou placard standard&nbsp;: que choisir&nbsp;?</h3>
-          <p>Budget, espace, usage&nbsp;: le comparatif honnête pour décider sereinement.</p>
-          <span class="blog-card__more">Lire l'article →</span>
-        </a>
-        <a href="blog-bois-massif-contrecolle-plaque.html" class="blog-card">
-          <img src="assets/img/work-3.svg" alt="" loading="lazy" width="800" height="600">
-          <span class="blog-card__meta">Matériaux</span>
-          <h3>Bois massif, contrecollé, plaqué&nbsp;: comprendre les différences</h3>
-          <p>Trois familles de matériaux, trois usages&nbsp;: le petit lexique pour lire un devis de menuiserie en confiance.</p>
-          <span class="blog-card__more">Lire l'article →</span>
-        </a>
-      </div>
-    </section>
+        <h2>La règle de base&nbsp;: un bois dur</h2>
+        <p>Chaque jour, les marches encaissent des centaines de passages, des talons, des chocs. On choisit donc en priorité un <strong>feuillu dur</strong>, qui résiste à l'usure et ne se marque pas au premier objet tombé. Les résineux comme le sapin ou le pin sont plus tendres&nbsp;: ils conviennent plutôt à un escalier secondaire ou destiné à être peint.</p>
 
+        <h2>Les essences les plus courantes</h2>
+        <ul>
+          <li><strong>Chêne</strong>&nbsp;: la référence. Dur, stable, avec un veinage marqué qui se patine joliment. Il s'accorde aussi bien à l'ancien qu'au contemporain.</li>
+          <li><strong>Hêtre</strong>&nbsp;: dur et homogène, au grain fin et à la teinte claire. Souvent plus abordable que le chêne, mais plus sensible à l'humidité.</li>
+          <li><strong>Frêne</strong>&nbsp;: très clair, dur et un peu souple, avec de belles veines. Idéal pour un intérieur lumineux.</li>
+          <li><strong>Noyer</strong>&nbsp;: brun profond et élégant, plus rare et plus coûteux. Souvent réservé à une pièce maîtresse, comme un escalier suspendu.</li>
+        </ul>
+
+        <h2>Penser aussi à la finition</h2>
+        <p>La finition protège les marches et change leur rendu. Le <strong>vernis</strong> forme une couche résistante et facile à nettoyer, adaptée à un passage intense. L'<strong>huile</strong> pénètre dans le bois, garde un toucher plus brut et se retouche localement, mais demande un entretien plus régulier. La <strong>peinture</strong> permet par exemple d'associer des marches en bois apparent à des contremarches colorées.</p>
+
+        <h2>En résumé</h2>
+        <p>Le bon choix dépend de votre intérieur, de l'usage (enfants, animaux, passage fréquent) et de votre budget. N'hésitez pas à demander des échantillons&nbsp;: une essence se juge mieux en vrai, à la lumière de votre maison.</p>
+
+        <a href="blog.html" class="link-more article__back">← Tous les articles</a>
+      </article>
+    </section>
   </div><!-- /.band -->
 
   <!-- ============ CTA ============ -->

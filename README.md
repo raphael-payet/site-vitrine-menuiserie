@@ -12,6 +12,7 @@ Ouvrez `index.html` dans un navigateur, c'est tout.
 ├── service-escaliers.html → Page service type (modèle à dupliquer par métier)
 ├── galerie.html          → Réalisations (lightbox plein écran)
 ├── blog.html             → Journal de l'atelier
+├── blog-*.html           → 5 articles de conseil (textes généraux, à relire avec le client)
 ├── contact.html          → Formulaire, coordonnées, Google Maps
 ├── mentions-legales.html          → Mentions légales ({{PLACEHOLDERS}})
 ├── politique-confidentialite.html → Politique de confidentialité ({{PLACEHOLDERS}})
@@ -52,7 +53,7 @@ Chaque variable est commentée ; changez-les, tout le site suit.
 
 ### 3. Nom, textes, coordonnées (5 min)
 Tout est dans les fichiers HTML, en clair. Recherchez / remplacez sur les
-9 pages (sans oublier `404.html` et `service-escaliers.html`) :
+14 pages (sans oublier `404.html`, `service-escaliers.html` et les 5 articles `blog-*.html`) :
 - **Nom** : `Menuiserie Ferlanne` — si le nom dépasse ~25 caractères, mettre une
   version courte dans l'en-tête (`<span class="brand__name">`) : sur les
   petits téléphones, il passe sinon sur 3 lignes.
@@ -68,7 +69,7 @@ Tout est dans les fichiers HTML, en clair. Recherchez / remplacez sur les
   canoniques, Open Graph, JSON-LD, `robots.txt` et `sitemap.xml`.
   Nouvelle page ? L'ajouter au `sitemap.xml`.
 - ⚠️ **Visibilité Google** : le modèle est masqué à Google (ligne
-  `<meta name="robots" content="noindex">` sur les 6 pages publiques).
+  `<meta name="robots" content="noindex">` sur les 11 pages publiques).
   **La retirer sur le site livré**, sinon il n'apparaîtra jamais dans
   Google. Les pages légales et la 404 gardent leur `noindex`.
 - **Icônes** : l'initiale « F » est dans `assets/img/favicon.svg` ; les
