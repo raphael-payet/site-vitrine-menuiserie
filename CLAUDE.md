@@ -96,6 +96,9 @@ JSON-LD dans `index.html`.
 - **Ne rien inventer** (coordonnées, SIRET, avis, chiffres) : demander à
   Raphaël ce qui manque, notamment la **clé Web3Forms** (il la crée avec
   l'email du client).
+- **FAQ** : les réponses donnent des chiffres précis (délais…), repérés
+  par un commentaire `⚙️ DÉLAI` : les remplacer par ceux du client, ou
+  les lui demander. Une réponse vague (« ça dépend ») ne sert à personne.
 - **Allégations interdites sans preuve** (directive UE 2024/825, en
   vigueur depuis le 27/09/2026) : pas de « bois durable », « forêts
   gérées », « écologique »… ; seulement « Bois certifiés PEFC / FSC » si
