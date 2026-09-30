@@ -593,11 +593,14 @@ h1, h2, h3 { font-family: var(--font-serif); font-weight: 500; }
 }
 /* Téléphone : le premier écran doit tenir au-dessus de la barre d'action
    mobile (hero sticky : ce qui dépasse n'est jamais visible). Le numéro
-   et les arguments sont déjà dans la barre et le bandeau de garanties. */
+   et les arguments sont déjà dans la barre et le bandeau de garanties ;
+   seule la note Google reste (vérifié jusqu'à 320 × 568 et 360 × 640). */
 @media (max-width: 720px) {
   .hero__actions .phone-block,
-  .hero__trust,
   .hero__actions .btn--primary { display: none; }  /* doublons de la barre */
+  /* De la ligne de confiance, on ne garde que la note Google, compacte */
+  .hero__trust { margin-top: 22px; padding-top: 0; border-top: none; font-size: 13px; }
+  .hero__trust > span:not(:first-child) { display: none; }
   .hero__inner { padding: calc(var(--header-h) + 28px) 20px calc(64px + 24px); }
   .hero__kicker { margin-bottom: 16px; }
   .hero__title { font-size: 40px; }
