@@ -267,3 +267,15 @@ simple rechercher/remplacer suffit :
 ## Mise en ligne
 Hébergez le dossier tel quel sur n'importe quel hébergement statique :
 Netlify, Vercel, GitHub Pages, Cloudflare Pages, ou un simple serveur FTP.
+
+**Page 404 sur le domaine du client** : dans `404.html` uniquement,
+remplacer les chemins relatifs (`assets/…`, `index.html`, `manifest.webmanifest`…)
+par des chemins depuis la racine (`/assets/…`, `/index.html`…). Sinon, pour
+une adresse inexistante dans un sous-dossier (ex. `/blog/article`), la page
+s'affiche sans mise en forme. Ne pas le faire tant que le site est dans un
+sous-dossier (démo GitHub Pages). Sur un hébergement Apache (Hostinger, OVH…),
+ajouter aussi dans le fichier `.htaccess` : `ErrorDocument 404 /404.html`.
+
+**Contrôle avant livraison** : dans les pages `.html`, plus aucune variable
+entre doubles accolades en dehors des commentaires, et plus aucun lien
+`href="#"` (réseaux sociaux, lien « Voir tous les avis sur Google »).
