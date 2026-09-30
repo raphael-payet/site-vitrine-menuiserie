@@ -131,7 +131,10 @@
      La vidéo n'est chargée que sur les écrans ≥ 768 px (attribut media) :
      sur téléphone, l'image « poster » s'affiche seule (site plus rapide en
      4G). Idem si le visiteur a demandé à réduire les animations.
+     Le hero est DANS <main> (le titre de la page doit être dans la zone
+     principale pour les lecteurs d'écran).
      ==================================================================== -->
+<main id="contenu">
 <section class="hero" data-hero>
   <div class="hero__media" data-hero-media aria-hidden="true">
     <video class="hero__video" autoplay muted loop playsinline preload="metadata" poster="assets/img/hero.svg" data-hero-video>
@@ -165,7 +168,6 @@
 
 <!-- Tout ce qui suit recouvre progressivement le hero -->
 <div class="page-cover">
-<main id="contenu">
 
   <!-- ============ PRÉSENTATION ============ -->
   <section class="section--intro">
@@ -453,6 +455,7 @@
     </div>
   </section>
 
+</div><!-- /.page-cover -->
 </main>
 
 <!-- ====================================================================
@@ -499,7 +502,6 @@
     </div>
   </div>
 </footer>
-</div><!-- /.page-cover -->
 
 <!-- Barre d'action mobile : visible dès l'arrivée sur téléphone -->
 <nav class="mobile-bar" aria-label="Contact rapide">
