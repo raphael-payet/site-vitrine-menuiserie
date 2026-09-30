@@ -854,7 +854,9 @@ h1, h2, h3 { font-family: var(--font-serif); font-weight: 500; }
   justify-content: space-between;
   gap: 10px;
 }
-.showcase__duo figcaption { flex-direction: column; gap: 4px; }
+/* En colonne, le retour à la ligne créerait une 2e colonne (fiche
+   technique hors cadre) : on le coupe. */
+.showcase__duo figcaption { flex-direction: column; flex-wrap: nowrap; gap: 4px; }
 .showcase__title {
   font-family: var(--font-serif);
   font-size: 24px;
