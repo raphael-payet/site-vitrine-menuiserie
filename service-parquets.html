@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- ==================================================================
+       PAGE SERVICE TYPE — modèle à dupliquer pour chaque métier du client
+       (ex. service-cuisines.html). Pour chaque copie : titre, description
+       (155 caractères maximum, sinon Google la coupe), URL canonique et og:url, fil d'Ariane, textes, image, FAQ ; puis
+       ajouter la page au sitemap.xml et des liens depuis services.html,
+       l'accueil et la galerie (voir « Liens internes » dans CLAUDE.md).
+       ⚙️ Textes de démonstration : à réécrire avec les vrais faits du
+       client (essences, délais, zone…).
+       ================================================================== -->
+  <title>Parquets et habillages bois sur mesure à Lyon — Menuiserie Ferlanne</title>
+  <!-- ⚠️ MODÈLE DE DÉMONSTRATION : masqué à Google. À RETIRER sur le site
+       livré au client, sinon il n'apparaîtra JAMAIS dans Google. -->
+  <meta name="robots" content="noindex">
+  <meta name="description" content="Pose de parquets massifs ou contrecollés, habillages muraux et plafonds en bois pour des intérieurs chaleureux. Devis gratuit sous 48 h.">
+  <meta name="theme-color" content="#100D0A">
+  <link rel="canonical" href="https://raphael-payet.github.io/site-vitrine-menuiserie/service-parquets.html">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <link rel="manifest" href="manifest.webmanifest">
+
+  <!-- Open Graph / réseaux sociaux -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Parquets et habillages bois — Menuiserie Ferlanne">
+  <meta property="og:description" content="Parquets massifs ou contrecollés, habillages muraux et plafonds en bois.">
+  <meta property="og:url" content="https://raphael-payet.github.io/site-vitrine-menuiserie/service-parquets.html">
+  <meta property="og:site_name" content="Menuiserie Ferlanne">
+  <meta property="og:image" content="https://raphael-payet.github.io/site-vitrine-menuiserie/assets/img/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="L'atelier de la Menuiserie Ferlanne">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta property="og:locale" content="fr_FR">
+
+  <link rel="preload" href="assets/fonts/jost.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/cormorant-garamond.woff2" as="font" type="font/woff2" crossorigin>
+
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="assets/js/main.js" defer></script>
+
+  <!-- Fil d'Ariane pour Google (domaine à personnaliser) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://raphael-payet.github.io/site-vitrine-menuiserie/" },
+      { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://raphael-payet.github.io/site-vitrine-menuiserie/services.html" },
+      { "@type": "ListItem", "position": 3, "name": "Parquets et habillages", "item": "https://raphael-payet.github.io/site-vitrine-menuiserie/service-parquets.html" }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+<a class="skip-link" href="#contenu">Aller au contenu</a>
+
+<header class="site-header" data-header>
+  <div class="site-header__inner">
+    <a href="index.html" class="brand" aria-label="Menuiserie Ferlanne — Accueil">
+      <span class="brand__diamond" aria-hidden="true"></span>
+      <span class="brand__text">
+        <span class="brand__name">Menuiserie Ferlanne</span>
+        <span class="brand__tagline">Artisan menuisier</span>
+      </span>
+    </a>
+    <nav class="nav-desktop" aria-label="Navigation principale">
+      <a href="index.html">Accueil</a>
+      <a href="services.html" class="is-active">Services</a>
+      <a href="galerie.html">Galerie</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="header-actions">
+      <a href="tel:+33465712345" class="header-phone">04 65 71 23 45</a>
+      <a href="contact.html#devis" class="btn btn--primary btn--sm">Devis gratuit</a>
+    </div>
+    <button type="button" class="menu-toggle" data-menu-toggle aria-expanded="false" aria-controls="menu-mobile">Menu</button>
+  </div>
+  <nav class="nav-mobile" id="menu-mobile" aria-label="Navigation mobile">
+    <a href="index.html">Accueil</a>
+    <a href="services.html" class="is-active">Services</a>
+    <a href="galerie.html">Galerie</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact.html">Contact</a>
+    <a href="contact.html#devis" class="btn btn--primary">Devis gratuit</a>
+  </nav>
+</header>
+
+<main id="contenu">
+
+  <!-- ============ EN-TÊTE DE PAGE ============ -->
+  <section class="page-head">
+    <div class="container" style="padding-inline:0;">
+      <p class="kicker"><a href="services.html">Nos services</a> · Parquets</p>
+      <h1>Parquets &amp; habillages</h1>
+      <p class="page-head__text" style="max-width:58ch;">Des sols et des murs en bois qui réchauffent la maison, posés avec soin, en neuf comme en rénovation.</p>
+    </div>
+  </section>
+
+  <!-- ============ BANDE BEIGE MARBRÉE ============ -->
+  <div class="band">
+
+    <!-- Présentation du métier -->
+    <section class="section" style="padding-top:0;">
+      <div class="container about" style="padding-inline:0;">
+        <img class="about__photo" src="assets/img/work-4.svg" alt="Intérieur habillé de bois clair" loading="lazy" width="800" height="600" data-reveal>
+        <div class="about__content" data-reveal>
+          <p class="kicker" style="margin:0;">Notre savoir-faire</p>
+          <h2>Le bois, du sol au plafond</h2>
+          <p>Un parquet se choisit selon la pièce, le chauffage et l'usage&nbsp;: entrée très passante, chambre, séjour. Lors de la visite, nous vérifions le support et vous conseillons l'essence, le format et la pose adaptés.</p>
+          <p>Nous réalisons aussi les habillages&nbsp;: murs en lames de bois, plafonds, soubassements, pour donner du caractère à une pièce.</p>
+          <a href="contact.html#devis" class="link-more">Demander un devis gratuit →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Types d'ouvrages -->
+    <section class="section" style="padding-bottom:0;">
+      <div class="container" style="padding-inline:0;">
+        <div class="section-head section-head--center" data-reveal>
+          <p class="kicker" style="margin:0;">Ce que nous réalisons</p>
+          <h2>Parquets et habillages</h2>
+        </div>
+        <div class="steps" data-reveal-stagger>
+          <div class="step">
+            <span class="step__num">1.</span>
+            <h3>Parquet massif</h3>
+            <p>Des lames de bois dans toute leur épaisseur, qui se poncent et se rénovent plusieurs fois.</p>
+          </div>
+          <div class="step">
+            <span class="step__num">2.</span>
+            <h3>Parquet contrecollé</h3>
+            <p>Une couche de bois noble sur un support stable, qui s'adapte à de nombreuses situations.</p>
+          </div>
+          <div class="step">
+            <span class="step__num">3.</span>
+            <h3>Motifs</h3>
+            <p>Point de Hongrie, bâtons rompus ou lames de largeurs variées, pour un sol qui a du caractère.</p>
+          </div>
+          <div class="step">
+            <span class="step__num">4.</span>
+            <h3>Habillages muraux &amp; plafonds</h3>
+            <p>Lames, tasseaux ou panneaux de bois pour structurer une pièce et la rendre plus chaleureuse.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ du métier -->
+    <section class="section" style="padding-bottom:0;">
+      <div class="container faq" style="padding-inline:0;">
+        <div class="section-head section-head--center" data-reveal>
+          <p class="kicker" style="margin:0;">Questions fréquentes</p>
+          <h2>Vos questions sur les parquets</h2>
+        </div>
+        <div class="faq__list" data-reveal>
+          <details class="faq__item">
+            <summary>Parquet massif ou contrecollé&nbsp;?</summary>
+            <p>Le massif se rénove plusieurs fois et traverse les décennies&nbsp;; le contrecollé est plus stable et convient à plus de situations. Les différences sont expliquées dans notre article <a href="blog-bois-massif-contrecolle-plaque.html">bois massif, contrecollé, plaqué</a>.</p>
+          </details>
+          <details class="faq__item">
+            <summary>Peut-on poser un parquet sur un plancher chauffant&nbsp;?</summary>
+            <p>Oui, avec un parquet compatible, le plus souvent contrecollé, et une pose adaptée. Il faut respecter les recommandations du fabricant, notamment sur la température du sol.</p>
+          </details>
+          <details class="faq__item">
+            <summary>Combien de temps dure la pose&nbsp;?</summary>
+            <!-- ⚙️ DÉLAI : fourchette réelle du client (valeur de démonstration). -->
+            <p>Comptez en général 2 à 4&nbsp;jours pour une pièce de taille courante, selon l'état du support et le type de pose. Le délai précis est indiqué sur le devis.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+  </div><!-- /.band -->
+
+  <!-- ============ CTA ============ -->
+  <section class="cta">
+    <div class="centered" data-reveal>
+      <span class="diamond" aria-hidden="true"></span>
+      <h2 style="font-size:clamp(34px,5vw,54px);">Un projet en tête&nbsp;?</h2>
+      <p style="max-width:46ch;">Décrivez-nous votre besoin, même approximatif — nous vous guidons vers la meilleure solution.</p>
+      <div class="cta__actions">
+        <a href="contact.html" class="btn btn--primary">Nous contacter</a>
+        <a href="tel:+33465712345" class="btn btn--ghost" style="letter-spacing:0.1em;">04 65 71 23 45</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer__grid">
+    <div class="site-footer__brand">
+      <span class="site-footer__brand-name">
+        <span class="diamond" aria-hidden="true"></span>
+        Menuiserie Ferlanne
+      </span>
+      <p>Menuiserie artisanale sur mesure. Agencement, escaliers, portes et fenêtres — un savoir-faire transmis depuis trois générations.</p>
+      <div class="site-footer__social">
+        <a href="#">Instagram</a>
+        <a href="#">Facebook</a>
+      </div>
+    </div>
+    <div class="site-footer__col">
+      <span class="site-footer__title">Pages</span>
+      <a href="index.html">Accueil</a>
+      <a href="services.html">Services</a>
+      <a href="galerie.html">Galerie</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="site-footer__col">
+      <span class="site-footer__title">Contact</span>
+      <a href="tel:+33465712345" class="site-footer__phone">04 65 71 23 45</a>
+      <a href="mailto:payet.raphael.run@gmail.com">payet.raphael.run@gmail.com</a>
+      <p>12 rue des Charpentiers<br>69003 Lyon</p>
+    </div>
+    <div class="site-footer__col">
+      <span class="site-footer__title">Horaires</span>
+      <p>Lundi – Vendredi : 8h – 18h<br>Samedi : sur rendez-vous<br>Dimanche : fermé</p>
+    </div>
+  </div>
+  <div class="site-footer__bottom">
+    <span>© <span data-year>2026</span> Menuiserie Ferlanne — Tous droits réservés</span>
+    <div class="site-footer__legal">
+      <a href="mentions-legales.html">Mentions légales</a>
+      <a href="politique-confidentialite.html">Politique de confidentialité</a>
+    </div>
+  </div>
+</footer>
+
+<!-- Barre d'action mobile : visible dès l'arrivée sur téléphone -->
+<nav class="mobile-bar" aria-label="Contact rapide">
+  <a href="tel:+33465712345" class="mobile-bar__call">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.85 21 3 13.15 3 3.5a1 1 0 0 1 1-1H7.5a1 1 0 0 1 1 1c0 1.24.2 2.45.57 3.57a1 1 0 0 1-.24 1.02l-2.2 2.2Z"/></svg>
+    Appeler
+  </a>
+  <a href="contact.html#devis" class="mobile-bar__quote">Devis gratuit</a>
+</nav>
+
+</body>
+</html>

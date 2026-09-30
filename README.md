@@ -9,7 +9,7 @@ Ouvrez `index.html` dans un navigateur, c'est tout.
 .
 ├── index.html            → Accueil (hero vidéo + effet de recouvrement)
 ├── services.html         → Services + méthode + FAQ
-├── service-escaliers.html → Page service type (modèle à dupliquer par métier)
+├── service-*.html        → 6 pages métier (modèle : service-escaliers.html)
 ├── galerie.html          → Réalisations (lightbox plein écran)
 ├── blog.html             → Journal de l'atelier
 ├── blog-*.html           → 5 articles de conseil (textes généraux, à relire avec le client)
@@ -53,7 +53,7 @@ Chaque variable est commentée ; changez-les, tout le site suit.
 
 ### 3. Nom, textes, coordonnées (5 min)
 Tout est dans les fichiers HTML, en clair. Recherchez / remplacez sur les
-14 pages (sans oublier `404.html`, `service-escaliers.html` et les 5 articles `blog-*.html`) :
+19 pages (sans oublier `404.html`, les 6 pages `service-*.html` et les 5 articles `blog-*.html`) :
 - **Nom** : `Menuiserie Ferlanne` — si le nom dépasse ~25 caractères, mettre une
   version courte dans l'en-tête (`<span class="brand__name">`) : sur les
   petits téléphones, il passe sinon sur 3 lignes.
@@ -69,7 +69,7 @@ Tout est dans les fichiers HTML, en clair. Recherchez / remplacez sur les
   canoniques, Open Graph, JSON-LD, `robots.txt` et `sitemap.xml`.
   Nouvelle page ? L'ajouter au `sitemap.xml`.
 - ⚠️ **Visibilité Google** : le modèle est masqué à Google (ligne
-  `<meta name="robots" content="noindex">` sur les 11 pages publiques).
+  `<meta name="robots" content="noindex">` sur les 16 pages publiques).
   **La retirer sur le site livré**, sinon il n'apparaîtra jamais dans
   Google. Les pages légales et la 404 gardent leur `noindex`.
 - **Icônes** : l'initiale « F » est dans `assets/img/favicon.svg` ; les
@@ -144,13 +144,15 @@ Business.
 - Page services : blocs `<article class="service-card">` — dupliquez-en
   un pour ajouter un service. La **FAQ** en bas de page est à valider avec
   le client (zone, délais, essences).
-- **Page dédiée à un métier** : `service-escaliers.html` sert de modèle.
-  Pour un autre métier, la dupliquer (ex. `service-cuisines.html`), adapter
-  titre, description, adresses (canonical, og:url, fil d'Ariane), textes,
-  image et FAQ, puis l'ajouter au `sitemap.xml` et mettre un lien
-  « En savoir plus → » sur la carte correspondante de `services.html`.
-  Client sans pages dédiées : supprimer le fichier, son lien et sa ligne
-  du sitemap.
+- **Pages dédiées aux métiers** : 6 pages `service-*.html` (agencement,
+  cuisines, escaliers, portes-fenêtres, parquets, terrasses), toutes sur le
+  modèle de `service-escaliers.html`. Textes généraux à relire avec le
+  client ; délais de la FAQ repérés par `⚙️ DÉLAI`. **Service que le
+  client ne propose pas** : supprimer la page, sa carte dans
+  `services.html`, ses liens (accueil, galerie) et sa ligne du sitemap.
+  Nouveau métier : dupliquer une page, adapter titre, description,
+  adresses (canonical, og:url, fil d'Ariane), textes, image et FAQ, puis
+  l'ajouter au `sitemap.xml` et à `services.html`.
 - **Galerie** : chaque réalisation a une fiche technique
   (`showcase__specs` : essence · finition · durée) à remplir.
 
