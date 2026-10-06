@@ -30,6 +30,10 @@
   var prefersReducedMotion =
     window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  // Téléphone et tablette (même seuil que la section 18 du CSS) : effets
+  // allégés (pas de parallaxe, carrousel d'avis à plat).
+  var smallScreen = window.matchMedia('(max-width: 960px)');
+
   // Signale que le JS est actif : les animations d'apparition ne masquent
   // le contenu que dans ce cas (sinon la page reste lisible sans JS).
   document.documentElement.classList.add('js');
@@ -130,15 +134,18 @@
     if (!hero || prefersReducedMotion) return;
     var heroHeight = hero.offsetHeight || 1;
     var progress = Math.min(window.scrollY / heroHeight, 1);
+    // Téléphone et tablette : pas de parallaxe (coûteux à chaque défilement),
+    // l'effet « rideau » du CSS reste.
+    var parallax = !smallScreen.matches;
 
     if (heroInner) {
       // Le contenu défile un peu plus vite que le recouvrement : sensation
       // de défilement naturel + profondeur.
-      heroInner.style.transform = 'translateY(' + (-progress * 22) + 'vh)';
-      heroInner.style.opacity = String(1 - progress * 0.85);
+      heroInner.style.transform = parallax ? 'translateY(' + (-progress * 22) + 'vh)' : '';
+      heroInner.style.opacity = parallax ? String(1 - progress * 0.85) : '';
     }
     if (heroMedia) {
-      heroMedia.style.transform = 'translateY(' + (-progress * 9) + '%)';
+      heroMedia.style.transform = parallax ? 'translateY(' + (-progress * 9) + '%)' : '';
     }
 
     // Vidéo entièrement recouverte : on la met en pause (perf + batterie).
@@ -491,8 +498,9 @@
         // L'écart ne doit pas faire sortir les cartes latérales du carrousel
         // (sinon elles sont coupées au bord de l'écran sur tablette). On
         // tient compte de la perspective, qui rapproche les cartes du centre.
+        // Petit écran : carrousel à plat, la perspective ne rapproche rien.
         var perspective = parseFloat(window.getComputedStyle(stage).perspective) || 1600;
-        var shrink = perspective / (perspective - m.depth);
+        var shrink = smallScreen.matches ? 1 : perspective / (perspective - m.depth);
         var sideHalf = cards[0].offsetWidth * m.scale / 2;
         var maxGap = (coverflow.clientWidth / 2 - 8) / shrink - sideHalf;
         m.gap = Math.max(0, Math.min(m.gap, maxGap));
@@ -510,9 +518,12 @@
           var depth = dist === 0 ? 0 : (dist === 1 ? m.depth : m.depth * 1.6);
           var opacity = dist === 0 ? 1 : (dist === 1 ? m.side : 0);
 
-          card.style.transform =
-            'translate(-50%, -50%) translateX(' + x + 'px) translateZ(' + depth +
-            'px) scale(' + scale + ') rotateY(' + rotate + 'deg)';
+          // Petit écran : transformation à plat (sans profondeur ni pivot),
+          // beaucoup moins coûteuse à dessiner.
+          card.style.transform = smallScreen.matches
+            ? 'translate(-50%, -50%) translateX(' + x + 'px) scale(' + scale + ')'
+            : 'translate(-50%, -50%) translateX(' + x + 'px) translateZ(' + depth +
+              'px) scale(' + scale + ') rotateY(' + rotate + 'deg)';
           card.style.opacity = opacity;
           card.style.zIndex = String(30 - dist);
           card.style.pointerEvents = dist <= 1 ? 'auto' : 'none';

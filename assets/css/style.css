@@ -19,8 +19,9 @@
    15. Carte Google Maps (conteneur premium)
    16. Pages légales
    17. Articles de blog
-   18. Accessibilité & préférences
-   19. Impression
+   18. Allègement téléphone et tablette
+   19. Accessibilité & préférences
+   20. Impression
    ========================================================================== */
 
 
@@ -770,7 +771,7 @@ h1, h2, h3 { font-family: var(--font-serif); font-weight: 500; }
   background:
     linear-gradient(180deg, var(--bg), rgba(16, 13, 10, 0)),
     linear-gradient(0deg,  var(--bg), rgba(16, 13, 10, 0)),
-    url('../img/texture-marbre.svg'),
+    url('../img/texture-marbre.jpg'),   /* image (rapide) tirée de texture-marbre.svg */
     var(--band-bg);
   background-repeat: no-repeat, no-repeat, repeat, repeat;
   background-size: 100% var(--band-fade), 100% var(--band-fade), 880px, auto;
@@ -1889,7 +1890,32 @@ h1, h2, h3 { font-family: var(--font-serif); font-weight: 500; }
 
 
 /* ==========================================================================
-   18. ACCESSIBILITÉ & PRÉFÉRENCES
+   18. ALLÈGEMENT TÉLÉPHONE ET TABLETTE (≤ 960 px)
+   Les effets coûteux à dessiner sont retirés ou allégés sur les petits
+   écrans, sans changer l'aspect général. Le JS fait sa part (section 3 :
+   pas de parallaxe ; section 7 : carrousel à plat). Ordinateur : inchangé.
+   ========================================================================== */
+@media (max-width: 960px) {
+  /* En-tête : fond sombre plein au lieu du flou (recalculé à chaque défilement) */
+  .site-header.is-scrolled,
+  .site-header.is-open {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    background: var(--bg);
+  }
+  /* Calques graphiques réservés inutilement */
+  .hero__media,
+  .hero__inner,
+  .cf-review { will-change: auto; }
+  /* Ombre du « rideau » plus courte */
+  .page-cover { box-shadow: 0 -16px 32px rgba(0, 0, 0, 0.45); }
+  /* Carrousel d'avis à plat : plus de perspective 3D */
+  .coverflow__stage { perspective: none; transform-style: flat; }
+}
+
+
+/* ==========================================================================
+   19. ACCESSIBILITÉ & PRÉFÉRENCES
    ========================================================================== */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
@@ -1906,7 +1932,7 @@ h1, h2, h3 { font-family: var(--font-serif); font-weight: 500; }
 
 
 /* ==========================================================================
-   19. IMPRESSION
+   20. IMPRESSION
    Un prospect qui imprime une page (contact, services…) obtient du texte
    noir sur fond blanc, sans menus, vidéo, carte ni boutons d'action.
    ========================================================================== */
